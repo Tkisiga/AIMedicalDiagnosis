@@ -1,0 +1,41 @@
+<html>
+{% load static %}
+
+<head>
+    <title>IMedical Diagnosis System</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <h1>Intelligent Medical Diagnosis System</h1>
+    <h3 style=><font color="CadetBlue"><i>identify possible conditions and treatment related to your symptoms</i></font></h3>
+</head>
+
+
+<body>
+    <div class="tab">
+        <button class="tablink" onclick="openPage('PatientInfo', this, 'red')">PatientInfo</button>
+        <button class="tablink" onclick="openPage('Symptoms', this, 'green')" id="defaultOpen">Symptoms</button>
+        <button class="tablink" onclick="openPage('Conditions', this, 'blue')">Conditions</button>
+        <button class="tablink" onclick="openPage('Treatment', this, 'orange')">Treatment</button>
+    </div>
+
+    <div id="PatientInfo" class="tabcontent">
+    <h3>PatientInfo</h3>
+    <p>Home is where the heart is..</p>
+    </div>
+
+    <div id="Symptoms" class="tabcontent">
+    <h3>Symptoms</h3>
+    <p>Some news this fine day!</p>
+    </div>
+
+    <div id="Conditions" class="tabcontent">
+    <h3>Conditions</h3>
+    <p>Get in touch, or swing by for a cup of coffee.</p>
+    </div>
+
+    <div id="Treatment" class="tabcontent">
+    <h3>Treatment</h3>
+    <p>Who we are and what we do.</p>
+    </div> 
+</body>
+
+</html>
