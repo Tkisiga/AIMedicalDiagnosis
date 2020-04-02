@@ -11,14 +11,14 @@
 
 <body>
     <div class="tab">
-        <button class="tablink" onclick="openPage('PatientInfo', this, 'red')">PatientInfo</button>
-        <button class="tablink" onclick="openPage('Symptoms', this, 'green')" id="defaultOpen">Symptoms</button>
-        <button class="tablink" onclick="openPage('Conditions', this, 'blue')">Conditions</button>
-        <button class="tablink" onclick="openPage('Treatment', this, 'orange')">Treatment</button>
+        <button class="tablink" onclick="openPage('PatientInfo', this, '#777')"id="defaultOpen">PatientInfo</button>
+        <button class="tablink" onclick="openPage('Symptoms', this, '#777')" >Symptoms</button>
+        <button class="tablink" onclick="openPage('Conditions', this, '#777')">Conditions</button>
+        <button class="tablink" onclick="openPage('Treatment', this, '#777')">Treatment</button>
     </div>
 
     <div id="PatientInfo" class="tabcontent">
-    <h3>PatientInfo</h3>
+    <h3     >PatientInfo</h3>
     <p>Home is where the heart is..</p>
     </div>
 
@@ -36,6 +36,26 @@
     <h3>Treatment</h3>
     <p>Who we are and what we do.</p>
     </div> 
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.backgroundColor = "gainsboro"; 
+    tabcontent[i].style.color= "black";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
 </body>
 
 </html>
