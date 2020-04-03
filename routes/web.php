@@ -69,4 +69,15 @@ Route::post('/create-patientsDiseases','patientsDiseasesController@createPatient
 Route::patch('/change-patientsDiseases/{id}','patientsDiseasesController@changePatientsDiseases');
 //Route::http('/remove-patientsDiseases/{id}','patientsDiseasesController@removePatientsDiseases');
 
+Route::post('/create-patientsSigns','patientsSignsController@createPatientsSigns');
+Route::patch('/change-patientsSigns/{id}','patientsSignsController@changePatientsSigns');
+//Route::http('/remove-patientsSigns/{id}','patientsSignsController@removePatientsSigns');
+
+Route::post('/create-patientsSymptoms','patientsSymptomsController@createPatientsSymptoms');
+Route::patch('/change-patientsSymptoms/{id}','patientsSymptomsController@changePatientsSymptoms');
+//Route::http('/remove-patientsSymptoms/{id}','patientsSymptomsController@removePatientsSymptoms');
+
+Route::post('/create-management','managementController@createManagement');
+Route::patch('/change-management/{id}','managementController@changeManagement');
+//Route::http('/remove-management/{id}','managementController@removeManagement');
 

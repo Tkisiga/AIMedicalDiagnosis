@@ -32,3 +32,6 @@ Route::get('/get-diseasesSigns','diseasesSignsController@getDiseasesSigns');
 Route::get('/get-diseasesSymptoms','diseasesSymptomsController@getDiseasesSymptoms');
 Route::get('/get-diseasesTreatment','diseasesTreatmentController@getDiseasesTreatment');
 Route::get('/get-patientsDiseases','patientsDiseasesController@getPatientsDiseases');
+Route::get('/get-patientsSigns','patientsSignsController@getPatientsSigns');
+Route::get('/get-patientsSymptoms','patientsSymptomsController@getPatientsSymptoms');
+Route::get('/get-management','managementController@getManagement');
