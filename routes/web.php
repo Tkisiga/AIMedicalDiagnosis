@@ -45,6 +45,28 @@ Route::post('/create-treatment','treatmentController@createTreatment');
 Route::patch('/change-treatment/{id}','treatmentController@changeTreatment');
 //Route::http('/remove-treatment/{id}','treatmentController@removeTreatment');
 
+Route::post('/create-ageGroupTreatment','ageGroupTreatmentController@createAgeGroupTreatment');
+Route::patch('/change-ageGroupTreatment/{id}','ageGroupTreatmentController@changeAgeGroupTreatment');
+//Route::http('/remove-ageGroupTreatment/{id}','ageGroupTreatmentController@removeAgeGroupTreatment');
 
+Route::post('/create-diseasesManagement','diseasesManagementController@createDiseasesManagement');
+Route::patch('/change-diseasesManagement/{id}','diseasesManagementController@changeDiseasesManagement');
+//Route::http('/remove-diseasesManagement/{id}','diseasesManagementController@removeDiseasesManagement');
+
+Route::post('/create-diseasesSigns','diseasesSignsController@createDiseasesSigns');
+Route::patch('/change-diseasesSigns/{id}','diseasesSignsController@changeDiseasesSigns');
+//Route::http('/remove-diseasesSigns/{id}','diseasesSignsController@removeDiseasesSigns');
+
+Route::post('/create-diseasesSymptoms','diseasesSymptomsController@createDiseasesSymptoms');
+Route::patch('/change-diseasesSymptoms/{id}','diseasesSymptomsController@changeDiseasesSymptoms');
+//Route::http('/remove-diseasesSymptoms/{id}','diseasesSymptomsController@removeDiseasesSymptoms');
+
+Route::post('/create-diseasesTreatment','diseasesTreatmentController@createDiseasesTreatment');
+Route::patch('/change-diseasesTreatment/{id}','diseasesTreatmentController@changeDiseasesTreatment');
+//Route::http('/remove-diseasesTreatment/{id}','diseasesTreatmentController@removeDiseasesTreatment');
+
+Route::post('/create-patientsDiseases','patientsDiseasesController@createPatientsDiseases');
+Route::patch('/change-patientsDiseases/{id}','patientsDiseasesController@changePatientsDiseases');
+//Route::http('/remove-patientsDiseases/{id}','patientsDiseasesController@removePatientsDiseases');
 
 
