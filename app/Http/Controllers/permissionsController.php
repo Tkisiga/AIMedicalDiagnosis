@@ -25,7 +25,7 @@ class permissionsController extends Controller
         return permissions::where('id',$id)->update(array('permission_ID'=>'ND01'));
     }
     public function deletePermissions($id){
-        return permissions::where('id',$id)->update(array('permission_ID'=>'ND01'));
+        return permissions::where('id',$id)->delete();
     }
 }
 

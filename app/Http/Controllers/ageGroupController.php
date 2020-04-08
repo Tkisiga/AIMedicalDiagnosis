@@ -25,6 +25,6 @@ class ageGroupController extends Controller
         return ageGroup::where('id',$id)->update(array('ageGroup_id'=>'AG01'));
     }
     public function deleteAgeGroup($id){
-        return ageGroup::where('id',$id)->update(array('ageGroup_id'=>'AG01'));
+        return ageGroup::where('id',$id)->delete();
     }
 }

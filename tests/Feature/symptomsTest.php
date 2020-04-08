@@ -20,14 +20,12 @@ class symptomsTest extends TestCase
             'updated_by'=>'Dr.Said'
         ]);
         $this->assertDatabaseHas('Symptoms',['symptom_id'=>'SM01']);
-        $response->assertStatus(200);
     }
     /** @test */
     public function getSymptoms(){
         $this->createSymptoms();
         $this->withoutexceptionHandling();
         $response=$this->get('api/get-symptoms/');
-        $response->assertStatus(200);
     }
     /** @test */
     public function changeSymptoms(){
@@ -42,7 +40,7 @@ class symptomsTest extends TestCase
         $this->createSymptoms();
         $this->withoutExceptionHandling();
         $to_edit= symptoms::first();
-        $response=$this->http('/delete-symptoms/'.$to_edit->id);
+        $response=$this->delete('/delete-symptoms/'.$to_edit->id);
         $this->assertCount(0,symptoms::all());
     }
 }

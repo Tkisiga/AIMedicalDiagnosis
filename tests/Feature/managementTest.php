@@ -42,7 +42,7 @@ class managementTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createManagement();
         $to_delete = management::first();
-       // $response=$this->htpp('/delete-management/'.$to_delete->id);
-        //$this->assertCount(0,management::all());
+        $response=$this->delete('/delete-management/'.$to_delete->id);
+        $this->assertCount(0,management::all());
     } 
 }

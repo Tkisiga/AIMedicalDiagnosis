@@ -42,7 +42,7 @@ class diseasesTreatmentTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createDiseasesTreatment();
         $to_delete = diseasesTreatment::first();
-       // $response=$this->htpp('/delete-diseasesTreatment/'.$to_delete->id);
-        //$this->assertCount(0,diseasesTreatment::all());
+        $response=$this->delete('/delete-diseasesTreatment/'.$to_delete->id);
+        $this->assertCount(0,diseasesTreatment::all());
     } 
 }

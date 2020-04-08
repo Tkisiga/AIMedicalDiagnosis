@@ -25,6 +25,6 @@ class ageGroupTreatmentController extends Controller
             return ageGroupTreatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
         }
         public function removeAgeGroupTreatment($id){
-            return ageGroupTreatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
+            return ageGroupTreatment::where('id',$id)->delete();
         }
 }

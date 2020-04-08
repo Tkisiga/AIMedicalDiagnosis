@@ -42,8 +42,8 @@ class ageGroupTreatmentTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createAgeGroupTreatment();
         $to_delete = ageGroupTreatment::first();
-       // $response=$this->htpp('/delete-ageGroupTreatment/'.$to_delete->id);
-        //$this->assertCount(0,diseases::all());
+        $response=$this->delete('/delete-ageGroupTreatment/'.$to_delete->id);
+        $this->assertCount(0,diseases::all());
     }
     
 }

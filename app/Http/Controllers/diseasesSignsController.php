@@ -25,6 +25,6 @@ class diseasesSignsController extends Controller
             return diseasesSigns::where('id',$id)->update(array('sign_id'=>'SN01'));
         }
         public function removeDiseasesSigns($id){
-            return diseasesSigns::where('id',$id)->update(array('sign_id'=>'SN01'));
+            return diseasesSigns::where('id',$id)->delete();
         }
 }

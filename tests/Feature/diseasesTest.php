@@ -35,7 +35,7 @@ class diseasesTest extends TestCase
         $this->createDiseases();
         $this->withoutExceptionHandling();
         $to_edit = diseases::first();
-        $response= $this->patch('/change-diseases/'.$to_edit->id);
+        $response= $this->patch('change-diseases/'.$to_edit->id);
         $this->assertEquals('D01',diseases::first()->disease_id);
     }
     /** @test */
@@ -43,7 +43,7 @@ class diseasesTest extends TestCase
         $this->createDiseases();
         $this->withoutExceptionHandling();
         $to_delete=diseases::first();
-        $response=$this->http('/delete-diseases/'.$to_delete->id);
-         //$this->assertCount(0,diseases::all());
+        $response=$this->delete('delete-diseases/'.$to_delete->id);
+        $this->assertCount(0,diseases::all());
     }
 }

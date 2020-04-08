@@ -45,7 +45,7 @@ class patientsTest extends TestCase
     public function removePatient(){
         $this->withoutExceptionHandling();
         $to_delete = patients::first();
-       // $response=$this->http('/delete-patient/'.$to_delete->id);
+        $response=$this->delete('/delete-patient/'.$to_delete->id);
         $this->assertCount(0,patients::all());
 
     }

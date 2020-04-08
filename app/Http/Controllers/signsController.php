@@ -27,6 +27,6 @@ class signsController extends Controller
         signs::where('id',$id)->update(array('sign_id'=>'SN01'));
     }
     public function deleteSigns($id){
-        signs::where('id',$id)->update(array('sign_id'=>'SN01'));
+        signs::where('id',$id)->delete();
     }
 }

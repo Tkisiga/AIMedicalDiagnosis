@@ -28,6 +28,6 @@ class medicalPractitionersController extends Controller
         return medicalPractitioners::where('id',$id)->update(array('roleID'=>'ND01'));
     }
     public function deleteMedicalPractitioners($id){
-        return medicalPractitioners::where('id',$id)->update(array('roleID'=>'ND01'));
+        return medicalPractitioners::where('id',$id)->delete();
     }
 }
