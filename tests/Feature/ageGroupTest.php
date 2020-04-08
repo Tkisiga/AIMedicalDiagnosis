@@ -42,7 +42,7 @@ class ageGroupTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createAgeGroup();
         $to_edit=ageGroup::first();
-       // $response=$this->http('/delete-ageGroup/'.$to_edit->id);
-        //$this->assertCount(0,ageGroup::all());
+        $response=$this->delete('/delete-ageGroup/'.$to_edit->id);
+        $this->assertCount(0,ageGroup::all());
     }
 }

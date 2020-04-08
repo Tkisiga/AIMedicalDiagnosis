@@ -42,7 +42,7 @@ class diseasesSignsTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createDiseasesSigns();
         $to_delete = diseasesSigns::first();
-       // $response=$this->htpp('/delete-diseasesSigns/'.$to_delete->id);
-        //$this->assertCount(0,diseasesSigns::all());
+        $response=$this->delete('/delete-diseasesSigns/'.$to_delete->id);
+        $this->assertCount(0,diseasesSigns::all());
     } 
 }

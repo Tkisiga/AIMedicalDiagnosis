@@ -25,6 +25,6 @@ class managementController extends Controller
             return management::where('id',$id)->update(array('management_id'=>'MGT01'));
         }
         public function removeManagement($id){
-            return management::where('id',$id)->update(array('management_id'=>'MGT01'));
+            return management::where('id',$id)->delete();
         }
 }

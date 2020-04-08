@@ -42,7 +42,7 @@ class patientsSignsTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createPatientsSigns();
         $to_delete = patientsSigns::first();
-       // $response=$this->htpp('/delete-patientsSigns/'.$to_delete->id);
-        //$this->assertCount(0,patientsSigns::all());
+        $response=$this->delete('/delete-patientsSigns/'.$to_delete->id);
+        $this->assertCount(0,patientsSigns::all());
     } 
 }

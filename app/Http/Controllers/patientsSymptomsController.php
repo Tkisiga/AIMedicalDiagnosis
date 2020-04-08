@@ -25,6 +25,6 @@ class patientsSymptomsController extends Controller
             return patientsSymptoms::where('id',$id)->update(array('patient_id'=>'P01'));
         }
         public function removePatientsSymptoms($id){
-            return patientsSymptoms::where('id',$id)->update(array('patient_id'=>'P01'));
+            return patientsSymptoms::where('id',$id)->delete();
         }
 }

@@ -25,6 +25,6 @@ class diseasesManagementController extends Controller
             return diseasesManagement::where('id',$id)->update(array('management_id'=>'MNT01'));
         }
         public function removeDiseasesManagement($id){
-            return diseasesManagement::where('id',$id)->update(array('management_id'=>'MNT01'));
+            return diseasesManagement::where('id',$id)->delete();
         }
 }

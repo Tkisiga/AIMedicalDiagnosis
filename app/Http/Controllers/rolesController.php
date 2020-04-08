@@ -25,6 +25,6 @@ class rolesController extends Controller
         return roles::where('id',$id)->update(array('role_ID'=>'R01'));
     }
     public function deleteRoles($id){
-        return roles::where('id',$id)->update(array('role_ID'=>'R01'));
+        return roles::where('id',$id)->delete();
     }
 }

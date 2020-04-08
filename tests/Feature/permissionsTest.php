@@ -39,12 +39,12 @@ class permissionsTest extends TestCase
         $this->assertEquals('ND01',permissions::first()->permission_ID);
     }
      /** @test */
-     public function deletePermissions(){
+    public function deletePermissions(){
         $this->withoutExceptionHandling();
         $this->createPermissions();
         $to_edit=Permissions::first();
-       // $response=$this->http('/delete-permissions/'.$to_edit->id);
-        //$this->assertCount(0,permissions::all());
+        $response=$this->delete('/delete-permissions/'.$to_edit->id);
+        $this->assertCount(0,permissions::all());
         
     }
 }

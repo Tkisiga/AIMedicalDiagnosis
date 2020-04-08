@@ -24,8 +24,8 @@ public function getDiseases(){
 public function changeDiseases($id){
     diseases::where('id',$id)->update(array('disease_id'=>'D01'));
 }
-public function deleteDiseases($id){
-    diseases::where('id',$id)->update(array('disease_id'=>'D01'));
+public function deleteDisease($id){
+    diseases::where('id',$id)->delete();
 }
 }
 

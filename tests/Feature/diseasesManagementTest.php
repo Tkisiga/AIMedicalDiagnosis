@@ -43,7 +43,7 @@ class diseasesManagementTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createDiseasesManagement();
         $to_delete = diseasesManagement::first();
-       // $response=$this->htpp('/delete-diseasesManagement/'.$to_delete->id);
-        //$this->assertCount(0,diseasesManagement::all());
+        $response=$this->delete('/delete-diseasesManagement/'.$to_delete->id);
+        $this->assertCount(0,diseasesManagement::all());
     } 
 }

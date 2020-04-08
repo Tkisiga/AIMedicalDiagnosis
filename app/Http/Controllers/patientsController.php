@@ -25,6 +25,6 @@ class patientsController extends Controller
         return patientsResource::collection(patients::all());
     }
     public function changePatient($id){
-        patients::where('id',$id)->update(array('patients_id'=>'P01'));
+        patients::where('id',$id)->delete();
     }
 }

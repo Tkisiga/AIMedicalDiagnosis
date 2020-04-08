@@ -25,6 +25,6 @@ class patientsDiseasesController extends Controller
             return patientsDiseases::where('id',$id)->update(array('disease_id'=>'D01'));
         }
         public function removePatientsDiseases($id){
-            return patientsDiseases::where('id',$id)->update(array('disease_id'=>'D01'));
+            return patientsDiseases::where('id',$id)->delete();
         }
 }

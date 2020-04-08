@@ -25,6 +25,6 @@ class diseasesTreatmentController extends Controller
             return diseasesTreatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
         }
         public function removeDiseasesTreatment($id){
-            return diseasesTreatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
+            return diseasesTreatment::where('id',$id)->delete();
         }
 }

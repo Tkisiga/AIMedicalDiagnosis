@@ -42,8 +42,7 @@ class rolesTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createRoles();
         $to_edit=roles::first();
-        //$response=$this->http('/delete-roles/'. $to_edit->id);
-        //$this->assertCount(0,roles::all());
-       
+        $response=$this->delete('/delete-roles/'. $to_edit->id);
+        $this->assertCount(0,roles::all());
     }
 }

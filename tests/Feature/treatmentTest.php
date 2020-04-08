@@ -42,7 +42,7 @@ class treatmentTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createTreatment();
         $to_edit=treatment::first();
-        //$response=$this->http('/remove-treatment/.'.$to_edit->id);
-        //$this->assertCount(0,treatment::all());
+        $response=$this->delete('/remove-treatment/.'.$to_edit->id);
+        $this->assertCount(0,treatment::all());
     }
 }

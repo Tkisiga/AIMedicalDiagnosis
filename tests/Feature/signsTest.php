@@ -43,8 +43,8 @@ class signsTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createSigns();
         $to_edit= signs::first();
-       // $response= $this->http('/delete-signs/'.$to_edit->id);
-       //$this->assertCount(0,signs::all());
+        $response= $this->delete('/delete-signs/'.$to_edit->id);
+        $this->assertCount(0,signs::all());
     }
 }
 

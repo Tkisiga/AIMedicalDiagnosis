@@ -35,3 +35,4 @@ Route::get('/get-patientsDiseases','patientsDiseasesController@getPatientsDiseas
 Route::get('/get-patientsSigns','patientsSignsController@getPatientsSigns');
 Route::get('/get-patientsSymptoms','patientsSymptomsController@getPatientsSymptoms');
 Route::get('/get-management','managementController@getManagement');
+

@@ -25,6 +25,6 @@ class patientsSignsController extends Controller
             return patientsSigns::where('id',$id)->update(array('patient_id'=>'P01'));
         }
         public function removePatientsSigns($id){
-            return patientsSigns::where('id',$id)->update(array('patient_id'=>'P01'));
+            return patientsSigns::where('id',$id)->delete();
         }
 }

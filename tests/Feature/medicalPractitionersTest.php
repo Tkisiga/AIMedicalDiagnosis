@@ -46,7 +46,7 @@ class medicalPractitionersTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createMedicalPractitioners();
         $to_edit=medicalPractitioners::first();
-       // $response=$this->http('/delete-medicalPractitioners/'.$to_edit->id);
-       //$this->assertCount(0,medicalPractitioners::all());
+        $response=$this->delete('/delete-medicalPractitioners/'.$to_edit->id);
+        $this->assertCount(0,medicalPractitioners::all());
     }
 }
