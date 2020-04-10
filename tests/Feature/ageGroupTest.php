@@ -20,7 +20,7 @@ class ageGroupTest extends TestCase
             'updated_by'=>'Dr.Ray'
         ]);
         $this->assertDatabaseHas('ageGroup',['ageGroup_id'=>'AG01']);
-        //$response->assertStatus(200);
+       
     }
     /** @test */
     public function getAgeGroup(){

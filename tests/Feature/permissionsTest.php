@@ -20,7 +20,7 @@ class permissionsTest extends TestCase
             'updated_by'=>'Dr.Hassan'
         ]);
         $this->assertDatabaseHas('Permissions', ['permission_ID'=>'ND01']);
-       // $response->assertStatus(200);
+     
     }
     /** @test */
     public function getPermissions(){

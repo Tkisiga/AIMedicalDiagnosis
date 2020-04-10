@@ -20,7 +20,7 @@ class diseasesSignsTest extends TestCase
             'updated_by'=>'Dr.Alexis'
         ]);
         $this->assertDatabaseHas('diseasesSigns',['sign_id'=>'SN01']);
-       // $response->assertStatus(200);
+      
     }
     /** @test */
     public function getDiseasesSigns(){

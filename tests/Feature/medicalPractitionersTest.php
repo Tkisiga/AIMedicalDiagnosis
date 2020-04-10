@@ -24,7 +24,7 @@ class medicalPractitionersTest extends TestCase
         'updated_by'=>'Kyobutungi'
         ]);
         $this->assertDatabaseHas('MedicalPractitioners',['email'=>'anitak@gmail.com']);
-        //$response->assertStatus(200);
+       
     }
     /** @test */
     public function getMedicalPractitioners(){

@@ -20,7 +20,7 @@ class patientsDiseasesTest extends TestCase
             'updated_by'=>'Dr.Martha'
         ]);
         $this->assertDatabaseHas('patientsDiseases',['disease_id'=>'D01']);
-       // $response->assertStatus(200);
+       
     }
     /** @test */
     public function getPatientsDiseases(){

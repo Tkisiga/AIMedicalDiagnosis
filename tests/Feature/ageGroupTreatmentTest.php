@@ -20,7 +20,7 @@ class ageGroupTreatmentTest extends TestCase
             'updated_by'=>'Dr.Nimurungi'
         ]);
         $this->assertDatabaseHas('ageGroupTreatment',['treatment_id'=>'TMT01']);
-       // $response->assertStatus(200);
+       
     }
     /** @test */
     public function getAgeGroupTreatment(){

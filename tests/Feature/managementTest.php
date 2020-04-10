@@ -20,7 +20,7 @@ class managementTest extends TestCase
             'updated_by'=>'Dr.Rambo'
         ]);
         $this->assertDatabaseHas('management',['management_id'=>'MGT01']);
-       // $response->assertStatus(200);
+       
     }
     /** @test */
     public function getManagement(){

@@ -11,11 +11,12 @@ class diseasesTableSeeder extends Seeder
      */
     public function run()
     {
-        $diseases_array = ['Typhoid','Measles','Corona','Polio'];
+        $diseases_array = ['Malaria','Typhoid','Gonorrhoea','Syphillis',
+        'Candidiasis','Tuberculosis'];
 
         for($i=0; $i<count($diseases_array); $i++){
             $disease = new diseases;
-            $disease->disease_id = "MDOOL" . $i;
+            $disease->disease_id = "MDOO1" . $i;
             $disease->name       = $diseases_array[$i];
             $disease->updated_by = 1;
             $disease->save();

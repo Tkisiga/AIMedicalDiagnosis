@@ -20,7 +20,7 @@ class rolesTest extends TestCase
             'updated_by'=>'Best'
         ]);
         $this->assertDatabaseHas('Roles',['role_ID'=>'R01']);
-      // $response->assertStatus(200);
+     
     }
     /** @test */
     public function getroles(){

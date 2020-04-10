@@ -21,7 +21,7 @@ class diseasesManagementTest extends TestCase
             'updated_by'=>'Dr.Nimurungi'
         ]);
         $this->assertDatabaseHas('diseasesManagement',['management_id'=>'MNT01']);
-       // $response->assertStatus(200);
+       
     }
     /** @test */
     public function getDiseasesManagement(){

@@ -20,7 +20,7 @@ class patientsSignsTest extends TestCase
             'updated_by'=>'Dr.Jane Ruth Achen '
         ]);
         $this->assertDatabaseHas('patientsSigns',['patient_id'=>'P01']);
-       // $response->assertStatus(200);
+      
     }
     /** @test */
     public function getPatientsSigns(){
