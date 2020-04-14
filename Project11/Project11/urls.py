@@ -18,5 +18,8 @@ from django.urls import path
 from IMDS import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('home/', views.index),
+    path('symptoms/', views.loadSymptoms),
+    path('conditions/', views.conditions, name='conditions'),
+    path('treatment/', views.treatment, name='treatment'),
 ]

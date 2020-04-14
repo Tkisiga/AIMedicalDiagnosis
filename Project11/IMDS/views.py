@@ -1,10 +1,25 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponseRedirect
 import requests
+from .models import Patients
+from .forms import PatientsForm
 
 # Create your views here.
 
 def index(request):
-    '''
+    form = PatientsForm(request.POST)
+
+    if request.method == 'POST':
+        
+        if form.is_valid():
+            form.save()
+
+            return render(request,"symptoms.html")
+    else:
+        form = PatientsForm()
+    
+    return render(request, "homepage.html", {'form': form}) 
+
+def loadSymptoms(request):
     url = "https://priaid-symptom-checker-v1.p.rapidapi.com/body/locations"
 
     querystring = {"language":"en-gb"}
@@ -16,6 +31,17 @@ def index(request):
 
     response = requests.request("GET", url, headers=headers, params=querystring)
 
-    print(response.text)
-    '''
-    return render(request, 'homepage.html') 
+    print(response.text) 
+    return render(request, "symptoms.html", print(response.text))
+
+
+def conditions(request):
+    
+    return render(request, "conditions.html")
+
+def treatment(request):
+    
+    return render(request, "treatment.html")
+
+
+    

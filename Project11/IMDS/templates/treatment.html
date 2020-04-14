@@ -11,41 +11,18 @@
 
 <body>
     <div class="tab">
-        <button class="tablink" onclick="openPage('PatientInfo', this, '#777')"id="defaultOpen">PatientInfo</button>
+        <button class="tablink" onclick="openPage('PatientInfo', this, '#777')">PatientInfo</button>
         <button class="tablink" onclick="openPage('Symptoms', this, '#777')" >Symptoms</button>
         <button class="tablink" onclick="openPage('Conditions', this, '#777')">Conditions</button>
-        <button class="tablink" onclick="openPage('Treatment', this, '#777')">Treatment</button>
+        <button class="tablink" onclick="openPage('Treatment', this, '#777')"id="defaultOpen">Treatment</button>
     </div>
 
-    <div id="PatientInfo" class="tabcontent">
-    <h3>PatientInfo</h3>
-    <p>Home is where the heart is..</p>
-    <form method="POST">
-      {% csrf_token %}
-
-      <table>{{form.as_table}}</table>
-      <input type="submit" value="Continue"> 
-
-    </form>
-    </div>
-<!--
-    <div id="Symptoms" class="tabcontent">
-    <h3>Symptoms</h3>
-    <p>Some news this fine day!</p>
-
-  
-    </div>
-
-    <div id="Conditions" class="tabcontent">
-    <h3>Conditions</h3>
-    <p>Get in touch, or swing by for a cup of coffee.</p>
-    </div>
 
     <div id="Treatment" class="tabcontent">
     <h3>Treatment</h3>
     <p>Who we are and what we do.</p>
     </div> 
--->
+
 <script>
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
