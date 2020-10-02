@@ -14,6 +14,11 @@ class managementResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'management_id'=>$this->management_id,
+            'name'=>$this->name,
+            'updated_by'=>$this->updated_by,
+
+        ];
     }
 }

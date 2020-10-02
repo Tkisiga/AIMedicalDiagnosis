@@ -18,7 +18,9 @@ class Management extends Migration
             $table->id();
             $table->string('management_id');
             $table->string('name');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by');
+            $table->softdeletes('deleted_at');
             $table->timestamps();
         });
     }

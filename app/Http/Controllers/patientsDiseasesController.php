@@ -8,6 +8,9 @@ use App\Http\Resources\patientsDiseasesResource;
 
 class patientsDiseasesController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth'); 
+    }
     public function createPatientsDiseases(){
         return patientsDiseases::create($this->validatePatientsDiseases());
     }
@@ -19,12 +22,15 @@ class patientsDiseasesController extends Controller
         ]);
         }    
         public function getPatientsDiseases(){
-            return patientsDiseasesResource::collection(patientsDiseases::all());
+            $patientsDiseases= patientsDiseasesResource::collection(patientsDiseases::all());
+           // return view('admin_pages.template',compact('patientsDiseases'));
         }
         public function changePatientsDiseases($id){
-            return patientsDiseases::where('id',$id)->update(array('disease_id'=>'D01'));
+            patientsDiseases::find($id)->update();
+            return redirect()->back()->with('msg', "Your changes were made successfully");
         }
         public function removePatientsDiseases($id){
-            return patientsDiseases::where('id',$id)->delete();
+            patientsDiseases::find($id)->delete();
+            return redirect()->back();
         }
 }

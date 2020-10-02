@@ -11,9 +11,11 @@ class Roles extends Migration
     {
         Schema::create('Roles', function (Blueprint $table){
             $table->id();
-            $table->string('role_ID');
+            $table->string('role_id');
             $table->string('title');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by');
+            $table->softdeletes('deleted_at');
             $table->timestamps();
 
         });

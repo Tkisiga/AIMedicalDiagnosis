@@ -16,12 +16,13 @@ class medicalPractitionersTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-medicalPractitioners',[
+            'id'=>1,
         'name'=>'Anita',
         'password'=>'**@l',
         'email'=>'anitak@gmail.com',
         'roleID'=>'Nurse',
         'phone_No'=>'0772171256',
-        'updated_by'=>'Kyobutungi'
+        'updated_by'=>1
         ]);
         $this->assertDatabaseHas('MedicalPractitioners',['email'=>'anitak@gmail.com']);
        
@@ -39,7 +40,7 @@ class medicalPractitionersTest extends TestCase
         $this->createMedicalPractitioners();
         $to_edit=medicalPractitioners::first();
         $response=$this->patch('/change-medicalPractitioners/'.$to_edit->id);
-        $this->assertEquals('ND01',medicalPractitioners::first()->roleID);
+        $this->assertEquals('1',medicalPractitioners::first()->id);
     }
     /** @test */
     public function deleteMedicalPractitioners(){

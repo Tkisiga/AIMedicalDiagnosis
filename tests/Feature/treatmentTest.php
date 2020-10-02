@@ -15,11 +15,11 @@ class treatmentTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-treatment',[
-            'treatment_id'=>'TMT01',
+            'treatment_id'=>1,
             'name'=>'vaccination',
-            'updated_by'=>'Dr.Nsubuga'
+            'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('Treatment',['treatment_id'=>'TMT01']);
+        $this->assertDatabaseHas('Treatment',['treatment_id'=>'1']);
      
     }
     /** @test */
@@ -35,7 +35,7 @@ class treatmentTest extends TestCase
         $this->createTreatment();
         $to_edit=treatment::first();
         $response=$this->patch('/change-treatment/.'.$to_edit->id);
-        $this->assertEquals('TMT01',treatment::first()->treatment_id);
+        $this->assertEquals('1',treatment::first()->treatment_id);
     }
     /** @test */
     public function removeTreatment(){

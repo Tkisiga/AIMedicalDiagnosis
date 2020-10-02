@@ -17,7 +17,9 @@ class DiseasesTreatment extends Migration
             $table->id();
             $table->string('disease_id');
             $table->string('treatment_id');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by');
+            $table->softdeletes('deleted_by');
             $table->timestamps();
         });
     }

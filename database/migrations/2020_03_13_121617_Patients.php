@@ -15,14 +15,16 @@ class Patients extends Migration
     {
         Schema::create('Patients', function (Blueprint $table) {
             $table->id();
-            $table->string('patients_id');
-            $table->string('name')->nullable();
+            $table->string('patient_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('other_name')->nullable();
             $table->integer('age');
-            $table->string('sex');
-            $table->string('contact')->nullable();
-            $table->string('medical_history')->nullable();
-            $table->string('lab_results');
-            $table->integer('updated_by');
+            $table->string('gender');
+            $table->string('phone_number');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by');
+            $table->softdeletes('deleted_at');
             $table->timestamps();
         });
     }

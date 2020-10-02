@@ -15,11 +15,11 @@ class diseasesTreatmentTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-diseasesTreatment',[
-            'disease_id'=>'D01',
-            'treatment_id'=>'TMT01',
-            'updated_by'=>'Dr.Kyambadde'
+            'disease_id'=>1,
+            'treatment_id'=>1,
+            'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('diseasesTreatment',['treatment_id'=>'TMT01']);
+        $this->assertDatabaseHas('diseasesTreatment',['id'=>'1']);
      
     }
     /** @test */
@@ -35,7 +35,7 @@ class diseasesTreatmentTest extends TestCase
         $this->createDiseasesTreatment();
         $to_edit = diseasesTreatment::first();
         $response = $this->patch('/change-diseasesTreatment/'.$to_edit->id);
-        $this->assertEquals('TMT01', diseasesTreatment::first()->treatment_id);
+        $this->assertEquals('1', diseasesTreatment::first()->id);
     }
     /** @test */
     public function removeDiseasesTreatment(){

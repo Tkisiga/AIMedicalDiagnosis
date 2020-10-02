@@ -17,7 +17,9 @@ class AgeGroup extends Migration
             $table->id();
             $table->string('ageGroup_id');
             $table->integer('age');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by');
+            $table->softdeletes('deleted_at');
             $table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ class ageGroupTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-ageGroup',[
-            'ageGroup_id'=>'AG01',
+            'ageGroup_id'=>1,
             'age'=>'16',
-            'updated_by'=>'Dr.Ray'
+            'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('ageGroup',['ageGroup_id'=>'AG01']);
+        $this->assertDatabaseHas('ageGroup',['id'=>'1']);
        
     }
     /** @test */
@@ -35,7 +35,7 @@ class ageGroupTest extends TestCase
         $this->createAgeGroup();
         $to_edit=ageGroup::first();
         $response=$this->patch('/change-ageGroup/'.$to_edit->id);
-        $this->assertEquals('AG01',ageGroup::first()->ageGroup_id);
+        $this->assertEquals('1',ageGroup::first()->id);
     }
     /** @test */
     public function deleteAgeGroup(){

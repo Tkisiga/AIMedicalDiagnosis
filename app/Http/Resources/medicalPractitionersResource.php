@@ -17,7 +17,9 @@ class medicalPractitionersResource extends JsonResource
         return [
             'name'=>$this->name,
             'email'=>$this->email,
-            'roleID'=>$this->roleID,
+            'password'=>$this->password,
+            'phone_No'=>$this->phone_No,
+            'role_id'=>$this->role_id,
             'updated_by'=>$this->updated_by
 
         ];

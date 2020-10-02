@@ -8,6 +8,9 @@ use App\Http\Resources\diseasesManagementResource;
 
 class diseasesManagementController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth'); 
+    }
     public function createDiseasesManagement(){
         return diseasesManagement::create($this->validateDiseasesManagement());
     }
@@ -19,12 +22,15 @@ class diseasesManagementController extends Controller
         ]);
         }    
         public function getDiseasesManagement(){
-            return diseasesManagementResource::collection(diseasesManagement::all());
+            $diseasesManagement= diseasesManagementResource::collection(diseasesManagement::all());
+           // return view('admin_pages.template',compact('diseasesManagement'));
         }
         public function changeDiseasesManagement($id){
-            return diseasesManagement::where('id',$id)->update(array('management_id'=>'MNT01'));
+            diseasesManagement::find($id)->update();
+            return redirect()->back()->with('msg', "Your changes were made successfully");
         }
         public function removeDiseasesManagement($id){
-            return diseasesManagement::where('id',$id)->delete();
+            diseasesManagement::find($id)->delete();
+            return redirect()->back();
         }
 }

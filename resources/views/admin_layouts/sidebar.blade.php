@@ -1,113 +1,53 @@
- <!-- Sidebar -->
- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-<!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  <div class="sidebar-brand-icon rotate-n-15">
-    <i class="fas fa-laugh-wink"></i>
-  </div>
-  <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-</a>
-
-<!-- Divider -->
-<hr class="sidebar-divider my-0">
-
-<!-- Nav Item - Dashboard -->
-<li class="nav-item active">
-  <a class="nav-link" href="index.html">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span></a>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-  Interface
-</div>
-
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-    <i class="fas fa-fw fa-cog"></i>
-    <span>Components</span>
-  </a>
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Components:</h6>
-      <a class="collapse-item" href="buttons.html">Buttons</a>
-      <a class="collapse-item" href="cards.html">Cards</a>
-    </div>
-  </div>
-</li>
-
-<!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-    <i class="fas fa-fw fa-wrench"></i>
-    <span>Utilities</span>
-  </a>
-  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Custom Utilities:</h6>
-      <a class="collapse-item" href="utilities-color.html">Colors</a>
-      <a class="collapse-item" href="utilities-border.html">Borders</a>
-      <a class="collapse-item" href="utilities-animation.html">Animations</a>
-      <a class="collapse-item" href="utilities-other.html">Other</a>
-    </div>
-  </div>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider">
-
-<!-- Heading -->
-<div class="sidebar-heading">
-  Addons
-</div>
-
-<!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-    <i class="fas fa-fw fa-folder"></i>
-    <span>Pages</span>
-  </a>
-  <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-    <div class="bg-white py-2 collapse-inner rounded">
-      <h6 class="collapse-header">Login Screens:</h6>
-      <a class="collapse-item" href="login.html">Login</a>
-      <a class="collapse-item" href="register.html">Register</a>
-      <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-      <div class="collapse-divider"></div>
-      <h6 class="collapse-header">Other Pages:</h6>
-      <a class="collapse-item" href="404.html">404 Page</a>
-      <a class="collapse-item" href="blank.html">Blank Page</a>
-    </div>
-  </div>
-</li>
-
-<!-- Nav Item - Charts -->
-<li class="nav-item">
-  <a class="nav-link" href="charts.html">
-    <i class="fas fa-fw fa-chart-area"></i>
-    <span>Charts</span></a>
-</li>
-
-<!-- Nav Item - Tables -->
-<li class="nav-item">
-  <a class="nav-link" href="tables.html">
-    <i class="fas fa-fw fa-table"></i>
-    <span>Tables</span></a>
-</li>
-
-<!-- Divider -->
-<hr class="sidebar-divider d-none d-md-block">
-
-<!-- Sidebar Toggler (Sidebar) -->
-<div class="text-center d-none d-md-inline">
-  <button class="rounded-circle border-0" id="sidebarToggle"></button>
-</div>
-
-</ul>
-<!-- End of Sidebar -->
+<div class="leftpanel">
+                    <div class="media profile-left">
+                        <a class="pull-left profile-thumb" href="profile.html">
+                            <img class="img-circle" src="images/photos/profile.png" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Elen Adarna</h4>
+                            <small class="text-muted">Beach Lover</small>
+                        </div>
+                    </div><!-- media -->
+                    
+                    <h5 class="leftpanel-title">Navigation</h5>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                        <li class="parent"><a href="#"><i class="fa fa-suitcase"></i> <span>Patients</span></a>
+                            <ul class="children">
+                                <li><a href="buttons.html">New Patient</a></li>
+                                <li><a href="extras.html">Patient Records</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent"><a href="#"><i class="fa fa-edit"></i> <span>Visits</span></a>
+                            <ul class="children">
+                                <li><a href="code-editor.html">New Visit</a></li>
+                            </ul>
+                        </li>
+                        <li class="parent"><a href="#"><i class="fa fa-bars"></i> <span>Appointments</span></a>
+                            <ul class="children">
+                                <li><a href="basic-tables.html">Make Appointment</a></li>
+                                <li><a href="data-tables.html">Appointment Records</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Labaratory</span></a></li>
+                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Treatment</span></a></li>
+                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Management</span></a></li>
+                        <li class="parent"><a href="#"><i class="fa fa-file-text"></i> <span>Clinical Findings</span></a>
+                            <ul class="children">
+                                <li><a href="notfound.html">404 Page</a></li>
+                                <li><a href="blank.html">Blank Page</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+                                <li><a href="invoice.html">Invoice</a></li>
+                                <li><a href="locked.html">Locked Screen</a></li>
+                                <li><a href="media-manager.html">Media Manager</a></li>
+                                <li><a href="people-directory.html">People Directory</a></li>
+                                <li><a href="profile.html">Profile</a></li>                                
+                                <li><a href="search-results.html">Search Results</a></li>
+                                <li><a href="signin.html">Sign In</a></li>
+                                <li><a href="signup.html">Sign Up</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    
+                </div><!-- leftpanel -->

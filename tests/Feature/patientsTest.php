@@ -15,14 +15,16 @@ class patientsTest extends TestCase
         public function createPatients(){
         $this->withoutExceptionHandling();   
         $response = $this->post('/create-patients',[
-            'patients_id'=>'P01',
+            'patient_id'=>1,
+            'first_name'=>'Lilly',
+            'last_name'=>'Katrina',
+            'other_name'=>'',
             'age'=>'22',
-            'sex'=>'Female',
-            'medical_history'=>'Diabetes Patient',
-            'lab_results'=>'Negative',
-            'updated_by'=>'Dr.Sam',
+            'phone_number'=>'0772694531',
+            'gender'=>'Female',
+            'updated_by'=>1,
         ]);
-        $this->assertDatabaseHas('patients',['patients_id'=>'P01']);
+        $this->assertDatabaseHas('patients',['id'=>'1']);
        
     }
     /** @test */
@@ -38,7 +40,7 @@ class patientsTest extends TestCase
         $this->withoutExceptionHandling();
         $to_edit = patients::first();
         $response= $this->patch('/change-patient/'.$to_edit->id);
-        $this->assertEquals('P01',patients::first()->patients_id);
+        $this->assertEquals('1',patients::first()->id);
     }
     
     /** @test*/

@@ -8,6 +8,9 @@ use App\Http\Resources\ageGroupTreatmentResource;
 
 class ageGroupTreatmentController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth'); 
+    }
     public function createAgeGroupTreatment(){
         return ageGroupTreatment::create($this->validateAgeGroupTreatment());
     }
@@ -19,12 +22,15 @@ class ageGroupTreatmentController extends Controller
         ]);
         }    
         public function getAgeGroupTreatment(){
-            return ageGroupTreatmentResource::collection(ageGroupTreatment::all());
+            $ageGroupTreatment= ageGroupTreatmentResource::collection(ageGroupTreatment::paginate(10));
+            //return view('admin_pages.template',compact('ageGroup'));
         }
         public function changeAgeGroupTreatment($id){
-            return ageGroupTreatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
+            ageGroupTreatment::find($id)->update();
+            return redirect()->back()->with('msg', "Your changes were made successfully");
         }
         public function removeAgeGroupTreatment($id){
-            return ageGroupTreatment::where('id',$id)->delete();
+            ageGroupTreatment::find($id)->delete();
+            return redirect()->back();
         }
 }

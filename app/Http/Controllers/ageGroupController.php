@@ -8,23 +8,36 @@ use App\Http\Resources\ageGroupResource;
 
 class ageGroupController extends Controller
 {
-    public function createAgeGroup(){
-        return ageGroup::create($this->validateAgeGroup());
+    public function __construct(){
+        $this->middleware('auth'); 
+        $this->authenticated_instance = new AuthenticatedController; 
+    }
+
+    private function createAgeGroup(){
+        $ageGroup                    = new ageGroup;
+        $ageGroup->age = request()->age;
+        $ageGroup->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $ageGroup->save();
     }
     protected function validateAgeGroup(){
-        return request()->validate([
-            'ageGroup_id'=>'required',
-            'age'=>'required',
-            'updated_by'=>'required'
-        ]);
+        if(empty(request()->age)){
+            return redirect()->back()->withErrors("Please enter your age");
+        }else{
+            return $this->createAgeGroup();
+        }
     }
     public function getAgeGroup(){
-        return ageGroupResource::collection(AgeGroup::all());
+        $ageGroup= ageGroupResource::collection(ageGroup::all());
+        //return view('admin_pages.template',compact('ageGroup'));
     }
     public function changeAgeGroup($id){
-        return ageGroup::where('id',$id)->update(array('ageGroup_id'=>'AG01'));
+        return ageGroup::find($id)->update(array(
+            'age' => request()->age,
+        ));
+        return redirect()->back()->with('msg', "Your changes were made successfully");
     }
     public function deleteAgeGroup($id){
-        return ageGroup::where('id',$id)->delete();
+        ageGroup::find($id)->delete();
+        return redirect()->back();
     }
 }
