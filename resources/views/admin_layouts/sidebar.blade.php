@@ -11,27 +11,25 @@
                     
                     <h5 class="leftpanel-title">Navigation</h5>
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                        <li ><a href="/dashboard"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                         <li class="parent"><a href="#"><i class="fa fa-suitcase"></i> <span>Patients</span></a>
                             <ul class="children">
-                                <li><a href="buttons.html">New Patient</a></li>
-                                <li><a href="extras.html">Patient Records</a></li>
+                                <li ><a href="/create-patients">New Patient</a></li>
+                                <li @if(request()->route()->getName()== 'Patients Details') class="active" @endif><a href="/get-patient">Patient Records</a></li>
                             </ul>
                         </li>
                         <li class="parent"><a href="#"><i class="fa fa-edit"></i> <span>Visits</span></a>
                             <ul class="children">
-                                <li><a href="code-editor.html">New Visit</a></li>
+                                <li><a href="/create-visits">New Visit</a></li>
+                                <li><a href="/get-visits">Visits Records</a></li>
                             </ul>
                         </li>
                         <li class="parent"><a href="#"><i class="fa fa-bars"></i> <span>Appointments</span></a>
                             <ul class="children">
-                                <li><a href="basic-tables.html">Make Appointment</a></li>
-                                <li><a href="data-tables.html">Appointment Records</a></li>
+                                <li @if(request()->route()->getName()== 'Make Appointment') class="active" @endif><a href="/create-appointments">Make Appointment</a></li>
+                                <li @if(request()->route()->getName()== 'Appointment Details') class="active" @endif><a href="/get-appointments">Appointment Records</a></li>
                             </ul>
                         </li>
-                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Labaratory</span></a></li>
-                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Treatment</span></a></li>
-                        <li><a href="maps.html"><i class="fa fa-map-marker"></i> <span>Doctor-Management</span></a></li>
                         <li class="parent"><a href="#"><i class="fa fa-file-text"></i> <span>Clinical Findings</span></a>
                             <ul class="children">
                                 <li><a href="notfound.html">404 Page</a></li>

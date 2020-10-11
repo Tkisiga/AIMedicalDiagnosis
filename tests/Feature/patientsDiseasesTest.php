@@ -34,7 +34,10 @@ class patientsDiseasesTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createPatientsDiseases();
         $to_edit = patientsDiseases::first();
-        $response = $this->patch('/change-patientsDiseases/'.$to_edit->id);
+        $response = $this->patch('/change-patientsDiseases/'.$to_edit->id,[
+            'patient_id'=>1,
+            'disease_id'=>1
+        ]);
         $this->assertEquals('1', patientsDiseases::first()->disease_id);
     }
     /** @test */

@@ -20,8 +20,11 @@ class patientsController extends Controller
         $patients->gender            = request()->gender;
         $patients->age               = request()->age;
         $patients->phone_number      = request()->phone_number;
+        $patients->address           = request()->address;
+        $patients->join_date         = request()->join_date;
         $patients->created_by        = $this->authenticated_instance->getAuthenticatedUser();
         $patients->save();
+        return view('admin_forms.patient_reg',compact('patients'));   
     }
 
     protected function validatePatient()
@@ -34,6 +37,10 @@ class patientsController extends Controller
                 return redirect()->back()->withErrors("Please enter your gender");
             }elseif(empty(request()->age)){
                 return redirect()->back()->withErrors("Please enter your age");
+            }elseif(empty(request()->address)){
+                return redirect()->back()->withErrors("Please enter your address");
+            }elseif(empty(request()->join_date)){
+                return redirect()->back()->withErrors("Please enter your join date");
             }elseif(empty(request()->phone_number)){
                 return redirect()->back()->withErrors("Please enter your phone number");
             }else{    
@@ -41,8 +48,8 @@ class patientsController extends Controller
         }
     }
     public function getPatient(){
-        $patients= patientsResource::collection(patients::all());
-        //return view('admin_pages.template',compact('patients'));
+        $patients= patientsResource::collection(patients::paginate(10));
+        return view('admin_forms.get_patient',compact('patients'));
     }
     public function changePatient($id){
         return patients::find($id)->update(array(
@@ -51,6 +58,8 @@ class patientsController extends Controller
             'gender'         => request()->gender,
             'age'            => request()->age,
             'phone_number'   => request()->phone_number,
+            'address'        => request()->address,
+            'join_date'      => request()->join_date,
         ));
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }

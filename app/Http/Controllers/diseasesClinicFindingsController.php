@@ -9,7 +9,7 @@ use App\Http\Resources\diseasesClinicFindingsResource;
 class diseasesClinicFindingsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+        //$this->middleware('auth'); 
     }
     public function createDiseasesClinicFindings(){
         return diseasesClinicFindings::create($this->validateDiseasesClinicFindings());
@@ -17,7 +17,7 @@ class diseasesClinicFindingsController extends Controller
     protected function validateDiseasesClinicFindings(){
         return request()->validate([
             'disease_id'=>'required',
-            'symptom_id'=>'required',
+            'clinic_findings_id'=>'required',
             'updated_by'=>'required'
         ]);
         }    

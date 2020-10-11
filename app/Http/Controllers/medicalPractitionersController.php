@@ -9,7 +9,7 @@ use App\Http\Resources\medicalPractitionersResource;
 class medicalPractitionersController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+        //$this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
 

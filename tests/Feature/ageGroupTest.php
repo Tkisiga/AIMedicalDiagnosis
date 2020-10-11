@@ -15,7 +15,6 @@ class ageGroupTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-ageGroup',[
-            'ageGroup_id'=>1,
             'age'=>'16',
             'updated_by'=>1
         ]);
@@ -34,7 +33,7 @@ class ageGroupTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createAgeGroup();
         $to_edit=ageGroup::first();
-        $response=$this->patch('/change-ageGroup/'.$to_edit->id);
+        $response=$this->patch('change-ageGroup/'.$to_edit->id);
         $this->assertEquals('1',ageGroup::first()->id);
     }
     /** @test */
@@ -42,7 +41,7 @@ class ageGroupTest extends TestCase
         $this->withoutExceptionHandling();
         $this->createAgeGroup();
         $to_edit=ageGroup::first();
-        $response=$this->delete('/delete-ageGroup/'.$to_edit->id);
+        $response=$this->delete('delete-ageGroup/'.$to_edit->id);
         $this->assertCount(0,ageGroup::all());
     }
 }

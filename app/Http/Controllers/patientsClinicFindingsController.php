@@ -9,7 +9,7 @@ use App\Http\Resources\patientsClinicFindingsResource;
 class patientsClinicFindingsController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+       // $this->middleware('auth'); 
     }
     
     public function createpatientsClinicFindings(){
@@ -18,7 +18,7 @@ class patientsClinicFindingsController extends Controller
     protected function validatePatientsClinicFindings(){
         return request()->validate([
             'patient_id'=>'required',
-            'symptom_id'=>'required',
+            'clinic_findings_id'=>'required',
             'updated_by'=>'required'
         ]);
         }    

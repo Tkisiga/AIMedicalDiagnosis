@@ -9,18 +9,21 @@ use App\Http\Resources\rolesResource;
 class rolesController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+       // $this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
     public function createRoles(){
-       return roles::create($this->validateRoles());
+        $roles                    = new roles;
+        $roles->title              = request()->title;
+        $roles->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $roles->save();
     }
     protected function validateRoles(){
-        return request()->validate([
-            'role_id'=>'required',
-            'title'=>'required',
-            'updated_by'=>'required'
-        ]);
+        if(empty(request()->title)){
+            return redirect()->back()->withErrors("Please enter your role ");
+        }else{    
+            return $this->createRoles();
+    }
     }
     public function getRoles(){
         $roles= rolesResource::collection(roles::all());

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PatientsClinicFindings extends Migration
+class Visits extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class PatientsClinicFindings extends Migration
      */
     public function up()
     {
-        Schema::create('PatientsClinicFindings', function (Blueprint $table){
+        Schema::create('Visits', function (Blueprint $table){
             $table->id();
             $table->string('patient_id');
-            $table->string('clinic_findings_id');
+            $table->string('visit_date');
+            $table->string('visit_category');
+            $table->string('next_visit');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
@@ -31,6 +33,6 @@ class PatientsClinicFindings extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('PatientsClinicFindings');
+        Schema::dropIfExists('Visits');
     }
 }

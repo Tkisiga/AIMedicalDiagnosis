@@ -11,11 +11,10 @@ class clinicFindingsTest extends TestCase
 {
     use RefreshDatabase;
     /** @test */
-    public function createClinicFindingsTest()
+    public function createClinicFindings()
     {
         $this->withoutExceptionHandling();
-        $response = $this->post('/create-clinicFindingsTest',[
-            'clinic_findings_id'=>1,
+        $response = $this->post('/create-clinicFindings',[
             'patient_history_id'=>1,
             'general_appearance_id'=>1,
             'physical_examination_id'=>1,

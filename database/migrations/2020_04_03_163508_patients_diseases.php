@@ -18,7 +18,7 @@ class PatientsDiseases extends Migration
             $table->string('patient_id');
             $table->string('disease_id');
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

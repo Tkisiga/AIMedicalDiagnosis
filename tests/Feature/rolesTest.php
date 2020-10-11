@@ -15,7 +15,7 @@ class rolesTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-roles',[
-            'role_id'=>1,
+            
             'title'=>'Doctor',
             'updated_by'=>1
         ]);

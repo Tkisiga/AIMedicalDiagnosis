@@ -16,10 +16,9 @@ class Management extends Migration
         
         Schema::create('Management', function (Blueprint $table){
             $table->id();
-            $table->string('management_id');
             $table->string('name');
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

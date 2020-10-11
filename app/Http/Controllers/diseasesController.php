@@ -9,7 +9,7 @@ use App\diseases;
 class diseasesController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+        //$this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
     public function createDiseases(){
@@ -31,7 +31,7 @@ class diseasesController extends Controller
         //return view('admin_pages.template',compact('diseases'));
     }
     public function changeDiseases($id){
-        return diseases::find($id)->update(array(
+        diseases::find($id)->update(array(
         'name'     => request()->name,
         ));
         return redirect()->back()->with('msg', "Your changes were made successfully");

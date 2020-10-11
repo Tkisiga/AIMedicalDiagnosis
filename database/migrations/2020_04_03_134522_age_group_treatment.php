@@ -18,7 +18,7 @@ class AgeGroupTreatment extends Migration
             $table->string('ageGroup_id');
             $table->string('treatment_id');
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

@@ -15,12 +15,14 @@ class patientsTest extends TestCase
         public function createPatients(){
         $this->withoutExceptionHandling();   
         $response = $this->post('/create-patients',[
-            'patient_id'=>1,
+           
             'first_name'=>'Lilly',
             'last_name'=>'Katrina',
             'other_name'=>'',
             'age'=>'22',
             'phone_number'=>'0772694531',
+            'join_date'=>'11/02/2020',
+            'address'=>'wampewo',
             'gender'=>'Female',
             'updated_by'=>1,
         ]);

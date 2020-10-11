@@ -16,7 +16,6 @@ class diseasesTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-diseases',[
-            'disease_id'=>1,
             'name'=>'Tuberculosis',
             'updated_by'=>1
         ]);
@@ -35,7 +34,8 @@ class diseasesTest extends TestCase
         $this->createDiseases();
         $this->withoutExceptionHandling();
         $to_edit = diseases::first();
-        $response= $this->patch('change-diseases/'.$to_edit->id);
+        $response= $this->patch('change-diseases/'.$to_edit->id,
+        ['name'=> 'malaria']);
         $this->assertEquals('1',diseases::first()->id);
     }
     /** @test */

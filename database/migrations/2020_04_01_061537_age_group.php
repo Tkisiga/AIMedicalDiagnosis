@@ -15,10 +15,9 @@ class AgeGroup extends Migration
     {
         Schema::create('AgeGroup', function (Blueprint $table){
             $table->id();
-            $table->string('ageGroup_id');
             $table->integer('age');
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

@@ -16,10 +16,9 @@ class permissionsTest extends TestCase
         $this->withoutExceptionHandling();
         $response = $this->post('/create-permissions',[
             'permissions'=>'Insert',
-            'permission_id'=>1,
             'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('Permissions', ['permission_id'=>'1']);
+        $this->assertDatabaseHas('Permissions', ['id'=>'1']);
      
     }
     /** @test */
@@ -36,7 +35,7 @@ class permissionsTest extends TestCase
         $this->createPermissions();
         $to_edit=permissions::first();
         $response=$this->patch('/change-permissions/'.$to_edit->id);
-        $this->assertEquals('1',permissions::first()->permission_id);
+        $this->assertEquals('1',permissions::first()->id);
     }
      /** @test */
     public function deletePermissions(){

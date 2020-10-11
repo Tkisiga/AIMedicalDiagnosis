@@ -15,11 +15,11 @@ class clinicFindingsResource extends JsonResource
     public function toArray($request)
     {
         return[
-            'clinic_findings_id'=>$this->clinic_findings_id,
             'patient_history_id'=>$this->patient_history_id,
             'general_appearance_id'=>$this->general_appearance_id,
             'physical_examination_id'=>$this->physical_examination_id,
             'updated_by'=>$this->updated_by,
+            'created_by'=>$this->created_by,
 
         ];
     }

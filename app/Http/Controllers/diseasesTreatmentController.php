@@ -22,8 +22,8 @@ class diseasesTreatmentController extends Controller
         ]);
         }    
         public function getDiseasesTreatment(){
-            $diseasesTreatment= diseasesTreatmentResource::collection(diseasesTreatment::all());
-            //return view('admin_pages.template',compact('diseasesTreatment'));
+            $diseasesTreatment= diseasesTreatmentResource::collection(diseasesTreatment::paginate(10));
+            return view('admin_pages',compact('diseasesTreatment'));
         }
         public function changeDiseasesTreatment($id){
             diseasesTreatment::find($id)->update();

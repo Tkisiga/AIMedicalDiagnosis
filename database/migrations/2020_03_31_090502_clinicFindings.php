@@ -15,12 +15,11 @@ class ClinicFindings extends Migration
     {
         Schema::create('ClinicFindings',function (Blueprint $table){
             $table->id();
-            $table->string('clinic_findings_id');
-            $table->string('patient_history_id');
-            $table->string('general_appearance_id');
-            $table->string('physical_examination_id');
+            $table->string('patient_history_id')->nullable();
+            $table->string('general_appearance_id')->nullable();
+            $table->string('physical_examination_id')->nullable();
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

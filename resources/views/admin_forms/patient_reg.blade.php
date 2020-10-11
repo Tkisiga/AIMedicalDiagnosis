@@ -1,119 +1,134 @@
-<div class="col-md-6">
-                                <h5 class="lg-title">Wizard with Form Validation</h5>
-                                <p class="mb20">Same with basic wizard setup but with form validation</p>
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from themetrace.com/demo/chain/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2020 04:30:31 GMT -->
+@include('admin_layouts.styling')
 
-                                <!-- BASIC WIZARD -->
-                                <form method="post" id="valWizard" class="panel-wizard">
-                                    <ul class="nav nav-justified nav-wizard nav-disabled-click">
-                                        <li><a href="#tab1-4" data-toggle="tab"><strong>Step 1:</strong> Basic Info</a></li>
-                                        <li><a href="#tab2-4" data-toggle="tab"><strong>Step 2:</strong> Product Info</a></li>
-                                        <li><a href="#tab3-4" data-toggle="tab"><strong>Step 3:</strong> Payment</a></li>
-                                    </ul>
+    <body>
+        
+    @include('admin_layouts.top_navbar')
+        
+        <section>
+            <div class="mainwrapper">
+            @include('admin_layouts.sidebar')
                 
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="tab1-4">
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Firstname</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="firstname" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Lastname</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="lastname" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Gender</label>
-                                                <div class="col-sm-8">
-                                                    <div class="rdio rdio-primary">
-                                                        <input type="radio" checked="checked" id="male4" value="m" name="radio" required>
-                                                        <label for="male4">Male</label>
-                                                    </div>
-                                                    <div class="rdio rdio-primary">
-                                                        <input type="radio" value="f" id="female4" name="radio">
-                                                        <label for="female4">Female</label>
-                                                    </div>
-                                                </div>
-                                            </div><!-- form-group -->
-                                        </div><!-- tab-pane -->
-                                        
-                                        <div class="tab-pane" id="tab2-4">
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Product ID</label>
-                                                <div class="col-sm-5">
-                                                    <input type="text" name="product_id" class="form-control" required/>
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Product Name</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="product_name" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Category</label>
-                                                <div class="col-sm-4">
-                                                    <select class="width100p" data-placeholder="Choose One" required>
-                                                        <option value="">Choose One</option>
-                                                        <option value="3d-animation">3D Animation</option>
-                                                        <option value="web-design">Web Design</option>
-                                                        <option value="software-engineering">Software Engineering</option>
-                                                    </select>
-                                                </div>
-                                            </div><!-- form-group -->
-                                        </div><!-- tab-pane -->
-                                        
-                                        <div class="tab-pane" id="tab3-4">
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Card No</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="cardno" class="form-control" />
-                                                </div>
-                                            </div><!-- form-group -->
-                      
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Expiration</label>
-                                                <div class="col-sm-4">
-                                                    <select class="width100p" data-placeholder="Month" required>
-                                                        <option value="">Choose One</option>
-                                                        <option value="">January</option>
-                                                        <option value="">February</option>
-                                                        <option value="">March</option>
-                                                        <option value="">...</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <select class="width100p" data-placeholder="Year" required>
-                                                        <option value="">Choose One</option>
-                                                        <option value="">2013</option>
-                                                        <option value="">2014</option>
-                                                        <option value="">2015</option>
-                                                        <option value="">...</option>
-                                                    </select>
-                                                </div>
-                                            </div><!-- form-group -->
-                      
-                                            <div class="form-group">
-                                                <label class="col-sm-4">CSV</label>
-                                                <div class="col-sm-4">
-                                                    <input type="text" name="csv" class="form-control" />
-                                                </div>
-                                            </div><!-- form-group -->
-                                        </div><!-- tab-pane -->
-                                    </div><!-- tab-content -->
-                
-                                    <ul class="list-unstyled wizard">
-                                        <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li>
-                                        <li class="pull-right next"><button type="button" class="btn btn-primary">Next</button></li>
-                                        <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">Finish</button></li>
-                                    </ul>
-                                    
-                                </form><!-- panel-wizard -->
-              
-                            </div><!-- col-md-6 -->
+                <div class="mainpanel">
+                    
+                    
+                    <div class="contentpanel">
+                        
+                    
+                    <div class="col-md-6">
+
+                        <h5 class="lg-title">{{(request()->route()->getName())}}</h5>
+                        <!-- BASIC WIZARD -->
+                        <form method="post" id="valWizard" class="panel-wizard">
+                        
+                            <div class="tab-pane" id="Patient info">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Patient's No:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="patientNo" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">First Name:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="first_name" class="form-control" title="Your name is required!" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Last Name:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="last_name" class="form-control" title="Your name is required!"/>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Other Names:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="other_name" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Date of birth:></label>
+                                    <div class="input-group">
+                                        <input type="text" name="birth" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" >
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div><!-- input-group -->
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Age:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="age" class="form-control" title="Your age is required!" required/>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Gender:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <select id="select-search-hide" data-placeholder="Choose One" class="width300" required>
+                                            <option value="AK">Male</option>
+                                                <option value="HI">Female</option>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Visit Date:<span class="asterisk">*</span></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-multiple" title="The visit date is required!" required>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    </div><!-- input-group -->
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Address:</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="address" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Contact:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="contact" class="form-control" title="The contact is required!" required/>
+                                    </div>
+                                </div><!-- form-group -->
+                            
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Next of kin:<span class="asterisk">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="kin" class="form-control" title="Your next of kin is required!" required/>
+                                    </div>
+                                </div><!-- form-group -->
+                            </div><!-- tab-pane -->
+
+                        </form>    
+        
+
+        </section>
+
+
+        @include('admin_layouts.javascript')
+    </body>
+
+<!-- Mirrored from themetrace.com/demo/chain/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2020 04:30:31 GMT -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

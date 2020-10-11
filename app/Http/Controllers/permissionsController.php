@@ -14,7 +14,6 @@ class permissionsController extends Controller
     protected function validatePermissions(){
         return request()->validate([
         'permissions'=>'required',
-        'permission_id'=>'required',
         'updated_by'=>'required'
         ]);
     }

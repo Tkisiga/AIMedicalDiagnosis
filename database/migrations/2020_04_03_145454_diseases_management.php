@@ -18,7 +18,7 @@ class DiseasesManagement extends Migration
             $table->string('disease_id');
             $table->string('management_id');
             $table->integer('updated_by')->nullable();
-            $table->integer('created_by');
+            $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');
             $table->timestamps();
         });

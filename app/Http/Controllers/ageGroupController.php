@@ -9,13 +9,13 @@ use App\Http\Resources\ageGroupResource;
 class ageGroupController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+       // $this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
     private function createAgeGroup(){
         $ageGroup                    = new ageGroup;
-        $ageGroup->age = request()->age;
+        $ageGroup->age               = request()->age;
         $ageGroup->created_by        = $this->authenticated_instance->getAuthenticatedUser();
         $ageGroup->save();
     }
