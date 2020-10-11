@@ -13,7 +13,7 @@ class appointmentsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    private function createAppointments(){
+    public function createAppointments(){
         $appointments                         = new appointments;
         $appointments->patient_id             = request()->patient_id;
         $appointments->appointment_date       = request()->appointment_date;

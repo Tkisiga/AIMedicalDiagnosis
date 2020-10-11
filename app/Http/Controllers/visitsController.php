@@ -13,7 +13,7 @@ class visitsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    private function createVisits(){
+    public function createVisits(){
         $visits                    = new visits;
         $visits->patient_id        = request()->patient_id;
         $visits->visit_date        = request()->visit_date;

@@ -13,7 +13,7 @@ class ageGroupController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    private function createAgeGroup(){
+    public function createAgeGroup(){
         $ageGroup                    = new ageGroup;
         $ageGroup->age               = request()->age;
         $ageGroup->created_by        = $this->authenticated_instance->getAuthenticatedUser();
