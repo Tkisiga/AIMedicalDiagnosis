@@ -12,8 +12,11 @@ class managementController extends Controller
         $this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
+    public function getAllManagement(){
+        $allmanagement=management::get();
+    }
 
-    public function createManagement(){
+    private function createManagement(){
         $management                    = new management;
         $management->name              = request()->name;
         $management->created_by        = $this->authenticated_instance->getAuthenticatedUser();
@@ -27,17 +30,17 @@ class managementController extends Controller
             return $this->createManagement();
         }
     }    
-    public function getManagement(){
+    protected function getManagement(){
         $management= managementResource::collection(management::all());
         //return view('admin_pages.template',compact('management'));
     }
-    public function changeManagement($id){
+    protected function changeManagement($id){
         return management::find($id)->update(array(
         'name' => request()->name,
     ));
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function removeManagement($id){
+    protected function removeManagement($id){
         management::find($id)->delete();
         return redirect()->back();
     }

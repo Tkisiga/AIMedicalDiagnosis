@@ -12,8 +12,11 @@ class treatmentController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
         $this->middleware('auth');
     }
+    public function getAllTreatment(){
+        $alltreatment=treatment::get();
+    }
     
-    public function createTreatment(){
+    private function createTreatment(){
         $treatment                    = new treatment;
         $treatment->name              = request()->name;
         $treatment->created_by        = $this->authenticated_instance->getAuthenticatedUser();
@@ -26,15 +29,15 @@ class treatmentController extends Controller
             return $this->createTreatment();
         }
     }
-    public function getTreatment(){
+    protected function getTreatment(){
         $treatment= treatmentResource::collection(treatment::all());
         return view('admin_pages.template',compact('treatment'));
     }
-    public function changeTreatment($id){
+    protected function changeTreatment($id){
         treatment::find($id)->update();
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function removeTreatment($id){
+    protected function removeTreatment($id){
         treatment::find($id)->delete();
         return redirect()->back();
     }

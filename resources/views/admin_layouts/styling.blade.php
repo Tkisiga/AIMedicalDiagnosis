@@ -4,7 +4,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Medical diagnosis</title>
+        <title>DR.JEBT</title>
+        <link rel = "icon" href ="{{asset('index/images/medical-logo.jpg')}}" type = "image/x-icon">
 
         <link href="{{asset('css/style.default.css')}}" rel="stylesheet">
         <link href="{{asset('css/morris.css')}}" rel="stylesheet">

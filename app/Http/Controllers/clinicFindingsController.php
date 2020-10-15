@@ -12,14 +12,18 @@ class clinicFindingsController extends Controller
         $this->middleware('auth'); 
          $this->authenticated_instance = new AuthenticatedController; 
      }
+
+    public function getAllClinicFindings(){
+        $allclinicFindings=clinicFindings::get();
+    } 
     private function createClinicFindings()
     {
         return clinicFindings::create($this->validateClinicFindings());
     }
-    public function getCreateClinicFindingsForm(){
+    protected function getCreateClinicFindingsForm(){
         return view('admin_forms.clinic_findings_form');
     }
-    public function getEditClinicFindingsForm(){
+    protected function getEditClinicFindingsForm(){
         return view('admin_form.edit_clinic_findings_form');
     }
 
@@ -40,10 +44,10 @@ class clinicFindingsController extends Controller
         $clinicFindings->save();
         return redirect()->back()->with('message',"New patient clinic findings successfully created");
     }
-    public function getClinicFindings(){
+    protected function getClinicFindings(){
         return clinicFindingsResource::collection(clinicFindings::all());
     }
-    public function changeClinicFindings($id){
+    protected function changeClinicFindings($id){
         clinicFindings::where('id',$id)->update(array(
             'Hands'                   => request()->Hands,
             'Skin'                    => request()->Skin,
@@ -58,7 +62,7 @@ class clinicFindingsController extends Controller
             ));
             return redirect()->back()->with('message', "Your changes were made successfully");
     }
-    public function deleteClinicFindings($id){
+    protected function deleteClinicFindings($id){
         clinicFindings::where('id',$id)->delete();
         return redirect()->back()->with('message', "Your changes were made successfully");
     }

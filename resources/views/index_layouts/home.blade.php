@@ -1,5 +1,5 @@
 <section id="home" class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image:url(index/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <div class="slider-item" style="background-image:url(index/images/diabet.jpeg);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="slider-item" style="background-image:url(index/images/bg_2.jpg);">
+    <div class="slider-item" style="background-image:url(index/images/diabetes.png);">
         <div class="overlay"></div>
         <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
@@ -27,7 +27,7 @@
 <section class="ftco-services ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
-    <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+    <div style="background-color:orange" class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
     <div class="media block-6 d-block text-center">
         <div class="icon d-flex justify-content-center align-items-center">
             <span class="flaticon-doctor"></span>
@@ -38,7 +38,7 @@
         </div>
     </div>      
     </div>
-    <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+    <div style="background-color:purple" class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
     <div class="media block-6 d-block text-center">
         <div class="icon d-flex justify-content-center align-items-center">
             <span class="flaticon-ambulance"></span>
@@ -49,7 +49,7 @@
         </div>
     </div>    
     </div>
-    <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+    <div style="background-color:red" class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
     <div class="media block-6 d-block text-center">
         <div class="icon d-flex justify-content-center align-items-center">
             <span class="flaticon-stethoscope"></span>
@@ -60,7 +60,7 @@
         </div>
     </div>      
     </div>
-    <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+    <div style="background-color:skyblue" class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
     <div class="media block-6 d-block text-center">
         <div class="icon d-flex justify-content-center align-items-center">
             <span class="flaticon-24-hours"></span>

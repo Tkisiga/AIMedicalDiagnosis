@@ -13,7 +13,11 @@ class medicalPractitionersController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    public function createMedicalPractitioners(){
+    public function getAllMedicalPractitioners(){
+        $allmedicalPractitioners=medicalPractitioners::get();
+    }
+
+    private function createMedicalPractitioners(){
         $medicalPractitioners                    = new medicalPractitioners;
         $medicalPractitioners->name              = request()->name;
         $medicalPractitioners->password          = request()->password;
@@ -35,11 +39,11 @@ class medicalPractitionersController extends Controller
             return $this->createMedicalPractitioners();
         }
     }
-    public function getMedicalPractitioners(){
+    protected function getMedicalPractitioners(){
         $medicalPractitioners= medicalPractitionersResource::collection(medicalPractitioners::all());
        // return view('admin_pages.template',compact('medicalPractitioners'));
     }
-    public function changeMedicalPractitioners($id){
+    protected function changeMedicalPractitioners($id){
         return medicalPractitioners::find($id)->update(array(
             'name'          => request()->name,
             'password'      => request()->password,
@@ -48,7 +52,7 @@ class medicalPractitionersController extends Controller
         ));
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function deleteMedicalPractitioners($id){
+    protected function deleteMedicalPractitioners($id){
         medicalPractitioners::find($id)->delete();
         return redirect()->back();
     }

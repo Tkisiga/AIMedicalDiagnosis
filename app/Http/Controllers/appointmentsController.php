@@ -12,6 +12,10 @@ class appointmentsController extends Controller
         $this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
+    public function getAllAppointments(){
+        $allappointments=appointments::get();
+    }
+
     protected function getCreateAppointmentsForm(){
         return view('admin_forms.appointment_reg_form');
     }
@@ -42,11 +46,11 @@ class appointmentsController extends Controller
             return $this->createAppointments();
         }
     }
-    public function getappointments(){
+    protected function getappointments(){
         $appointments= appointmentsResource::collection(appointments::paginate(10));
         return view('admin_forms.get_appointments',compact('appointments'));
     }
-    public function changeAppointments($id){
+    protected function changeAppointments($id){
         return appointments::find($id)->update(array(
             'appointment_date' => request()->appointment_date,
             'appointment_time' => request()->appointment_time,
@@ -55,7 +59,7 @@ class appointmentsController extends Controller
         ));
         return redirect()->back()->with('message', "Your changes were made successfully");
     }
-    public function deleteAppointments($id){
+    protected function deleteAppointments($id){
         appointments::find($id)->delete();
         return redirect()->back()->with('message', "Your changes were made successfully");
     }

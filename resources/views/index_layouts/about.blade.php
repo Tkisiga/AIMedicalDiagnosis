@@ -1,7 +1,7 @@
 <section id="about" class="ftco-section ftco-no-pt ftc-no-pb">
     <div class="container">
         <div class="row no-gutters">
-            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url(index/images/about.jpg);">
+            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url(index/images/medical-2.jpg);">
             </div>
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
         <div class="heading-section mb-5">

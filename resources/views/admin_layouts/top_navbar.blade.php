@@ -27,14 +27,14 @@
                                 <h5>Notification</h5>
                                 <ul class="media-list dropdown-list">
                                     <li class="media">
-                                        <img class="img-circle pull-left noti-thumb" src="images/photos/user1.png" alt="">
+                                        <img class="img-circle pull-left noti-thumb" src="images/photos/diabetes.png" alt="">
                                         <div class="media-body">
                                           <strong>Nusja Nawancali</strong> likes a photo of you
                                           <small class="date"><i class="fa fa-thumbs-up"></i> 15 minutes ago</small>
                                         </div>
                                     </li>
                                     <li class="media">
-                                        <img class="img-circle pull-left noti-thumb" src="images/photos/user2.png" alt="">
+                                        <img class="img-circle pull-left noti-thumb" src="images/photos/diabet.jpeg" alt="">
                                         <div class="media-body">
                                           <strong>Weno Carasbong</strong> shared a photo of you in your <strong>Mobile Uploads</strong> album.
                                           <small class="date"><i class="fa fa-calendar"></i> July 04, 2014</small>

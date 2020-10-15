@@ -12,7 +12,7 @@ class rolesController extends Controller
        // $this->middleware('auth'); 
         $this->authenticated_instance = new AuthenticatedController; 
     }
-    public function createRoles(){
+    private function createRoles(){
         $roles                    = new roles;
         $roles->title              = request()->title;
         $roles->created_by        = $this->authenticated_instance->getAuthenticatedUser();
@@ -25,15 +25,15 @@ class rolesController extends Controller
             return $this->createRoles();
     }
     }
-    public function getRoles(){
+    protected function getRoles(){
         $roles= rolesResource::collection(roles::all());
         //return view('admin_pages.template',compact('roles'));
     }
-    public function changeRoles($id){
+    protected function changeRoles($id){
         roles::find($id)->update();
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function deleteRoles($id){
+    protected function deleteRoles($id){
         roles::find($id)->delete();
         return redirect()->back();
     }

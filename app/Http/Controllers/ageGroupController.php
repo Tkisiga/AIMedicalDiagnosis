@@ -13,7 +13,10 @@ class ageGroupController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    public function createAgeGroup(){
+    public function getAllAgeGroup(){
+        $allageGroup=ageGroup::get();
+    }
+    private function createAgeGroup(){
         $ageGroup                    = new ageGroup;
         $ageGroup->age               = request()->age;
         $ageGroup->created_by        = $this->authenticated_instance->getAuthenticatedUser();
@@ -26,17 +29,17 @@ class ageGroupController extends Controller
             return $this->createAgeGroup();
         }
     }
-    public function getAgeGroup(){
+    protected function getAgeGroup(){
         $ageGroup= ageGroupResource::collection(ageGroup::all());
         //return view('admin_pages.template',compact('ageGroup'));
     }
-    public function changeAgeGroup($id){
+    protected function changeAgeGroup($id){
         return ageGroup::find($id)->update(array(
             'age' => request()->age,
         ));
         return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function deleteAgeGroup($id){
+    protected function deleteAgeGroup($id){
         ageGroup::find($id)->delete();
         return redirect()->back();
     }

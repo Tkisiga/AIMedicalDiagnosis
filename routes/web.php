@@ -17,7 +17,7 @@ Route::get('/get-patient','patientsController@getpatient')->name("Patients Detai
 Route::get('/get-patients-create-form','patientsController@getCreatePatientsForm')->name("Register Patient");
 Route::get('/get-edit-patients-form/{id}','patientsController@getEditPatientsForm')->name("Edit Patients");
 
-Route::post('/create-diseases', 'diseasesController@createDiseases');
+Route::post('/create-diseases', 'diseasesController@validateDiseases');
 Route::patch('/change-diseases/{id}','diseasesController@changeDiseases');
 Route::delete('/delete-diseases/{id}','diseasesController@deleteDisease');
 Route::get('/get-diseases','diseasesController@getdiseases')->name("Diseases Details");
@@ -29,7 +29,7 @@ Route::get('/get-clinicFindings','clinicFindingsController@getclinicFindings')->
 Route::get('/get-create-clinic-findings-form','clinicFindingsController@getCreateClinicFindingsForm')->name("Make Clinic Examinations");
 Route::get('/get-edit-clinic-findings-form/{id}','clinicFindingsController@getEditClinicFindingsForm')->name('Edit Clinic Examination');
 
-Route::post('/create-medicalPractitioners','medicalPractitionersController@createMedicalPractitioners');
+Route::post('/create-medicalPractitioners','medicalPractitionersController@validateMedicalPractitioners');
 Route::patch('/change-medicalPractitioners/{id}','medicalPractitionersController@changeMedicalPractitioners');
 Route::delete('/delete-medicalPractitioners/{id}','medicalPractitionersController@deleteMedicalPractitioners');
 Route::get('/get-medicalPractitioners','medicalPractitionersController@getmedicalPractitioners')->name("medicalPractitioners Details");
@@ -38,17 +38,17 @@ Route::post('/create-permissions','permissionsController@createPermissions');
 Route::patch('/change-permissions/{id}','permissionsController@changePermissions');
 Route::delete('/delete-permissions/{id}','permissionsController@deletePermissions');
 
-Route::post('/create-roles','rolesController@createRoles');
+Route::post('/create-roles','rolesController@validateRoles');
 Route::patch('/change-roles/{id}','rolesController@changeRoles');
 Route::delete('/delete-roles/{id}','rolesController@deleteRoles');
 Route::get('/get-roles','rolesController@getRoles')->name("roles Details");
 
-Route::post('/create-ageGroup','ageGroupController@createAgeGroup');
+Route::post('/create-ageGroup','ageGroupController@validateAgeGroup');
 Route::patch('/change-ageGroup/{id}','ageGroupController@changeAgeGroup');
 Route::delete('/delete-ageGroup/{id}','ageGroupController@deleteAgeGroup');
 Route::get('/get-ageGroup','ageGroupController@getAgeGroup')->name("ageGroup Details");
 
-Route::post('/create-treatment','treatmentController@createTreatment');
+Route::post('/create-treatment','treatmentController@validateTreatment');
 Route::patch('/change-treatment/{id}','treatmentController@changeTreatment');
 Route::delete('/remove-treatment/{id}','treatmentController@removeTreatment');
 Route::get('/get-treatment','treatmentController@getTreatment')->name("treatment Details");
@@ -83,7 +83,7 @@ Route::patch('/change-patientsClinicFindings/{id}','patientsClinicFindingsContro
 Route::delete('/delete-patientsClinicFindings/{id}','patientsClinicFindingsController@removePatientsclinicFindings');
 Route::get('/get-patientsClinicFindings','patientsClinicFindingsController@getPatientsClinicFindings')->name("Patients ClinicFindings Details");
 
-Route::post('/create-management','managementController@createManagement');
+Route::post('/create-management','managementController@validateManagement');
 Route::patch('/change-management/{id}','managementController@changeManagement');
 Route::delete('/remove-management/{id}','managementController@removeManagement');
 Route::get('/get-manangement','manangementController@getManangement')->name("Manangement Details");

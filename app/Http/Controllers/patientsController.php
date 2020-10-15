@@ -13,6 +13,9 @@ class patientsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
+    public function getAllPatients(){
+        $allpatients=patients::get();
+    }
 
     /**
      * this function takes to the blade that has the create patients form
@@ -63,11 +66,11 @@ class patientsController extends Controller
                 return $this->createPatients();
         }
     }
-    public function getPatient(){
+    protected function getPatient(){
         $patients= patientsResource::collection(patients::all());
         return view('admin_forms.get_patient',compact('patients'));
     }
-    public function changePatient($id){
+    protected function changePatient($id){
         return patients::find($id)->update(array(
             'first_name'     => request()->first_name,
             'last_name'      => request()->last_name,
@@ -81,7 +84,7 @@ class patientsController extends Controller
         ));
         return redirect()->back()->with('message', "Your changes were made successfully");
     }
-    public function deletePatients($id){
+    protected function deletePatients($id){
         patients::find($id)->delete();
         return redirect()->back()->with('message', "Your changes were made successfully");
     }
