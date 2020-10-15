@@ -19,8 +19,7 @@
                         
                     @include('admin_layouts.datatables')
                         
-                       
-
+                   
 
         </section>
 

@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\appointments;
 
 class appointmentsTest extends TestCase
 {
@@ -28,7 +29,7 @@ class appointmentsTest extends TestCase
             'updated_by'=>1
             ]);
 
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('Appointments',['id'=>1]);
     }
 
     /** @test */

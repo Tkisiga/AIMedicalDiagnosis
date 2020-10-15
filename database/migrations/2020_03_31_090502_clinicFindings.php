@@ -15,9 +15,16 @@ class ClinicFindings extends Migration
     {
         Schema::create('ClinicFindings',function (Blueprint $table){
             $table->id();
-            $table->string('patient_history_id')->nullable();
-            $table->string('general_appearance_id')->nullable();
-            $table->string('physical_examination_id')->nullable();
+            $table->string('Hands');
+            $table->string('Skin');
+            $table->string('Neck');
+            $table->string('Head');
+            $table->string('eyes');
+            $table->string('Insulin_injection_sites');
+            $table->string('Legs');
+            $table->string('Feet');
+            $table->string('Observations');
+            $table->string('Symptoms');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');

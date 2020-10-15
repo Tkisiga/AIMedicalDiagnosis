@@ -22,7 +22,8 @@ class Patients extends Migration
             $table->string('gender');
             $table->string('phone_number');
             $table->string('address');
-            $table->string('join_date');
+            $table->string('kin');
+            $table->string('kin_contact');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');

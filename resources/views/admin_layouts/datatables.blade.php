@@ -1,11 +1,15 @@
-<div class="panel panel-primary-head">
+@if(request()->route()->getName() == 'Patients Details')
+<div class="panel ">
+
     <div class="panel-heading">
         <h4 class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
-    @if(request()->route()->getName() == 'Patients Details')
-        @foreach($patients as $patient)    
-            <table id="shTable" class="table table-striped table-bordered">
-                <thead class="">
+    </br>
+    <div class="info-box">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
+                 
+                <thead >
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -17,8 +21,10 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-
+               
                 <tbody>
+                
+                @foreach($patients as $patient) 
                     <tr>
                         <td>{{$patient->first_name}}</td>   
                         <td>{{$patient->last_name}}</td>  
@@ -28,28 +34,34 @@
                         <td>{{$patient->phone_number}}</td>
                         <td>{{$patient->address}}</td>
                         <td>
-                        <a href="/remove-patients/{{$patients->id}}">Add Visit</a>
-                        <a href="/edit-patients/{{$patients->id}}">Edit</a>
+                        <a href="/delete-patient/{{$patient->id}}">Delete </a>
+                        </td>
+                        <td>
+                        <a href="/get-edit-patients-form/{{$patient->id}}">Edit</a>
                         </td>
                     </tr>
-                    
+                    @endforeach
+
                 </tbody>
             </table>
-        @endforeach
+            </div> 
+            </div> 
+           
+    </div> 
     @endif 
-</div> 
 
 
 
 
+
+@if(request()->route()->getName() == 'Appointments Details')
 <div class="panel panel-primary-head">
     <div class="panel-heading">
         <h4 class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
-    @if(request()->route()->getName() == 'Appointments Details')
-        @foreach($appointments as $appointments)    
-            <table id="shTable" class="table table-striped table-bordered">
-                <thead class="">
+            
+            <table  class="table table-striped table-bordered">
+                <thead>
                     <tr>
                         <th>Patient Number</th>
                         <th>Doctor Number</th>
@@ -59,35 +71,36 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-
+                
                 <tbody>
+                @foreach($appointments as $appointments)
                     <tr>
                         <td>{{$appointments->patient_id}}</td>   
                         <td>{{$appointments->medical_practitioner_id}}</td>  
                         <td>{{$appointments->appointment_date}}</td>  
                         <td>{{$appointments->appointment_time}}<td>   
                         <td>{{$appointments->status}}</td> 
-                        <td>
-                        <a href="/remove-appointments/{{$appointments->id}}">Add Appointment</a>
-                        <a href="/change-appointments/{{$appointments->id}}">Edit</a>
-                        </td>
+                        <td><a href="/delete-appointments/{{$appointments->id}}">Delete</a>
+                        <a href="/get-edit-appointments-form/{{$appointments->id}}">Edit</a> </td>
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
-        @endforeach
-    @endif 
+       
 </div> 
 
+@endif 
 
 
 
+
+@if(request()->route()->getName() == 'Visits Details')
 <div class="panel panel-primary-head">
     <div class="panel-heading">
         <h4 class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
-    @if(request()->route()->getName() == 'Visits Details')
-        @foreach($visits as $visits)    
+
+            
             <table id="shTable" class="table table-striped table-bordered">
                 <thead class="">
                     <tr>
@@ -100,21 +113,22 @@
                 </thead>
 
                 <tbody>
+                @foreach($visits as $visits)
                     <tr>
-                        <td>{{$patient->patient_id}}</td>   
-                        <td>{{$patient->visit_date}}</td>  
-                        <td>{{$patient->visit_category}}<td>   
-                        <td>{{$patient->next_visit}}</td> 
+                        <td>{{$visits->patient_id}}</td>   
+                        <td>{{$visits->visit_date}}</td>  
+                        <td>{{$visits->visit_category}}<td>   
+                        <td>{{$visits->next_visit}}</td> 
                         <td>
-                        <a href="/remove-visits/{{$visits->id}}">Add Visit</a>
-                        <a href="/change-visits/{{$visits->id}}">Edit</a>
+                        <a href="/delete-visits/{{$visits->id}}">Delete </a>
+                        <a href="/get-edit-visits-form/{{$visits->id}}">Edit</a>
                         </td>
                     </tr>
-                    
+                    @endforeach 
                 </tbody>
             </table>
-        @endforeach
-    @endif 
+        
 </div> 
+    @endif 
 
 

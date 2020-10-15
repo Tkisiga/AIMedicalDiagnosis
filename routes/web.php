@@ -4,25 +4,30 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',function(){ return view('welcome');});
+Route::group(['middleware' => ['auth']], function () {
 Route::get('/dashboard', function () {
     return view('admin_pages');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/create-patients','patientsController@createPatients')->name("Register Patient");
-Route::patch('/change-patient/{id}','patientsController@changePatient');
-Route::delete('/delete-patient/{id}','patientsController@deletePatients');
+Route::get('/create-patients','patientsController@validatePatient');
+Route::get('/change-patient/{id}','patientsController@changePatient');
+Route::get('/delete-patient/{id}','patientsController@deletePatients');
 Route::get('/get-patient','patientsController@getpatient')->name("Patients Details");
+Route::get('/get-patients-create-form','patientsController@getCreatePatientsForm')->name("Register Patient");
+Route::get('/get-edit-patients-form/{id}','patientsController@getEditPatientsForm')->name("Edit Patients");
 
 Route::post('/create-diseases', 'diseasesController@createDiseases');
 Route::patch('/change-diseases/{id}','diseasesController@changeDiseases');
 Route::delete('/delete-diseases/{id}','diseasesController@deleteDisease');
 Route::get('/get-diseases','diseasesController@getdiseases')->name("Diseases Details");
 
-Route::post('/create-clinicFindings','clinicFindingsController@createClinicFindings');
+Route::get('/create-clinicFindings','clinicFindingsController@validateClinicFindings');
 Route::patch('/change-clinicFindings/{id}','clinicFindingsController@changeClinicFindings');
-Route::delete('/delete-clinicFindings/{id}','clinicFindingsController@deleteClinicFindings');
-Route::get('/get-clinicFindings','clinicFindingsController@getclinicFindings')->name("clinicFindings Details");
+Route::get('/delete-clinicFindings/{id}','clinicFindingsController@deleteClinicFindings');
+Route::get('/get-clinicFindings','clinicFindingsController@getclinicFindings')->name("Clinic Findings Details");
+Route::get('/get-create-clinic-findings-form','clinicFindingsController@getCreateClinicFindingsForm')->name("Make Clinic Examinations");
+Route::get('/get-edit-clinic-findings-form/{id}','clinicFindingsController@getEditClinicFindingsForm')->name('Edit Clinic Examination');
 
 Route::post('/create-medicalPractitioners','medicalPractitionersController@createMedicalPractitioners');
 Route::patch('/change-medicalPractitioners/{id}','medicalPractitionersController@changeMedicalPractitioners');
@@ -83,16 +88,21 @@ Route::patch('/change-management/{id}','managementController@changeManagement');
 Route::delete('/remove-management/{id}','managementController@removeManagement');
 Route::get('/get-manangement','manangementController@getManangement')->name("Manangement Details");
 
-Route::post('/create-visits','visitsController@createVisits')->name("Register Visit");
-Route::patch('/change-visits/{id}','visitsController@changeVisits');
-Route::delete('/delete-visits/{id}','visitsController@removeVisits');
+Route::get('/create-visits','visitsController@validateVisits');
+Route::get('/change-visits/{id}','visitsController@changeVisits');
+Route::get('/delete-visits/{id}','visitsController@deleteVisits');
 Route::get('/get-visits','visitsController@getVisits')->name("Visits Details");
+Route::get('/get-create-visits-form','visitsController@getCreateVisitsForm')->name("Register Visit");
+Route::get('/get-edit-visits-form/{id}','visitsController@getEditVisitsForm')->name("Edit Visits");
 
-Route::post('/create-appointments','appointmentsController@createAppointments')->name("Make Appointment");
+Route::get('/create-appointments','appointmentsController@validateAppointments');
 Route::patch('/change-appointments/{id}','appointmentsController@changeAppointments');
-Route::delete('/delete-appointments/{id}','appointmentsController@removeAppointments');
+Route::get('/delete-appointments/{id}','appointmentsController@deleteAppointments');
 Route::get('/get-appointments','appointmentsController@getAppointments')->name("Appointments Details");
+Route::get('/get-create-appointments-form','appointmentsController@getCreateAppointmentsForm')->name("Make Appointment");
+Route::get('/get-edit-appointments-form/{id}','appointmentsController@getEditAppointmentsForm')->name('Edit Appointments');
 
+});
 
 Auth::routes();
 

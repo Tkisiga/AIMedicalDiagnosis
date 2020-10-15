@@ -13,80 +13,121 @@
             @include('admin_layouts.sidebar')
                 
                 <div class="mainpanel">
-                    
+                @include('admin_layouts.message')
+                        <div class="panel-heading">
+                            <h5 class="panel-title">{{request()->route()->getName()}}</h5>
+                        </div><!-- panel-heading -->    
                     
                     <div class="contentpanel">
                         
-                   
-<form action="/create-visits" method="post" id="valWizard" class="panel-wizard">
-    <ul class="nav nav-justified nav-wizard nav-disabled-click">
-        <li><a href="#Patient info" data-toggle="tab"><strong>Step 1:</strong> Patients Info</a></li>
-        <li><a href="#Visits" data-toggle="tab"><strong>Step 2:</strong> Visits</a></li>
-        <li><a href="#Appointments" data-toggle="tab"><strong>Step 3:</strong> Appointments</a></li>
-    </ul>
-        <div class="tab-pane" id="Appointments">
-            <div class="form-group">
-                <label class="col-sm-4">Patient No</label>
-                <div class="col-sm-8">
-                    <input type="text" name="patientNo" class="form-control" />
-                </div>
-            </div><!-- form-group -->
+                        <div class="col-md-6 panel " >
 
-            <div class="form-group">
-                <label class="col-sm-4">Patient Names</label>
-                <div class="col-sm-8">
-                    <input type="text" name="patient" class="form-control" />
-                </div>
-            </div><!-- form-group -->
+                            <!-- BASIC WIZARD -->
+                           <div class="card">
+                            <form method="get" action ="/create-appointments"  >
+                            
+                                <div class= "form-group">
+                                    <label class="col-sm-4 control-label">Medical Practitioner ID:<span class="asterisk">*</span></label>
+                                    <div class="form-group">
+                                        <input type="text" name="medical_practitioner_id" class="form-control" title="Field is required!" />
+                                    </div>
+                                </div><!-- form-group -->
 
-            <div class="form-group">
-                <label class="col-sm-4">Visit No</label>
-                <div class="col-sm-4">
-                    <input type="text" name="visitNo" class="form-control" />
-                </div>
-            </div><!-- form-group -->
+                                <div class="form-group">
+                                    <label>Appointment Date:<span class="asterisk">*</span> </label>
+                                        <div class="input-group">
+                                            <input type="text" name="appointment_date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        </div><!-- input-group -->
+                                </div><!-- form-group -->
 
-            <div class="form-group">
-                <label class="col-sm-4">Appointment No</label>
-                <div class="col-sm-4">
-                    <input type="text" name="appointment" class="form-control" />
-                </div>
-            </div><!-- form-group -->
+                                <div class="form-group">
+                                    <label>Appointment Time:<span class="asterisk">*</span></label>
+                                        <div class="input-group mb15">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                            <div class="bootstrap-timepicker"><input name="appointment_time" id="timepicker" type="text" class="form-control"/></div>
+                                        </div><!-- input-group -->
+                                </div><!-- form-group -->
 
-            <div class="form-group">
-                <label class="col-sm-4">Appointment Date</label>
-                <div class="col-sm-4">
-                    <input type="text" name="appointmentdate" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-multiple" required />
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                </div>
-            </div><!-- form-group -->
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">status:<span class="asterisk">*</span></label>
+                                    <div class=" col-sm-4">
+                                        <input type="radio" name="status" value="Confirmed" id="radioPrimary" />
+                                        <label>Confirmed</label>
+                                    </div>
+                                            
+                                    <div class=" col-sm-4">
+                                        <input type="radio" name="status" value="Not Confirmed" id="radioPrimary" />
+                                        <label>Not Confirmed</label>
+                                    </div>
+                                </div><!-- form-group -->
 
-            <div class="form-group">
-                <label class="col-sm-4">Appointment Time</label>
-                <div class="col-sm-4">
-                    <input type="text" name="appointmenttime" class="form-control" required />
-                </div>
-            </div><!-- form-group -->
-        </div><!-- tab-pane -->
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button class="btn btn-primary mr5">Submit</button>
+                                            <button type="reset" class="btn btn-dark">Reset</button>
+                                        </div>
+                                    </div>
+                                </div><!-- panel-footer -->         
+                            </form> 
 
-        <ul class="list-unstyled wizard">
-            <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li>
-            <li class="pull-right next"><button type="button" class="btn btn-primary">Next</button></li>
-            <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">Finish</button></li>
-        </ul>
+                        </div> 
+
+                        </div><!-- tab-pane -->
+
+                </div>
+            </div>
+                         
         
-    </form><!-- panel-wizard -->
-  
-                       
-
 
         </section>
 
 
         @include('admin_layouts.javascript')
+
+        <script src="js/custom.js"></script>
+        <script>
+            jQuery(document).ready(function() {
+                
+                // Tags Input
+                jQuery('#tags').tagsInput({width:'auto'});
+                 
+                // Textarea Autogrow
+                jQuery('#autoResizeTA').autogrow();
+                
+                
+                // Time Picker
+                jQuery('#timepicker').timepicker({defaultTIme: false});
+                jQuery('#timepicker2').timepicker({showMeridian: false});
+                jQuery('#timepicker3').timepicker({minuteStep: 15});
+                
+                // Date Picker
+                jQuery('#datepicker').datepicker();
+                jQuery('#datepicker-inline').datepicker();
+                jQuery('#datepicker-multiple').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+                
+            });
+        </script>
     </body>
+
 
 <!-- Mirrored from themetrace.com/demo/chain/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2020 04:30:31 GMT -->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

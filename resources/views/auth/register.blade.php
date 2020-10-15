@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('index_layouts.styling')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -73,5 +73,8 @@
             </div>
         </div>
     </div>
+    @include('index_layouts.javascript')
 </div>
 @endsection
+
+

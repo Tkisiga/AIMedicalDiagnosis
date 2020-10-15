@@ -9,35 +9,57 @@ use App\Http\Resources\clinicFindingsResource;
 class clinicFindingsController extends Controller
 {
     public function __construct(){
-        // $this->middleware('auth'); 
+        $this->middleware('auth'); 
          $this->authenticated_instance = new AuthenticatedController; 
      }
-    public function createClinicFindings()
+    private function createClinicFindings()
     {
         return clinicFindings::create($this->validateClinicFindings());
     }
-    public function validateClinicFindings()
+    public function getCreateClinicFindingsForm(){
+        return view('admin_forms.clinic_findings_form');
+    }
+    public function getEditClinicFindingsForm(){
+        return view('admin_form.edit_clinic_findings_form');
+    }
+
+    protected function validateClinicFindings()
     {
-        return request()->validate([
-        'patient_history_id'=>'required',
-        'general_appearance_id'=>'required',
-        'physical_examination_id'=>'required',
-        'updated_by'=>'required'
-        ]);
+        $clinicFindings                           = new clinicFindings;
+        $clinicFindings->Hands                    = request()->Hands;
+        $clinicFindings->Skin                     = request()->Skin;
+        $clinicFindings->Neck                     = request()->Neck;
+        $clinicFindings->Head                     =request()->Head;
+        $clinicFindings->eyes                     =request()->eyes;
+        $clinicFindings->Insulin_injection_sites  =request()->Insulin_injection_sites;
+        $clinicFindings->Legs                     =request()->Legs;
+        $clinicFindings->Feet                     =request()->Feet;
+        $clinicFindings->Symptoms                 =request()->Symptoms;
+        $clinicFindings->Observations             =request()->Observations;
+        $clinicFindings->created_by               = $this->authenticated_instance->getAuthenticatedUser();
+        $clinicFindings->save();
+        return redirect()->back()->with('message',"New patient clinic findings successfully created");
     }
     public function getClinicFindings(){
         return clinicFindingsResource::collection(clinicFindings::all());
     }
     public function changeClinicFindings($id){
         clinicFindings::where('id',$id)->update(array(
-            'patient_history_id' => request()->patient_history_id,
-            'general_appearance_id' => request()->general_appearance_id,
-            'physical_examination_id' => request()->physical_examination_id,
-            'updated_by' => $this->authenticated_instance->getAuthenticatedUser(),
-            'created_by' => $this->authenticated_instance->getAuthenticatedUser()
+            'Hands'                   => request()->Hands,
+            'Skin'                    => request()->Skin,
+            'Neck'                    => request()->Neck,
+            'Head'                    => request()->Head,
+            'eyes'                    => request()->eyes,
+            'Insulin_injection_sites' => request()->Insulin_injection_sites,
+            'Legs'                    => request()->Legs,
+            'Feet'                    => request()->Feet,
+            'Symptoms'                => request()->Symptoms,
+            'Observations'            => request()->Observations,
             ));
+            return redirect()->back()->with('message', "Your changes were made successfully");
     }
     public function deleteClinicFindings($id){
         clinicFindings::where('id',$id)->delete();
+        return redirect()->back()->with('message', "Your changes were made successfully");
     }
 }

@@ -13,18 +13,31 @@ class patientsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    public function createPatients(){
+
+    /**
+     * this function takes to the blade that has the create patients form
+     */
+    protected function getCreatePatientsForm(){
+        return view('admin_forms.patient_reg'); 
+    }
+    protected function getEditPatientsForm($id){
+        return view('admin_forms.patient_edit_form', compact('edit_patient')); 
+    }
+
+    private function createPatients(){
         $patients                    = new patients;
         $patients->first_name        = request()->first_name;
         $patients->last_name         = request()->last_name;
         $patients->gender            = request()->gender;
         $patients->age               = request()->age;
         $patients->phone_number      = request()->phone_number;
+        $patients->kin               = request()->kin;
+        $patients->kin_contact      = request()->kin_contact;
         $patients->address           = request()->address;
-        $patients->join_date         = request()->join_date;
         $patients->created_by        = $this->authenticated_instance->getAuthenticatedUser();
-        $patients->save();
-        return view('admin_forms.patient_reg',compact('patients'));   
+        $patients->save();  
+
+        return redirect()->back()->with('message',"New patient has been created successfuly");
     }
 
     protected function validatePatient()
@@ -39,8 +52,11 @@ class patientsController extends Controller
                 return redirect()->back()->withErrors("Please enter your age");
             }elseif(empty(request()->address)){
                 return redirect()->back()->withErrors("Please enter your address");
-            }elseif(empty(request()->join_date)){
-                return redirect()->back()->withErrors("Please enter your join date");
+            }elseif(empty(request()->kin)){
+                return redirect()->back()->withErrors("Please enter your kin");
+            }elseif(empty(request()->kin_contact)){
+                return redirect()->back()->withErrors("Please enter your kin contact");
+            
             }elseif(empty(request()->phone_number)){
                 return redirect()->back()->withErrors("Please enter your phone number");
             }else{    
@@ -48,7 +64,7 @@ class patientsController extends Controller
         }
     }
     public function getPatient(){
-        $patients= patientsResource::collection(patients::paginate(10));
+        $patients= patientsResource::collection(patients::all());
         return view('admin_forms.get_patient',compact('patients'));
     }
     public function changePatient($id){
@@ -58,13 +74,15 @@ class patientsController extends Controller
             'gender'         => request()->gender,
             'age'            => request()->age,
             'phone_number'   => request()->phone_number,
+            'kin'            => request()->kin,
+            'kin_contact'    => request()->kin_contact,
             'address'        => request()->address,
-            'join_date'      => request()->join_date,
+            
         ));
-        return redirect()->back()->with('msg', "Your changes were made successfully");
+        return redirect()->back()->with('message', "Your changes were made successfully");
     }
     public function deletePatients($id){
         patients::find($id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('message', "Your changes were made successfully");
     }
 }

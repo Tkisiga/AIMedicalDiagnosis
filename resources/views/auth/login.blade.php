@@ -1,7 +1,9 @@
-@extends('layouts.app')
 
+<div style="background-image:url(index/images/bg_1.jpg);"  class="container">
+@extends('layouts.app')
 @section('content')
-<div class="container">
+@include('index_layouts.styling')
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -29,6 +31,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
+
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -69,5 +72,6 @@
             </div>
         </div>
     </div>
+    @include('index_layouts.javascript')
 </div>
 @endsection

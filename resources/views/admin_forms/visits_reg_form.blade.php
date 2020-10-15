@@ -1,104 +1,133 @@
-<div class="col-md-6">
-                                <h5 class="lg-title">Wizard with Form Validation</h5>
-                                <p class="mb20">Same with basic wizard setup but with form validation</p>
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from themetrace.com/demo/chain/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2020 04:30:31 GMT -->
+@include('admin_layouts.styling')
 
-                                <!-- BASIC WIZARD -->
-                                <form action="/create-visits" method="post" id="valWizard" class="panel-wizard">
-                                    <ul class="nav nav-justified nav-wizard nav-disabled-click">
-                                        <li><a href="#Patient info" data-toggle="tab"><strong>Step 1:</strong> Patients Info</a></li>
-                                        <li><a href="#Visits" data-toggle="tab"><strong>Step 2:</strong> Visits</a></li>
-                                        <li><a href="#Appointments" data-toggle="tab"><strong>Step 3:</strong> Appointments</a></li>
-                                    </ul>
-
-                                    <div class="tab-content">
-                                        
-                                        <div class="tab-pane" id="Visits">
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Patients No</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="patientNo" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Visit No</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="visitNo" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Visit Date</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="visitdate" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-multiple" required />
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Category No</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="category" class="form-control" required />
-                                                    <select id="select-search-hide" data-placeholder="Choose One" class="width300" required>
-                                                        <option >Consultation</option>
-                                                        <option >Referal</option>
-                                                        <option >Refill</option>
-                                                        <option >Medication</option>
-                                                        <option >Follow up</option>
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Patients Names</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="names" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Age</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="age" class="form-control" required />
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Gender</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="gender" class="form-control" required />
-                                                    <select id="select-search-hide" data-placeholder="Choose One" class="width300" required>
-                                                        <option >Male</option>
-                                                        <option >Female</option>
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Join Date</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="joindate" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-multiple" required />
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                                </div>
-                                            </div><!-- form-group -->
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4">Last Visit Date</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="lastvisitdate" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-multiple" required />
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                                </div>
-                                            </div><!-- form-group -->
-                                            
-                                        </div><!-- tab-pane -->
-
-                                        
-                                    </div><!-- tab-content -->
+    <body>
+        
+    @include('admin_layouts.top_navbar')
+        
+        <section>
+            <div class="mainwrapper">
+            @include('admin_layouts.sidebar')
                 
-                                    <ul class="list-unstyled wizard">
-                                        <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li>
-                                        <li class="pull-right next"><button type="button" class="btn btn-primary">Next</button></li>
-                                        <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">Finish</button></li>
-                                    </ul>
-                                    
-                                </form><!-- panel-wizard -->
-              
-                            </div><!-- col-md-6 -->
+                <div class="mainpanel">
+                @include('admin_layouts.message')
+                        <div class="panel-heading">
+                            <h5 class="panel-title">{{request()->route()->getName()}}</h5>
+                        </div><!-- panel-heading -->    
+                    
+                    <div class="contentpanel">
+                        
+                        <div class="col-md-6 panel " >
+
+                            <!-- BASIC WIZARD -->
+                           <div class="card">
+                            <form method="get" action ="/create-visits"  >
+                            
+                                <div class= "form-group">
+                                    <label class="col-sm-4 control-label">Patient ID:<span class="asterisk">*</span></label>
+                                    <div class="form-group">
+                                        <input type="text" name="patient_id" class="form-control" title="Field is required!" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label>Visit Date:<span class="asterisk">*</span> </label>
+                                        <div class="input-group">
+                                            <input type="text" name="visit_date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        </div><!-- input-group -->
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label>Visit Category:<span class="asterisk">*</span> </label>
+                                    <div class="form-group">
+                                        <select id="select-search-hide" name="visit_category" data-placeholder="Choose One" class="width300">
+                                            <option value="Self Request">Self Request</option>
+                                            <option value="Consultation">Consultation</option>
+                                            <option value="Follow Up">Follow Up</option>
+                                            <option value="Referral">Referral</option>
+                                            <option value="Refill">Refill</option>
+                                        </select>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label>Next Visit Date:<span class="asterisk">*</span> </label>
+                                        <div class="input-group">
+                                            <input type="text" name="next_visit" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                        </div><!-- input-group -->
+                                </div><!-- form-group -->
+
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button class="btn btn-primary mr5">Submit</button>
+                                            <button type="reset" class="btn btn-dark">Reset</button>
+                                        </div>
+                                    </div>
+                                </div><!-- panel-footer -->         
+                            </form> 
+
+                        </div> 
+
+                        </div><!-- tab-pane -->
+
+                </div>
+            </div>
+                         
+        
+
+        </section>
+
+
+        @include('admin_layouts.javascript')
+
+        <script src="js/custom.js"></script>
+        <script>
+            jQuery(document).ready(function() {
+                
+                // Tags Input
+                jQuery('#tags').tagsInput({width:'auto'});
+                 
+                // Textarea Autogrow
+                jQuery('#autoResizeTA').autogrow();
+                
+                
+                // Time Picker
+                jQuery('#timepicker').timepicker({defaultTIme: false});
+                jQuery('#timepicker2').timepicker({showMeridian: false});
+                jQuery('#timepicker3').timepicker({minuteStep: 15});
+                
+                // Date Picker
+                jQuery('#datepicker').datepicker();
+                jQuery('#datepicker-inline').datepicker();
+                jQuery('#datepicker-multiple').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+                
+            });
+        </script>
+    </body>
+
+
+<!-- Mirrored from themetrace.com/demo/chain/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Mar 2020 04:30:31 GMT -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
