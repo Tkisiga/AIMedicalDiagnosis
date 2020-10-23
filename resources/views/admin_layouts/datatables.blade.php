@@ -1,6 +1,12 @@
+
+<link href="{{asset('css/select2.css')}}" rel="stylesheet" />
+<link href="{{asset('css/style.datatables.css')}}" rel="stylesheet">
+<link href="{{asset('cdn.datatables.net/responsive/1.0.1/css/dataTables.responsive.css')}}" rel="stylesheet">
+
 @if(request()->route()->getName() == 'Patients Details')
 <div class="panel ">
 
+@include('admin_layouts.message')
     <div class="panel-heading">
         <h4 class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
@@ -11,9 +17,8 @@
                  
                 <thead >
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Other Name</th>
+                        <th>No</th>
+                        <th>Name (s)</th>
                         <th>Age </th>
                         <th>Gender</th>
                         <th>Contact</th>
@@ -23,20 +28,16 @@
                 </thead>
                
                 <tbody>
-                
-                @foreach($patients as $patient) 
+                @foreach($patients as $id=>$patient) 
                     <tr>
-                        <td>{{$patient->first_name}}</td>   
-                        <td>{{$patient->last_name}}</td>  
-                        <td>{{$patient->other_name}}<td>   
+                        <td>{{ $id +1}}</td>
+                        <td>{{$patient->first_name}} {{$patient->last_name}} {{$patient->other_name}}</td>   
                         <td>{{$patient->age}}</td> 
                         <td>{{$patient->gender}}</td>
                         <td>{{$patient->phone_number}}</td>
                         <td>{{$patient->address}}</td>
                         <td>
                         <a href="/delete-patient/{{$patient->id}}">Delete </a>
-                        </td>
-                        <td>
                         <a href="/get-edit-patients-form/{{$patient->id}}">Edit</a>
                         </td>
                     </tr>
@@ -130,5 +131,109 @@
         
 </div> 
     @endif 
+
+    <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js')}}"></script>
+        <script src="{{asset('cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.js')}}"></script>
+        <script src="{{asset('js/select2.min.js')}}"></script>
+
+        <script src="{{asset('js/custom.js')}}"></script>
+        <script>
+            jQuery(document).ready(function(){
+                
+                jQuery('#basicTable').DataTable({
+                    responsive: true
+                });
+                
+                var shTable = jQuery('#shTable').DataTable({
+                    "fnDrawCallback": function(oSettings) {
+                        jQuery('#shTable_paginate ul').addClass('pagination-active-dark');
+                    },
+                    responsive: true
+                });
+                
+                // Show/Hide Columns Dropdown
+                jQuery('#shCol').click(function(event){
+                    event.stopPropagation();
+                });
+                
+                jQuery('#shCol input').on('click', function() {
+
+                    // Get the column API object
+                    var column = shTable.column($(this).val());
+ 
+                    // Toggle the visibility
+                    if ($(this).is(':checked'))
+                        column.visible(true);
+                    else
+                        column.visible(false);
+                });
+                
+                var exRowTable = jQuery('#exRowTable').DataTable({
+                    responsive: true,
+                    "fnDrawCallback": function(oSettings) {
+                        jQuery('#exRowTable_paginate ul').addClass('pagination-active-success');
+                    },
+                    "ajax": "ajax/objects.txt",
+                    "columns": [
+                        {
+                            "class":          'details-control',
+                            "orderable":      false,
+                            "data":           null,
+                            "defaultContent": ''
+                        },
+                        { "data": "name" },
+                        { "data": "position" },
+                        { "data": "office" },
+                        { "data": "salary" }
+                    ],
+                    "order": [[1, 'asc']] 
+                });
+                
+                // Add event listener for opening and closing details
+                jQuery('#exRowTable tbody').on('click', 'td.details-control', function () {
+                    var tr = $(this).closest('tr');
+                    var row = exRowTable.row( tr );
+             
+                    if ( row.child.isShown() ) {
+                        // This row is already open - close it
+                        row.child.hide();
+                        tr.removeClass('shown');
+                    }
+                    else {
+                        // Open this row
+                        row.child( format(row.data()) ).show();
+                        tr.addClass('shown');
+                    }
+                });
+               
+                
+                // DataTables Length to Select2
+                jQuery('div.dataTables_length select').removeClass('form-control input-sm');
+                jQuery('div.dataTables_length select').css({width: '60px'});
+                jQuery('div.dataTables_length select').select2({
+                    minimumResultsForSearch: -1
+                });
+    
+            });
+            
+            function format (d) {
+                // `d` is the original data object for the row
+                return '<table class="table table-bordered nomargin">'+
+                    '<tr>'+
+                        '<td>Full name:</td>'+
+                        '<td>'+d.name+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                        '<td>Extension number:</td>'+
+                        '<td>'+d.extn+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                        '<td>Extra info:</td>'+
+                        '<td>And any further details here (images etc)...</td>'+
+                    '</tr>'+
+                '</table>';
+            }
+        </script>
 
 

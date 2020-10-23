@@ -102,7 +102,7 @@
                                     <div class="col-sm-9 col-sm-offset-3">
                                         <button class="btn btn-primary mr5">Submit</button>
                                         <button type="reset" class="btn btn-dark">Reset</button>
-                                        <a href="/get-patient"><button type="back" class="btn btn-dark">Back</button></a>
+                                        <a href="/get-patient"><button type="button" class="btn btn-dark">Back</button></a>
                                     </div>
                                 </div>
                             </div><!-- panel-footer -->         

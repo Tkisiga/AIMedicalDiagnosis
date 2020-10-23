@@ -18,6 +18,8 @@
                     <div class="contentpanel">
                         
                     @include('admin_layouts.cards')
+
+                    @include('admin_layouts.graphs')
                         
                        
 

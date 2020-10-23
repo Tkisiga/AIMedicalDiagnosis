@@ -18,13 +18,15 @@
                     <div class="contentpanel">
                         
                     
-                    <div class="col-md-6">
+                    
         <h5 class="lg-title">Clinical Findings Form</h5>
+        <div class="row">
+                        <div class="col-md-12 panel">
 
         <!-- BASIC WIZARD -->
         <form method="get" action="/create-clinicFindings" id="valWizard" class="panel-wizard">
             <ul class="nav nav-justified nav-wizard nav-disabled-click">
-                <li><a href="#tab1-4" data-toggle="tab"><strong>Symptoms</strong></a></li>
+                <li><a href="#tab1-4" selected="true" data-toggle="tab"><strong>Symptoms</strong></a></li>
                 <li><a href="#tab2-4" data-toggle="tab"><strong>Observations</strong></a></li>
                 <li><a href="#tab3-4" data-toggle="tab"><strong>Clinical Examinations</strong></a></li>
             </ul>
@@ -36,49 +38,49 @@
                         <label class="col-sm-4 control-label">Symptoms</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="fatigue" id="checkboxDefault"  />
+                                    <input type="checkbox" value="fatigue" id="checkboxDefault"/>
                                     <label for="checkboxDefault">Fatigue</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="nausea" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Nausea</label>
+                                    <input type="checkbox" value="nausea" id="checkboxNause"/>
+                                    <label for="checkboxNause">Nausea</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="hyperphagia" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Hyperphagia</label>
+                                    <input type="checkbox" value="hyperphagia" id="checkboxHyper"/>
+                                    <label for="checkboxHyper">Hyperphagia</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="blurry vision" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Blurry Vision</label>
+                                    <input type="checkbox" value="blurry vision" id="checkboxBlur"  />
+                                    <label for="checkboxBlur">Blurry Vision</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="weight loss" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Weight Loss</label>
+                                    <input type="checkbox" value="weight loss" id="checkboxWei"/>
+                                    <label for="checkboxWei">Weight Loss</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="mood change" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Mood Change</label>
+                                    <input type="checkbox" value="mood change" id="checkboxMo"/>
+                                    <label for="checkboxMo">Mood Change</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="nocturia" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Nocturia</label>
+                                    <input type="checkbox" value="nocturia" id="checkboxNo"/>
+                                    <label for="checkboxNo">Nocturia</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="genital candidiasis" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Genital Candidiasis</label>
+                                    <input type="checkbox" value="genital candidiasis" id="checkboxGe"/>
+                                    <label for="checkboxGe">Genital Candidiasis</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="headache" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Headache</label>
+                                    <input type="checkbox" value="headache" id="checkboxHead"/>
+                                    <label for="checkboxHead">Headache</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="polyuria" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Polyuria</label>
+                                    <input type="checkbox" value="polyuria" id="checkboxPo"/>
+                                    <label for="checkboxPo">Polyuria</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="dry mouth" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Dry Mouth</label>
+                                    <input type="checkbox" value="dry mouth" id="checkboxDr"/>
+                                    <label for="checkboxDr">Dry Mouth</label>
                                 </div>
                                 
 
@@ -98,17 +100,17 @@
                         <label class="col-sm-4 control-label">Observations</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="dehydration" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Dehydration</label>
+                                    <input type="checkbox" value="dehydration" id="checkboxDe"  />
+                                    <label for="checkboxDe">Dehydration</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="air hunger" id="checkboxPrimary" />
-                                    <label for="checkboxPrimary">Air hunger</label>
+                                    <input type="checkbox" value="air hunger" id="checkboxAi" />
+                                    <label for="checkboxAi">Air hunger</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="mucosal candidiasis" id="checkboxPrimary" />
-                                    <label for="checkboxPrimary">Mucosal candidiasis</label>
+                                    <input type="checkbox" value="mucosal candidiasis" id="checkboxMus" />
+                                    <label for="checkboxMus">Mucosal candidiasis</label>
                                 </div>
                                 
                             </div><!-- tab-pane -->
@@ -121,25 +123,25 @@
                         <label class="col-sm-4 control-label">Hands</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="cheiroarthropathy" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Cheiroarthropathy</label>
+                                    <input type="checkbox" value="cheiroarthropathy" id="checkboxM"  />
+                                    <label for="checkboxM">Cheiroarthropathy</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="trigger fingers" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Trigger fingers</label>
+                                    <input type="checkbox" value="trigger fingers" id="checkboxN"  />
+                                    <label for="checkboxN">Trigger fingers</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="muscle wasting" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Muscle wasting</label>
+                                    <input type="checkbox" value="muscle wasting" id="checkboxL"  />
+                                    <label for="checkboxL">Muscle wasting</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="sclerodatyly" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Sclerodatyly</label>
+                                    <input type="checkbox" value="sclerodatyly" id="checkboxK"  />
+                                    <label for="checkboxK">Sclerodatyly</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="carpal tunnel syndrome" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Carpal Tunnel Syndrome</label>
+                                    <input type="checkbox" value="carpal tunnel syndrome" id="checkboxJ"  />
+                                    <label for="checkboxJ">Carpal Tunnel Syndrome</label>
                                 </div>
 
                     
@@ -147,21 +149,21 @@
                             <label class="col-sm-4 control-label" name="Skin" >Skin</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="bullae" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Bullae</label>
+                                    <input type="checkbox" value="bullae" id="checkboxH"  />
+                                    <label for="checkboxH">Bullae</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="pigmentation" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Pigmentation</label>
+                                    <input type="checkbox" value="pigmentation" id="checkboxG"  />
+                                    <label for="checkboxG">Pigmentation</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="granuloma annulare" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Granuloma Annulare</label>
+                                    <input type="checkbox" value="granuloma annulare" id="checkboxS"  />
+                                    <label for="checkboxS">Granuloma Annulare</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="vitiligo" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Vitiligo</label>
+                                    <input type="checkbox" value="vitiligo" id="checkboxPA"  />
+                                    <label for="checkboxPA">Vitiligo</label>
                                 </div>
 
                     
@@ -169,17 +171,17 @@
                             <label class="col-sm-4 control-label" name="Neck" >Neck</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="carotid pulse" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Carotid pulse</label>
+                                    <input type="checkbox" value="carotid pulse" id="checkboxR"  />
+                                    <label for="checkboxR">Carotid pulse</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="bruits" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Bruits</label>
+                                    <input type="checkbox" value="bruits" id="checkboxE"  />
+                                    <label for="checkboxE">Bruits</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="thyroid enlargement" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Thyroid enlargement</label>
+                                    <input type="checkbox" value="thyroid enlargement" id="checkboxW"  />
+                                    <label for="checkboxW">Thyroid enlargement</label>
                                 </div>
 
                     
@@ -187,13 +189,13 @@
                             <label class="col-sm-4 control-label" name="Head">Head</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="xanthelasma" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Xanthelasma</label>
+                                    <input type="checkbox" value="xanthelasma" id="checkboxT"  />
+                                    <label for="checkboxT">Xanthelasma</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="cranial nerve" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Cranial Nerve Palsy</label>
+                                    <input type="checkbox" value="cranial nerve" id="checkboxY"  />
+                                    <label for="checkboxY">Cranial Nerve Palsy</label>
                                 </div>
 
                     
@@ -201,18 +203,18 @@
                             <label class="col-sm-4 control-label" name="eyes" >Eyes</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="cataract" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Cataract</label>
+                                    <input type="checkbox" value="cataract" id="checkboxX"  />
+                                    <label for="checkboxX">Cataract</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="retinopathy" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Retinopathy</label>
+                                    <input type="checkbox" value="retinopathy" id="checkboxV"  />
+                                    <label for="checkboxV">Retinopathy</label>
                                 </div>
 
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="blurry vision" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Blurry Vision</label>
+                                    <input type="checkbox" value="blurry vision" id="checkboxB"  />
+                                    <label for="checkboxB">Blurry Vision</label>
                                 </div>
 
                     
@@ -220,17 +222,17 @@
                             <label class="col-sm-4 control-label" name="Insulin_injection_sites" >Insulin Injection Sites</label>
                             <div class="col-sm-8 ">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="bruising" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Bruising</label>
+                                    <input type="checkbox" value="bruising" id="checkboxC"  />
+                                    <label for="checkboxC">Bruising</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="subcutaneous fat deposition" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Subcutaneous fat deposition</label>
+                                    <input type="checkbox" value="subcutaneous fat deposition" id="checkboxZ"  />
+                                    <label for="checkboxZ">Subcutaneous fat deposition</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="subcutaneous fat loss" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Subcutaneous fat loss</label>
+                                    <input type="checkbox" value="subcutaneous fat loss" id="checkboxTT"  />
+                                    <label for="checkboxTT">Subcutaneous fat loss</label>
                                 </div>
 
                     
@@ -238,21 +240,21 @@
                             <label class="col-sm-4 control-label" name="Legs" >Legs</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="muscle wasting " id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Muscle wasting </label>
+                                    <input type="checkbox" value="muscle wasting " id="checkboxDD"  />
+                                    <label for="checkboxDD">Muscle wasting </label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="hair loss" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Hair loss</label>
+                                    <input type="checkbox" value="hair loss" id="checkboxSS"  />
+                                    <label for="checkboxSS">Hair loss</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="sensory abnormality" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Sensory abnormality</label>
+                                    <input type="checkbox" value="sensory abnormality" id="checkboxHH"  />
+                                    <label for="checkboxHH">Sensory abnormality</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="tendon reflexes" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Tendon reflexes</label>
+                                    <input type="checkbox" value="tendon reflexes" id="checkboxLL"  />
+                                    <label for="checkboxLL">Tendon reflexes</label>
                                 </div>
 
                                 
@@ -260,33 +262,33 @@
                             <label class="col-sm-4 control-label" name="Feet" >Feet</label>
                             <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="neuropathy" id="checkboxDefault"  />
-                                    <label for="checkboxDefault">Neuropathy</label>
+                                    <input type="checkbox" value="neuropathy" id="checkboxNN"  />
+                                    <label for="checkboxNN">Neuropathy</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="deformity" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Deformity</label>
+                                    <input type="checkbox" value="deformity" id="checkboxXX"  />
+                                    <label for="checkboxXX">Deformity</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="fungal infection between toes and nails" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Fungal infection between toes and nails</label>
+                                    <input type="checkbox" value="fungal infection between toes and nails" id="checkboxWW"  />
+                                    <label for="checkboxWW">Fungal infection between toes and nails</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="ischaemia" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Ischaemia</label>
+                                    <input type="checkbox" value="ischaemia" id="checkboxNM"  />
+                                    <label for="checkboxNM">Ischaemia</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="neuropathic foot ulcer" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Neuropathic foot ulcer</label>
+                                    <input type="checkbox" value="neuropathic foot ulcer" id="checkboxCV"  />
+                                    <label for="checkboxCV">Neuropathic foot ulcer</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="charcot foot" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Charcot foot</label>
+                                    <input type="checkbox" value="charcot foot" id="checkboxSN"  />
+                                    <label for="checkboxSN">Charcot foot</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="clawing of toes" id="checkboxPrimary"  />
-                                    <label for="checkboxPrimary">Clawing of toes</label>
+                                    <input type="checkbox" value="clawing of toes" id="checkboxMNM"  />
+                                    <label for="checkboxMNM">Clawing of toes</label>
                                 </div>
                                 
 
@@ -294,14 +296,18 @@
                             </div><!-- tab-pane -->
                     </div>
             </div><!-- tab-content -->
-
-            <ul class="list-unstyled wizard">
+            <div class="panel-footer">
+        <div class="row">
+            <ul class="col-sm-9 col-sm-offset-3 list-unstyled wizard">
                 <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li>
                 <li class="pull-right next"><button type="button" class="btn btn-primary">Next</button></li>
                 <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">PROGNOSIS</button></li>
             </ul>
+            </div>
+            </div>
             
         </form><!-- panel-wizard -->
+        </div>
 
     </div><!-- col-md-6 -->
 
@@ -312,7 +318,7 @@
 
         @include('admin_layouts.javascript')
 
-        <script src="js/custom.js"></script>
+        <script src="{{asset('js/custom.js')}}"></script>
         <script>
             jQuery(document).ready(function() {
                 

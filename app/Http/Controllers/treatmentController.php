@@ -14,6 +14,7 @@ class treatmentController extends Controller
     }
     public function getAllTreatment(){
         $alltreatment=treatment::get();
+        return $alltreatment;
     }
     
     private function createTreatment(){

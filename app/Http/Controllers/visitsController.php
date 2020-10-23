@@ -16,10 +16,12 @@ class visitsController extends Controller
         return view('admin_forms.visits_reg_form');
     }
     protected function getEditVisitsForm(){
+        $edit_visits = visits::where('id',$id)->get();
         return view('admin_forms.visits_edit_form', compact('edit_visits'));
     }
     public function getAllVisits(){
         $allvisits=visits::get();
+        return $allvisits;
     }
     private function createVisits(){
         $visits                    = new visits;

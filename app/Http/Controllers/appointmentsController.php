@@ -20,6 +20,7 @@ class appointmentsController extends Controller
         return view('admin_forms.appointment_reg_form');
     }
     protected function getEditAppointmentsForm(){
+        $edit_appointments = appointments::where('id',$id)->get();
         return view('admin_forms.appointment_edit_form',compact('edit_appointments'));
     }
     private function createAppointments(){

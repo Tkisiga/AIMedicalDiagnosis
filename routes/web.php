@@ -1,12 +1,16 @@
 <?php
 
+use App\patients;
+use App\visits;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',function(){ return view('welcome');});
 Route::group(['middleware' => ['auth']], function () {
 Route::get('/dashboard', function () {
-    return view('admin_pages');
+    $count_patients = patients::count();
+    $count_visits = visits::count();
+    return view('admin_pages',compact('count_patients','count_visits'));
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -102,6 +106,7 @@ Route::get('/get-appointments','appointmentsController@getAppointments')->name("
 Route::get('/get-create-appointments-form','appointmentsController@getCreateAppointmentsForm')->name("Make Appointment");
 Route::get('/get-edit-appointments-form/{id}','appointmentsController@getEditAppointmentsForm')->name('Edit Appointments');
 
+Route::get('/logout','HomeController@logMeOut');
 });
 
 Auth::routes();

@@ -14,6 +14,7 @@ class diseasesController extends Controller
     }
     public function getAllDiseases(){
         $alldiseases=diseases::get();
+        return $alldiseases;
     }
     private function createDiseases(){
         $diseases                    = new diseases;

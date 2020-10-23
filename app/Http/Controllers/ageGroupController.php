@@ -15,6 +15,7 @@ class ageGroupController extends Controller
 
     public function getAllAgeGroup(){
         $allageGroup=ageGroup::get();
+        return response()->json(allageGroup);
     }
     private function createAgeGroup(){
         $ageGroup                    = new ageGroup;

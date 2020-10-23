@@ -9,7 +9,7 @@
                                         <div class="panel-icon"><i class="fa fa-users"></i></div>
                                         <div class="media-body">
                                             <h5 class="md-title nomargin">Total Number Of Patients</h5>
-                                            <h1 class="mt5">100</h1>
+                                            <h1 class="mt5">{{$count_patients}}</h1>
                                         </div><!-- media-body -->
                                         <hr>
                                         <div class="clearfix mt20">
@@ -36,7 +36,7 @@
                                         <div class="panel-icon"><i class="fa fa-users"></i></div>
                                         <div class="media-body">
                                             <h5 class="md-title nomargin">Total Visits</h5>
-                                            <h1 class="mt5">100</h1>
+                                            <h1 class="mt5">{{ $count_visits }}</h1>
                                         </div><!-- media-body -->
                                         <hr>
                                         <div class="clearfix mt20">

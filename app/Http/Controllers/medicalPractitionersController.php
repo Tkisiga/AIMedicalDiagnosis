@@ -15,6 +15,7 @@ class medicalPractitionersController extends Controller
 
     public function getAllMedicalPractitioners(){
         $allmedicalPractitioners=medicalPractitioners::get();
+        return $allmedicalPractitioners;
     }
 
     private function createMedicalPractitioners(){

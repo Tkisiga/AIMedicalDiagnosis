@@ -19,11 +19,12 @@
                         </div><!-- panel-heading -->    
                     
                     <div class="contentpanel">
+                    <div class="row">
+                        <div class="col-md-12 panel">
                         
-                        <div class="col-md-6 panel " >
 
                             <!-- BASIC WIZARD -->
-                           <div class="card">
+                          
                            @foreach($edit_appointments as $edit_appointments) 
                             <form method="get" action ="/change-appointments/{{$edit_appointments->id}}"  >
                             
@@ -88,7 +89,7 @@
 
         @include('admin_layouts.javascript')
 
-        <script src="js/custom.js"></script>
+        <script src="{{asset('js/custom.js')}}"></script>
         <script>
             jQuery(document).ready(function() {
                 

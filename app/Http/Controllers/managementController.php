@@ -14,6 +14,7 @@ class managementController extends Controller
     }
     public function getAllManagement(){
         $allmanagement=management::get();
+        return $allmanagement;
     }
 
     private function createManagement(){

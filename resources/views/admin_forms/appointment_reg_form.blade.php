@@ -20,10 +20,11 @@
                     
                     <div class="contentpanel">
                         
-                        <div class="col-md-6 panel " >
+                    <div class="row">
+                        <div class="col-md-12 panel">
 
                             <!-- BASIC WIZARD -->
-                           <div class="card">
+                           
                             <form method="get" action ="/create-appointments"  >
                             
                                 <div class= "form-group">
@@ -86,7 +87,7 @@
 
         @include('admin_layouts.javascript')
 
-        <script src="js/custom.js"></script>
+        <script src="{{asset('js/custom.js')}}"></script>
         <script>
             jQuery(document).ready(function() {
                 

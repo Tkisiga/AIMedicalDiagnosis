@@ -15,6 +15,7 @@ class clinicFindingsController extends Controller
 
     public function getAllClinicFindings(){
         $allclinicFindings=clinicFindings::get();
+        return response()->json(allclinicFindings);
     } 
     private function createClinicFindings()
     {
@@ -24,7 +25,8 @@ class clinicFindingsController extends Controller
         return view('admin_forms.clinic_findings_form');
     }
     protected function getEditClinicFindingsForm(){
-        return view('admin_form.edit_clinic_findings_form');
+        $edit_clinicFindings = clinicFindings::where('id',$id)->get();
+        return view('admin_form.edit_clinic_findings_form', compact('edit_clinicFindings'));
     }
 
     protected function validateClinicFindings()

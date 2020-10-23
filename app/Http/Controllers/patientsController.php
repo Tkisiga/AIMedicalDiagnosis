@@ -13,8 +13,12 @@ class patientsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
 
-    public function getAllPatients(){
+    /**
+     * This function gets the patients
+     */
+    public function getPatients(){
         $allpatients=patients::get();
+        return $allpatients;
     }
 
     /**
@@ -24,6 +28,7 @@ class patientsController extends Controller
         return view('admin_forms.patient_reg'); 
     }
     protected function getEditPatientsForm($id){
+        $edit_patient = patients::where('id',$id)->get();
         return view('admin_forms.patient_edit_form', compact('edit_patient')); 
     }
 
@@ -31,6 +36,7 @@ class patientsController extends Controller
         $patients                    = new patients;
         $patients->first_name        = request()->first_name;
         $patients->last_name         = request()->last_name;
+        $patients->other_name        = request()->other_name;
         $patients->gender            = request()->gender;
         $patients->age               = request()->age;
         $patients->phone_number      = request()->phone_number;
@@ -67,11 +73,14 @@ class patientsController extends Controller
         }
     }
     protected function getPatient(){
-        $patients= patientsResource::collection(patients::all());
+        $patients= patientsResource::collection($this->getPatients());
         return view('admin_forms.get_patient',compact('patients'));
     }
     protected function changePatient($id){
-        return patients::find($id)->update(array(
+        if(empty(request()->gender)){
+            return redirect()->back()->withErrors("Please enter the gender to proceed")->withInput();
+        }
+        patients::find($id)->update(array(
             'first_name'     => request()->first_name,
             'last_name'      => request()->last_name,
             'gender'         => request()->gender,
