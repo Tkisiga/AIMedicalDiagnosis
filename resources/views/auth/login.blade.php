@@ -1,9 +1,8 @@
+{{--
+    @extends('layouts.app')
 
-<div style="background-image:url(index/images/bg_1.jpg);"  class="container">
-@extends('layouts.app')
 @section('content')
-@include('index_layouts.styling')
-
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -31,7 +30,6 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -72,6 +70,71 @@
             </div>
         </div>
     </div>
-    @include('index_layouts.javascript')
 </div>
 @endsection
+--}}
+<!--New Login Page-->
+<!DOCTYPE html>
+<html lang="en">
+
+@include('login_layouts.styling')
+<body class="hold-transition login-page">
+<div class="login-box">
+<div class="logo text-left text-center mb-2"><img src="{{asset('index/images/medical-logo.jpg')}}" style="width:100px; height:100px;"/> </div>
+  <div class="login-box-body">
+    <h3 class="login-box-msg">Sign In</h3>
+    
+    <form action="{{ route('login') }}" method="post">
+        @csrf
+        <div class="row">
+      <div class="col-lg-12 form-group has-feedback">
+           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+      </div>
+      <div class="col-lg-12 form-group has-feedback">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+        @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+      <div>
+        <div class="col-lg-12">
+          <div class="col-lg-8 checkbox icheck">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                Remember me
+            </div>
+        </div>
+             @if (Route::has('password.request'))
+                <a class="btn btn-link pull-right" href="{{ route('password.request') }}"><i class="fa fa-lock"></i>
+                    {{ __('Forgot Your Password?') }}
+                </a>
+            @endif
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4 m-t-1">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col --> 
+      </div>
+      <p >Don't have an account? <a href="{{ route('register') }}" class="text-center">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+  <!-- /.login-box-body --> 
+</div>
+<!-- /.login-box --> 
+
+    @include('login_layouts.javascript')
+</body>
+</html>
+<!--End of Login Page-->
