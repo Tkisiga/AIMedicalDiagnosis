@@ -19,7 +19,7 @@
                         
                     
                     
-        <h5 class="lg-title">Clinical Findings Form</h5>
+        <h5 style="text-align: center" class="lg-title">{{request()->route()->getName()}}</h5>
         <div class="row">
                         <div class="col-md-12 panel">
 

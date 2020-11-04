@@ -1,8 +1,10 @@
 <header>
-            <div  class="headerwrapper">
+            <div  class="headerwrapper" style="background-color:#3399ff">
                 <div class="header-left">
-                    <strong style="color:#7d1c04; font-size:20px" >DR.JEBT</strong>
-                    <div class="pull-right">
+                       
+                        <a  href="/logout" class="fa fa-lock" style="color:black; font-size:20px" >logout</a>
+                    
+                        <div class="pull-right">
                         <a href="#" class="menu-collapse">
                             <i class="fa fa-bars"></i>
                         </a>
@@ -13,24 +15,18 @@
                     
                     <div class="pull-right">
                         
-                        <form class="form form-search" >
-                            <input type="search" class="form-control" placeholder="Search" />
-                        </form>
+                        <form  >
                         
+                        <div class="media-body">
+                            <h4 style="color:black" class="media-heading">You're logged in as {{ auth()->user()->name }}</h4>
+                            
+                        </div>
+                    </div><!-- media -->
+                       
                         
-                        
-                        <div class="btn-group btn-group-option">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-caret-down"></i>
-                                </button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
-                                <li class="divider"></li>
-                                <li><a href="/logout"><i class="fa fa-lock"></i>Logout</a></li>
-                            </ul>
-                        </div><!-- btn-group -->
                         
                     </div><!-- pull-right -->
+                    </form>
                     
                 </div><!-- header-right -->
                 

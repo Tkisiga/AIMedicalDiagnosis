@@ -1,10 +1,10 @@
 <div class="leftpanel">
                     <div class="media profile-left">
                         <a class="pull-left profile-thumb" href="profile.html">
-                            <img class="img-circle" src="images/photos/profile.png" alt="">
+                            <img class="img-circle" src="{{asset('index/images/medical-logo.jpg')}}"  alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">{{ auth()->user()->name }} <small>{{ auth()->user()->email }}</h4>
+                            <h4 class="media-heading">Welcome To <small>DR.JEBT</h4>
                             
                         </div>
                     </div><!-- media -->
@@ -12,11 +12,7 @@
                     <h5 class="leftpanel-title">Navigation</h5>
                     <ul class="nav nav-pills nav-stacked">
                         <li class="parent" ><a href="/dashboard"><i class="fa fa-home"></i> <span>Dashboard</span></a>
-                        <ul class="children">
-                                <li><a href="/dashboard">All Patients</a></li>
-                                <li><a href="/dashboard">All Medical Practitioners</a></li>
-                            </ul>
-                        
+                       
                         </li>
                         <li class="parent"><a href="#"><i class="fa fa-suitcase"></i> <span>Patients</span></a>
                             <ul class="children">

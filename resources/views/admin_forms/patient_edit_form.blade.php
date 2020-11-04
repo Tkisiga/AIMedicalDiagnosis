@@ -21,7 +21,7 @@
                     <div class="col-md-6">
 
                     @include('admin_layouts.message')
-                        <h5 class="lg-title">{{(request()->route()->getName())}}</h5>
+                        <h5 style="text-align: center" class="lg-title">{{(request()->route()->getName())}}</h5>
                         <!-- BASIC WIZARD -->
                         <div class="card">
                             @foreach($edit_patient as $edit_patients)   

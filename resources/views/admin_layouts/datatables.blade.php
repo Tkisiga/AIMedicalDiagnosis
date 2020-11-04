@@ -8,7 +8,7 @@
 
 @include('admin_layouts.message')
     <div class="panel-heading">
-        <h4 class="panel-title">{{request()->route()->getName()}}</h4>
+        <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
     </br>
     <div class="info-box">
@@ -58,7 +58,7 @@
 @if(request()->route()->getName() == 'Appointments Details')
 <div class="panel panel-primary-head">
     <div class="panel-heading">
-        <h4 class="panel-title">{{request()->route()->getName()}}</h4>
+        <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
             
             <table  class="table table-striped table-bordered">
@@ -98,7 +98,7 @@
 @if(request()->route()->getName() == 'Visits Details')
 <div class="panel panel-primary-head">
     <div class="panel-heading">
-        <h4 class="panel-title">{{request()->route()->getName()}}</h4>
+        <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
     </div><!-- panel-heading -->
 
             

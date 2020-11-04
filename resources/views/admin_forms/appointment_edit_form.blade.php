@@ -15,7 +15,7 @@
                 <div class="mainpanel">
                 @include('admin_layouts.message')
                         <div class="panel-heading">
-                            <h5 class="panel-title">{{request()->route()->getName()}}</h5>
+                            <h5 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h5>
                         </div><!-- panel-heading -->    
                     
                     <div class="contentpanel">
