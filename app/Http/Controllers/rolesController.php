@@ -8,23 +8,33 @@ use App\Http\Resources\rolesResource;
 
 class rolesController extends Controller
 {
-    public function createRoles(){
-       return roles::create($this->validateRoles());
+    public function __construct(){
+       // $this->middleware('auth'); 
+        $this->authenticated_instance = new AuthenticatedController; 
+    }
+    private function createRoles(){
+        $roles                    = new roles;
+        $roles->title              = request()->title;
+        $roles->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $roles->save();
     }
     protected function validateRoles(){
-        return request()->validate([
-            'role_ID'=>'required',
-            'title'=>'required',
-            'updated_by'=>'required'
-        ]);
+        if(empty(request()->title)){
+            return redirect()->back()->withErrors("Please enter your role ");
+        }else{    
+            return $this->createRoles();
     }
-    public function getRoles(){
-        return rolesResource::collection(roles::all());
     }
-    public function changeRoles($id){
-        return roles::where('id',$id)->update(array('role_ID'=>'R01'));
+    protected function getRoles(){
+        $roles= rolesResource::collection(roles::all());
+        //return view('admin_pages.template',compact('roles'));
     }
-    public function deleteRoles($id){
-        return roles::where('id',$id)->delete();
+    protected function changeRoles($id){
+        roles::find($id)->update();
+        return redirect()->back()->with('msg', "Your changes were made successfully");
+    }
+    protected function deleteRoles($id){
+        roles::find($id)->delete();
+        return redirect()->back();
     }
 }

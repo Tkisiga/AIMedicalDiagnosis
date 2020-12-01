@@ -8,24 +8,41 @@ use App\diseases;
 
 class diseasesController extends Controller
 {
-    public function createDiseases(){
-        return diseases::create($this->validateDiseases());
+    public function __construct(){
+        //$this->middleware('auth'); 
+        $this->authenticated_instance = new AuthenticatedController; 
     }
-    protected function validateDiseases(){
-        return request()->validate([
-            'disease_id'=>'required',
-            'name'=>'required',
-            'updated_by'=>'required'
-        ]);
-}
-public function getDiseases(){
-    return diseasesResource::collection(diseases::all());
-}
-public function changeDiseases($id){
-    diseases::where('id',$id)->update(array('disease_id'=>'D01'));
-}
-public function deleteDisease($id){
-    diseases::where('id',$id)->delete();
-}
+    public function getAllDiseases(){
+        $alldiseases=diseases::get();
+        return $alldiseases;
+    }
+    private function createDiseases(){
+        $diseases                    = new diseases;
+        $diseases->name              = request()->name;
+        $diseases->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $diseases->save();
+    }
+    protected function validateDiseases()
+        {
+            if(empty(request()->name)){
+                    return redirect()->back()->withErrors("Please enter your disease name ");
+                }else{    
+                    return $this->createDiseases();
+            }
+    }
+    protected function getDiseases(){
+        $diseases= diseasesResource::collection(diseases::all());
+        //return view('admin_pages.template',compact('diseases'));
+    }
+    protected function changeDiseases($id){
+        diseases::find($id)->update(array(
+        'name'     => request()->name,
+        ));
+        return redirect()->back()->with('msg', "Your changes were made successfully");
+    }
+    protected function deleteDisease($id){
+        diseases::find($id)->delete();
+        return redirect()->back();
+    }
 }
 

@@ -15,11 +15,11 @@ class managementTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-management',[
-            'management_id'=>'MGT01',
+            'management_id'=>1,
             'name'=>'SM01',
-            'updated_by'=>'Dr.Rambo'
+            'updated_by'=>1,
         ]);
-        $this->assertDatabaseHas('management',['management_id'=>'MGT01']);
+        $this->assertDatabaseHas('management',['id'=>'1']);
        
     }
     /** @test */
@@ -35,7 +35,7 @@ class managementTest extends TestCase
         $this->createManagement();
         $to_edit = management::first();
         $response = $this->patch('/change-management/'.$to_edit->id);
-        $this->assertEquals('MGT01', management::first()->management_id);
+        $this->assertEquals('1', management::first()->id);
     }
     /** @test */
     public function removeManagement(){

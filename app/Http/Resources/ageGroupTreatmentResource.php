@@ -15,8 +15,8 @@ class ageGroupTreatmentResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'ageGroup_id'=>$this->ageGroup,
-            'treatment_id'=>$this->treatment,
+            'ageGroup_id'=>$this->ageGroup_id,
+            'treatment_id'=>$this->treatment_id,
             'updated_by'=>$this->updated_by
         ];
     }

@@ -16,7 +16,7 @@ class diseasesTreatmentResource extends JsonResource
     {
         return[
             'disease_id'=>$this->disease_id,
-            'treatment_id'=>$this->symptom_id,
+            'treatment_id'=>$this->treatment_id,
             'updated_by'=>$this->updated_by,
 
         ];

@@ -15,11 +15,11 @@ class rolesTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-roles',[
-            'role_ID'=>'R01',
+            
             'title'=>'Doctor',
-            'updated_by'=>'Best'
+            'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('Roles',['role_ID'=>'R01']);
+        $this->assertDatabaseHas('Roles',['id'=>'1']);
      
     }
     /** @test */
@@ -35,7 +35,7 @@ class rolesTest extends TestCase
         $this->createRoles();
         $to_edit=roles::first();
         $response=$this->patch('/change-roles/'. $to_edit->id);
-        $this->assertEquals('R01',roles::first()->role_ID);
+        $this->assertEquals('1',roles::first()->id);
     }
     /** @test */
     public function deleteRoles(){

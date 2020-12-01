@@ -14,18 +14,20 @@ class permissionsController extends Controller
     protected function validatePermissions(){
         return request()->validate([
         'permissions'=>'required',
-        'permission_ID'=>'required',
         'updated_by'=>'required'
         ]);
     }
     public function getPermissions(){
-        return permissionsResource::collection(permissions::all());
+        $permissions= permissionsResource::collection(permissions::all());
+       // return view('admin_pages.template',compact('permissions'));
     }
     public function changePermissions($id){
-        return permissions::where('id',$id)->update(array('permission_ID'=>'ND01'));
+        permissions::find($id)->update();
+        return redirect()->back()->with('msg', "Your changes were made successfully");
     }
     public function deletePermissions($id){
-        return permissions::where('id',$id)->delete();
+        permissions::find($id)->delete();
+        return redirect()->back();
     }
 }
 

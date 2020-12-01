@@ -15,7 +15,6 @@ class diseasesResource extends JsonResource
     public function toArray($request)
     {
         return[
-            'disease_id'=>$this->disease_id,
             'name'=>$this->name,
             'updated_by'=>$this->updated_by,
 

@@ -15,9 +15,10 @@ class Diseases extends Migration
     {
         Schema::create('Diseases', function (Blueprint $table) {
             $table->id();
-            $table->string('disease_id');
             $table->string('name');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->softdeletes('deleted_at');
             $table->timestamps();
     });
 }

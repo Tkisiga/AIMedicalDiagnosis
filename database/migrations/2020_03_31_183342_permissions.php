@@ -12,8 +12,9 @@ class Permissions extends Migration
         Schema::create ('Permissions', function (Blueprint $table){
             $table->id();
             $table->string('permissions');
-            $table->string('permission_ID');
-            $table->string('updated_by');
+            $table->integer('updated_by')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->softdeletes('deleted_at');
             $table->timestamps();
         });
     }

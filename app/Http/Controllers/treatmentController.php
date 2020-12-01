@@ -8,23 +8,38 @@ use App\Http\Resources\treatmentResource;
 
 class treatmentController extends Controller
 {
-    public function createTreatment(){
-        return treatment::create($this->validateTreatment());
+    public function __construct(){
+        $this->authenticated_instance = new AuthenticatedController; 
+        $this->middleware('auth');
+    }
+    public function getAllTreatment(){
+        $alltreatment=treatment::get();
+        return $alltreatment;
+    }
+    
+    private function createTreatment(){
+        $treatment                    = new treatment;
+        $treatment->name              = request()->name;
+        $treatment->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $treatment->save();
     }
     protected function validateTreatment(){
-        return request()->validate([
-            'treatment_id'=>'required',
-            'name'=>'required',
-            'updated_by'=>'required'
-        ]);
+        if(empty(request()->name)){
+            return redirect()->back()->withErrors("Please enter the treatment");
+        }else{
+            return $this->createTreatment();
+        }
     }
-    public function getTreatment(){
-        return treatmentResource::collection(treatment::all());
+    protected function getTreatment(){
+        $treatment= treatmentResource::collection(treatment::all());
+        return view('admin_pages.template',compact('treatment'));
     }
-    public function changeTreatment($id){
-        return treatment::where('id',$id)->update(array('treatment_id'=>'TMT01'));
+    protected function changeTreatment($id){
+        treatment::find($id)->update();
+        return redirect()->back()->with('msg', "Your changes were made successfully");
     }
-    public function removeTreatment($id){
-        return treatment::where('id',$id)->delete();
+    protected function removeTreatment($id){
+        treatment::find($id)->delete();
+        return redirect()->back();
     }
 }

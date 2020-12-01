@@ -15,11 +15,11 @@ class ageGroupTreatmentTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/create-ageGroupTreatment',[
-            'ageGroup_id'=>'AG01',
-            'treatment_id'=>'TMT01',
-            'updated_by'=>'Dr.Nimurungi'
+            'ageGroup_id'=>1,
+            'treatment_id'=>1,
+            'updated_by'=>1
         ]);
-        $this->assertDatabaseHas('ageGroupTreatment',['treatment_id'=>'TMT01']);
+        $this->assertDatabaseHas('ageGroupTreatment',['id'=>'1']);
        
     }
     /** @test */
@@ -35,7 +35,7 @@ class ageGroupTreatmentTest extends TestCase
         $this->createAgeGroupTreatment();
         $to_edit = ageGroupTreatment::first();
         $response = $this->patch('/change-ageGroupTreatment/'.$to_edit->id);
-        $this->assertEquals('TMT01', ageGroupTreatment::first()->treatment_id);
+        $this->assertEquals('1', ageGroupTreatment::first()->id);
     }
     /** @test */
     public function removeAgeGroupTreatment(){
@@ -43,7 +43,7 @@ class ageGroupTreatmentTest extends TestCase
         $this->createAgeGroupTreatment();
         $to_delete = ageGroupTreatment::first();
         $response=$this->delete('/delete-ageGroupTreatment/'.$to_delete->id);
-        $this->assertCount(0,diseases::all());
+        $this->assertCount(0,ageGroupTreatment::all());
     }
     
 }

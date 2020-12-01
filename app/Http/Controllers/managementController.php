@@ -8,23 +8,41 @@ use App\Http\Resources\managementResource;
 
 class managementController extends Controller
 {
-    public function createManagement(){
-        return management::create($this->validateManagement());
+    public function __construct(){
+        $this->middleware('auth'); 
+        $this->authenticated_instance = new AuthenticatedController; 
+    }
+    public function getAllManagement(){
+        $allmanagement=management::get();
+        return $allmanagement;
+    }
+
+    private function createManagement(){
+        $management                    = new management;
+        $management->name              = request()->name;
+        $management->created_by        = $this->authenticated_instance->getAuthenticatedUser();
+        $management->save();
+        
     }
     protected function validateManagement(){
-        return request()->validate([
-            'management_id'=>'required',
-            'name'=>'required',
-            'updated_by'=>'required'
-        ]);
-        }    
-        public function getManagement(){
-            return managementResource::collection(management::all());
+        if(empty(request()->name)){
+            return redirect()->back()->withErrors("Please enter your name");
+        }else{
+            return $this->createManagement();
         }
-        public function changeManagement($id){
-            return management::where('id',$id)->update(array('management_id'=>'MGT01'));
-        }
-        public function removeManagement($id){
-            return management::where('id',$id)->delete();
-        }
+    }    
+    protected function getManagement(){
+        $management= managementResource::collection(management::all());
+        //return view('admin_pages.template',compact('management'));
+    }
+    protected function changeManagement($id){
+        return management::find($id)->update(array(
+        'name' => request()->name,
+    ));
+        return redirect()->back()->with('msg', "Your changes were made successfully");
+    }
+    protected function removeManagement($id){
+        management::find($id)->delete();
+        return redirect()->back();
+    }
 }
