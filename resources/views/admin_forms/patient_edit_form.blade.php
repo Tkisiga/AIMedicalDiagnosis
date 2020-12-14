@@ -2,7 +2,7 @@
 @section('page_css')
 @endsection
 @section('main_content')
-<div class="col-md-6">
+<div class="col-md-10">
     @include('admin_layouts.message')
         <h5 style="text-align: center" class="lg-title">{{(request()->route()->getName())}}</h5>
         <!-- BASIC WIZARD -->
@@ -13,14 +13,14 @@
             <div class= "col-sm-4"  >
                 <label class="col-sm-4 control-label">First Name:<span class="asterisk">*</span></label>
                 <div class="form-group">
-                    <input type="text" name="first_name" value="{{$edit_patients->first_name}}"  class="form-control" title="Field is required!" />
+                    <input type="text" name="first_name" value="{{$edit_patients->first_name}}"  class="form-control" title="Field is required!" required />
                 </div>
             </div><!-- form-group -->
 
             <div class="col-sm-4">
                 <label class="col-sm-4 control-label">Last Name:<span class="asterisk">*</span></label>
                 <div class="form-group">
-                    <input type="text" name="last_name" value="{{$edit_patients->last_name}}"  class="form-control" title="Field is required!"/>
+                    <input type="text" name="last_name" value="{{$edit_patients->last_name}}"  class="form-control" title="Field is required!" required/>
                 </div>
             </div><!-- form-group -->
 

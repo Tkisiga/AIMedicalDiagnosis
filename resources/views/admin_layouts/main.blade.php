@@ -8,6 +8,26 @@
         <title>DR.JEBT</title>
         @yield('page_css')
         @include('admin_layouts.styling')
+
+<script src="{{ asset('vendors/jquery-3.2.1.min.js') }}"></script>
+ <script src="{{ asset('vendors/external.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/dtables/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/buttons.flash.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/jszip.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/vfs_fonts.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset('vendors/datatables/dataTables.select.min.js') }}"></script>
+
+
+
+
+  <link href="{{ asset('vendors/datatables/dtables/css/jquery.dataTables.min.css') }}"
+  rel="stylesheet">
+  <link href="{{ asset('vendors/datatables/buttons.dataTables.min.css') }}" rel="stylesheet">
+
     </head>
     <body>
     @include('admin_layouts.top_navbar')

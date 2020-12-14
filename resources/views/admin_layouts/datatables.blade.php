@@ -5,11 +5,16 @@
 @include('admin_layouts.message')
     <div class="panel-heading">
         <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
+        <div class="card-body text-right">
+            <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#patientModal">
+                Add Patient
+            </button>
+        </div>
     </div><!-- panel-heading -->
     </br>
     <div class="info-box">
         <div class="table-responsive">
-            <table id="example2" class="table table-bordered table-hover" data-name="cool-table">
+            <table id="basicPatientsTable" class="table table-striped table-bordered responsive dataTable no-footer" data-name="cool-table">
                  
                 <thead >
                     <tr>
@@ -33,8 +38,13 @@
                         <td>{{$patient->phone_number}}</td>
                         <td>{{$patient->address}}</td>
                         <td>
-                        <a href="/delete-patient/{{$patient->id}}">Delete </a>
+                        @can('change_patient')
                         <a href="/get-edit-patients-form/{{$patient->id}}">Edit</a>
+                        @endcan
+                        @can('delete_patient')
+                        <a class="text-danger pl-4" href="/delete-patient/{{$patient->id}}">Delete </a>
+                        @endcan
+                       
                         </td>
                     </tr>
                     @endforeach
@@ -52,95 +62,184 @@
 
 
 @if(request()->route()->getName() == 'Appointments Details')
-<div class="panel panel-primary-head">
-    <div class="panel-heading">
-        <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
-    </div><!-- panel-heading -->
+<div class="panel-heading">
+    <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
+    <div class="card-body text-right">
+        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#appointmentModal">
+            Add Appointment
+        </button>
+    </div>
+</div><!-- panel-heading -->
+        
+        <table id="basicTable1" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient </th>
+                    <th>Medical Practitioner</th>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
             
-            <table  class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Patient Number</th>
-                        <th>Doctor Number</th>
-                        <th>Appointment Date</th>
-                        <th>Appointment Time</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                @foreach($appointments as $id=>$appointments)
-                    <tr>
-                        <td>{{ $id +1}}</td>
-                        <td>{{$appointments->patient_id}}</td>   
-                        <td>{{$appointments->medical_practitioner_id}}</td>  
-                        <td>{{$appointments->appointment_date}}</td>  
-                        <td>{{$appointments->appointment_time}}<td>   
-                        <td>{{$appointments->status}}</td> 
-                        <td><a href="/delete-appointments/{{$appointments->id}}">Delete</a>
-                        <a href="/get-edit-appointments-form/{{$appointments->id}}">Edit</a> </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-       
-</div> 
-
+            <tbody>
+            @foreach($appointments as $id=>$appointments)
+                <tr>
+                    <td>{{ $id +1}}</td>
+                    <td>{{$appointments->patient_id}}</td>   
+                    <td>{{$appointments->medical_practitioner_id}}</td>  
+                    <td>{{$appointments->appointment_date}}</td>  
+                    <td>{{$appointments->appointment_time}}</td>   
+                    <td>{{$appointments->status}}</td> 
+                    <td>
+                    @can('delete_appointments')
+                    <a class="text-danger" href="/delete-appointments/{{$appointments->id}}">Delete</a>
+                    @endcan
+                    @can('change_appointmets')
+                    <a href="/get-edit-appointments-form/{{$appointments->id}}">Edit</a>
+                    @endcan
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
 @endif 
 
 
 
 
 @if(request()->route()->getName() == 'Visits Details')
-<div class="panel panel-primary-head">
-    <div class="panel-heading">
-        <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
-    </div><!-- panel-heading -->
-
-            
-            <table id="shTable" class="table table-striped table-bordered">
-                <thead class="">
-                    <tr>
-                        <th>No</th>    
-                        <th>Patient Number</th>
-                        <th>Visit Date</th>
-                        <th>Visit Category</th>
-                        <th>Next visit </th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                @foreach($visits as $id=>$visits)
-                    <tr>
-                        <td>{{ $id +1}}</td>
-                        <td>{{$visits->patient_id}}</td>   
-                        <td>{{$visits->visit_date}}</td>  
-                        <td>{{$visits->visit_category}}<td>   
-                        <td>{{$visits->next_visit}}</td> 
-                        <td>
-                        <a href="/delete-visits/{{$visits->id}}">Delete </a>
-                        <a href="/get-edit-visits-form/{{$visits->id}}">Edit</a>
-                        </td>
-                    </tr>
-                    @endforeach 
-                </tbody>
-            </table>
+<div class="panel-heading">
+    <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
+    <div class="card-body text-right">
+        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#visitModal">
+            Add Visit
+        </button>
+    </div>
+</div><!-- panel-heading -->
         
-</div> 
+        <table id="VisitsTable" class="table table-striped table-bordered">
+            <thead class="">
+                <tr>
+                    <th>No</th>    
+                    <th>Patient </th>
+                    <th>Visit Date</th>
+                    <th>Next visit </th>
+                    <th>Visit Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach($visits as $id=>$visits)
+                <tr>
+                    <td>{{ $id +1}}</td>
+                    <td>{{$visits->patient_name}}</td>   
+                    <td>{{$visits->visit_date}}</td>
+                    <td>{{$visits->next_visit}}</td>   
+                    <td>{{$visits->visit_category}}</td> 
+                    <td>
+                    @can('delete_visits')
+                    <a class="text-danger" href="/delete-visits/{{$visits->id}}">Delete </a>
+                    @endcan
+                    @can('change_visits')
+                    <a href="/get-edit-visits-form/{{$visits->id}}">Edit</a>
+                    @endcan
+                    </td>
+                </tr>
+                @endforeach 
+            </tbody>
+        </table>
     @endif 
 
+
+
+
+    @if(request()->route()->getName() == 'Medical Practitioners Details')
+<div class="panel-heading">
+    <h4 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h4>
+    <div class="card-body text-right">
+        <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#visitModal">
+            Add Medical Practitioner
+        </button>
+    </div>
+</div><!-- panel-heading -->
+        
+        <table id="MPractioners" class="table table-striped table-bordered">
+            <thead class="">
+                <tr>
+                    <th>No</th>    
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach($medicalPractitioners as $id=>$medicalPractitioner)
+                <tr>
+                    <td>{{ $id +1}}</td>
+                    <td>{{$medicalPractitioner->name}}</td>   
+                    <td>{{$medicalPractitioner->role}}</td>  
+                    <td>{{$medicalPractitioner->email}}</td>
+                    <td>
+                    <a class="text-danger" href="/delete-medicalPractitioners/{medicalPractitioner->id}">Delete </a>
+                    <a href="/get-edit-medical-practitioners-form/{medicalPractitioner->id">Edit</a>
+                    </td>
+                </tr>
+                @endforeach 
+            </tbody>
+        </table>
+    @endif 
+
+
+ 
     <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js')}}"></script>
-        <script src="{{asset('cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.js')}}"></script>
+        <script src="cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+        <script src="cdn.datatables.net/responsive/1.0.1/js/dataTables.responsive.js"></script>
         <script src="{{asset('js/select2.min.js')}}"></script>
 
         <script src="{{asset('js/custom.js')}}"></script>
+
+
+     
+
         <script>
-            jQuery(document).ready(function(){
+             
+             jQuery(document).ready(function(){
+
+                $.noConflict();
+                var columns = [0,1,2,3,4,5];
+                var table = $("#basicPatientsTable");
+                //table.dataTable();
+                var title = "List of registered patients";
+                smartTable(table, title, columns);
+
+            
+             
+                var columns1 = [0,1,2,3,4,5];
+                var table1 = $("#basicTable1");
+                var title1 = "List of registered appointments";
+                smartTable(table1, title1, columns1);
+
                 
+           
+                var columns2 = [0,1,2,3,4];
+                var table2  = $("#VisitsTable");
+                var title2 = "List of registered visits";
+                smartTable(table2, title2, columns2);
+
+                
+              
+                var columns3 = [0,1,2,3,4,5];
+                var table3 = $("#MPractioners");
+                var title3 = "List of registered medical practitioners";
+                smartTable(table3, title3, columns3);
+                
+
                 jQuery('#basicTable').DataTable({
                     responsive: true
                 });

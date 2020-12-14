@@ -32,7 +32,7 @@ class diseasesController extends Controller
     }
     protected function getDiseases(){
         $diseases= diseasesResource::collection(diseases::all());
-        //return view('admin_pages.template',compact('diseases'));
+        return view('admin_pages.diseasesForm',compact('diseases'));
     }
     protected function changeDiseases($id){
         diseases::find($id)->update(array(

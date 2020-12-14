@@ -11,34 +11,35 @@
 @section('main_content')
 
 @include('admin_layouts.message')
-<div class="panel-heading">
+<div class="panel-heading col-md-10 panel">
     <h5 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h5>
 </div><!-- panel-heading -->    
                         
-<<div class="row">
-    <div class="col-md-12 panel">
+<div class="row">
+    <div class="col-md-10 panel">
         <div class="card">
         <!-- BASIC WIZARD -->
             <form method="get" action ="/create-visits"  >
-                <div class= "form-group">
-                    <label class="col-sm-4 control-label">Patient ID:<span class="asterisk">*</span></label>
-                    <div class="form-group">
-                        <input type="text" name="patient_id" class="form-control" title="Field is required!" />
-                    </div>
-                </div><!-- form-group -->
+            <div class= "form-group">
+                <label class="col-sm-4 control-label">Patient:<span class="asterisk">*</span></label>
+        
+                <div class="form-group">
+                    <input type="text" name="patient_name" autocomplete="off" id="patientName" class="form-control" title="Field is required!"/>
+                </div>
+            </div><!-- form-group -->
 
                 <div class="form-group">
                     <label>Visit Date:<span class="asterisk">*</span> </label>
                         <div class="input-group">
-                            <input type="text" name="visit_date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input type="date" name="visit_date" class="form-control" placeholder="mm/dd/yyyy" />
+                            <span class="input-group-addon"></span>
                         </div><!-- input-group -->
                 </div><!-- form-group -->
 
-                <div class="panel-body">
+                <div class="form-group">
                     <label>Visit Category:<span class="asterisk">*</span> </label>
                     <div class="form-group">
-                        <select id="select-search-hide" name="visit_category" data-placeholder="Choose One" class="width300">
+                        <select id="select-search-hide" class="form-control" name="visit_category" data-placeholder="Choose One" class="width300">
                             <option value="Self Request">Self Request</option>
                             <option value="Consultation">Consultation</option>
                             <option value="Follow Up">Follow Up</option>
@@ -50,15 +51,15 @@
 
                 <div class="form-group">
                     <label>Next Visit Date:<span class="asterisk">*</span> </label>
-                        <div class="input-group">
-                            <input type="text" name="next_visit" class="form-control" placeholder="mm/dd/yyyy" id="datepicker">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <div class="input-group">
+                            <input type="date" name="next_visit" class="form-control" placeholder="mm/dd/yyyy"/>
+                            <span class="input-group-addon"></span>
                         </div><!-- input-group -->
                 </div><!-- form-group -->
 
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col-sm-9 col-sm-offset-3">
+                        <div class="col-sm-10 col-sm-offset-3">
                             <button class="btn btn-primary mr5">Submit</button>
                             <button type="reset" class="btn btn-dark">Reset</button>
                         </div>
@@ -72,29 +73,55 @@
 
 @section('page_js')
 
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/jquery-ui-1.10.3.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/pace.min.js"></script>
-<script src="js/retina.min.js"></script>
-<script src="js/jquery.cookies.js"></script>
+<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
+<script src="{{asset('js/jquery-migrate-1.2.1.min.js')}}"></script>
+<script src="{{asset('js/jquery-ui-1.10.3.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('vendors/bootstrap3-typeahead.min.js') }}"></script>
+<script src="{{asset('js/modernizr.min.js')}}"></script>
+<script src="{{asset('js/pace.min.js')}}"></script>
+<script src="{{asset('js/retina.min.js')}}"></script>
+<script src="{{asset('js/jquery.cookies.js')}}"></script>
 
-<script src="js/jquery.autogrow-textarea.js"></script>
-<script src="js/jquery.mousewheel.js"></script>
-<script src="js/jquery.tagsinput.min.js"></script>
-<script src="js/toggles.min.js"></script>
-<script src="js/bootstrap-timepicker.min.js"></script>
-<script src="js/jquery.maskedinput.min.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/colorpicker.js"></script>
-<script src="js/dropzone.min.js"></script>
+<script src="{{asset('js/jquery.autogrow-textarea.js')}}"></script>
+<script src="{{asset('js/jquery.mousewheel.js')}}"></script>
+<script src="{{asset('js/jquery.tagsinput.min.js')}}"></script>
+<script src="{{asset('js/toggles.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-timepicker.min.js')}}"></script>
+<script src="{{asset('js/jquery.maskedinput.min.js')}}"></script>
+<script src="{{asset('js/select2.min.js')}}"></script>
+<script src="{{asset('js/colorpicker.js')}}"></script>
+<script src="{{asset('js/dropzone.min.js')}}"></script>
 
-<script src="js/custom.js"></script>
+<script src="{{asset('js/custom.js')}}"></script>
 <script>
-    jQuery(document).ready(function() {
+    $(document).ready(function() {
+
+        $("#patientName").typeahead({
+            source:function(query,result){
+                $.ajax({
+                url:"{{ Route('patient.search') }}",
+                method:'get',
+                data:{
+                    query:query,
+                },
+                dataType:'json',
+                success: function(data){
+                    result($.map(data, function(item){
+                    return item;
+                    }));
+                },
+                error:function(data){
+                    console.log('am not getting anything');
+                },
+                });
+            }
+            });
         
+
+
+
+
         // Tags Input
         jQuery('#tags').tagsInput({width:'auto'});
             

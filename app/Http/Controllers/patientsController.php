@@ -36,9 +36,11 @@ class patientsController extends Controller
 
     private function createPatients(){
         $patients                    = new patients;
+        $name = request()->first_name." ".request()->last_name." ".request()->other_name;
         $patients->first_name        = request()->first_name;
         $patients->last_name         = request()->last_name;
         $patients->other_name        = request()->other_name;
+        $patients->name              = $name;
         $patients->gender            = request()->gender;
         $patients->age               = request()->age;
         $patients->phone_number      = request()->phone_number;
@@ -79,8 +81,23 @@ class patientsController extends Controller
         return view('admin_forms.get_patient',compact('patients'));
     }
     protected function changePatient($id){
-        if(empty(request()->gender)){
-            return redirect()->back()->withErrors("Please enter the gender to proceed")->withInput();
+        if(empty(request()->first_name)){
+            return redirect()->back()->withErrors("Please enter your first name ");
+        }elseif(empty(request()->last_name)){
+            return redirect()->back()->withErrors("Please enter your last name");
+        }elseif(empty(request()->gender)){
+            return redirect()->back()->withErrors("Please enter your gender");
+        }elseif(empty(request()->age)){
+            return redirect()->back()->withErrors("Please enter your age");
+        }elseif(empty(request()->address)){
+            return redirect()->back()->withErrors("Please enter your address");
+        }elseif(empty(request()->kin)){
+            return redirect()->back()->withErrors("Please enter your kin");
+        }elseif(empty(request()->kin_contact)){
+            return redirect()->back()->withErrors("Please enter your kin contact");
+        
+        }elseif(empty(request()->phone_number)){
+            return redirect()->back()->withErrors("Please enter your phone number");
         }
         patients::find($id)->update(array(
             'first_name'     => request()->first_name,

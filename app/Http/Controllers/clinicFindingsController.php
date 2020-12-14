@@ -32,16 +32,7 @@ class clinicFindingsController extends Controller
     protected function validateClinicFindings()
     {
         $clinicFindings                           = new clinicFindings;
-        $clinicFindings->Hands                    = request()->Hands;
-        $clinicFindings->Skin                     = request()->Skin;
-        $clinicFindings->Neck                     = request()->Neck;
-        $clinicFindings->Head                     =request()->Head;
-        $clinicFindings->eyes                     =request()->eyes;
-        $clinicFindings->Insulin_injection_sites  =request()->Insulin_injection_sites;
-        $clinicFindings->Legs                     =request()->Legs;
-        $clinicFindings->Feet                     =request()->Feet;
-        $clinicFindings->Symptoms                 =request()->Symptoms;
-        $clinicFindings->Observations             =request()->Observations;
+        $clinicFindings->symptoms                 =request()->symptoms;
         $clinicFindings->created_by               = $this->authenticated_instance->getAuthenticatedUser();
         $clinicFindings->save();
         return redirect()->back()->with('message',"New patient clinic findings successfully created");
@@ -51,16 +42,7 @@ class clinicFindingsController extends Controller
     }
     protected function changeClinicFindings($id){
         clinicFindings::where('id',$id)->update(array(
-            'Hands'                   => request()->Hands,
-            'Skin'                    => request()->Skin,
-            'Neck'                    => request()->Neck,
-            'Head'                    => request()->Head,
-            'eyes'                    => request()->eyes,
-            'Insulin_injection_sites' => request()->Insulin_injection_sites,
-            'Legs'                    => request()->Legs,
-            'Feet'                    => request()->Feet,
-            'Symptoms'                => request()->Symptoms,
-            'Observations'            => request()->Observations,
+            'Symptoms'                => request()->Symptoms
             ));
             return redirect()->back()->with('message', "Your changes were made successfully");
     }

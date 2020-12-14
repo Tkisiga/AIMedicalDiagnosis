@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\visits;
+use App\patients;
 use App\Http\Resources\visitsResource;
 
 class visitsController extends Controller
@@ -13,9 +15,10 @@ class visitsController extends Controller
         $this->authenticated_instance = new AuthenticatedController; 
     }
     protected function getCreateVisitsForm(){
-        return view('admin_forms.visits_reg_form');
+        $patients = patients::get();
+        return view('admin_forms.visits_reg_form', compact('patients'));
     }
-    protected function getEditVisitsForm(){
+    protected function getEditVisitsForm($id){
         $edit_visits = visits::where('id',$id)->get();
         return view('admin_forms.visits_edit_form', compact('edit_visits'));
     }
@@ -25,6 +28,7 @@ class visitsController extends Controller
     }
     private function createVisits(){
         $visits                    = new visits;
+        $visits->patient_name      = request()->patient_name;
         $visits->visit_date        = request()->visit_date;
         $visits->visit_category    = request()->visit_category;
         $visits->next_visit        = request()->next_visit;
@@ -34,6 +38,9 @@ class visitsController extends Controller
         
     }
     protected function validateVisits(){
+            if(empty(request()->patient_name)){
+                return redirect()->back()->withErrors("Please select or enter the patient name");
+            }else
             if(empty(request()->visit_date)){
                 return redirect()->back()->withErrors("Please enter your visit_date");
             }elseif(empty(request()->visit_category)){
@@ -44,13 +51,55 @@ class visitsController extends Controller
                 return $this->createVisits();
             }
     }
+
+public function searchPatient(Request $request)
+{
+  if($request->input('query')){
+    $query = $request->input('query');
+    $data = array();
+    $items = DB::table("Patients")->where("name", "like", "%".$query."%")->get();
+    foreach($items as $item){
+      $data[] = $item->name;
+    }
+    echo json_encode($data);
+  }
+
+}
+
+
+public function searchPatientModal(Request $request)
+{
+  if($request->input('query')){
+    $query = $request->input('query');
+    $data = array();
+    $items = DB::table("Patients")->where("name", "like", "%".$query."%")->get();
+    foreach($items as $item){
+      $data[] = $item->name;
+    }
+    echo json_encode($data);
+  }
+
+}
+
+
+
+
     protected function getVisits(){
         $visits= visitsResource::collection(visits::paginate(10));
         return view('admin_forms.get_visits',compact('visits'));
     }
     protected function changeVisits($id){
-        return visits::find($id)->update(array(
-            'patient_id' => request()->patient_id,
+        if(empty(request()->patient_name)){
+            return redirect()->back()->withErrors("Please select or enter the patient name ");
+        }elseif(empty(request()->visit_date)){
+            return redirect()->back()->withErrors("Please enter your visit_date");
+        }elseif(empty(request()->visit_category)){
+            return redirect()->back()->withErrors("Please enter your visit_category");
+        }elseif(empty(request()->next_visit)){
+            return redirect()->back()->withErrors("Please enter your next_visit");
+        }
+        visits::find($id)->update(array(
+            'patient_name' => request()->patient_name,
             'visit_date' => request()->visit_date,
             'visit_category' => request()->visit_category,
             'next_visit'=>request()->next_visit,

@@ -15,7 +15,7 @@ class Visits extends Migration
     {
         Schema::create('Visits', function (Blueprint $table){
             $table->id();
-            $table->string('patient_id')->nullable();
+            $table->string('patient_name');
             $table->string('visit_date');
             $table->string('visit_category');
             $table->string('next_visit');

@@ -19,7 +19,7 @@ class Management extends Migration
             $table->string('name');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
-            $table->softdeletes('deleted_at');
+            $table->softdeletes('deleted_at')->nullable();
             $table->timestamps();
         });
     }

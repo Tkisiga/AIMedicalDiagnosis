@@ -19,7 +19,7 @@ class medicalPractitionersResource extends JsonResource
             'email'=>$this->email,
             'password'=>$this->password,
             'phone_No'=>$this->phone_No,
-            'role_id'=>$this->role_id,
+            'role'=>$this->role,
             'updated_by'=>$this->updated_by
 
         ];

@@ -14,8 +14,7 @@ class MedicalPractioners extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email');
-            $table->string('role_id')->nullable();
-            $table->string('phone_No');
+            $table->string('contact');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();
             $table->softdeletes('deleted_at');

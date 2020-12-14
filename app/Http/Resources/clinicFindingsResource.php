@@ -15,9 +15,7 @@ class clinicFindingsResource extends JsonResource
     public function toArray($request)
     {
         return[
-            'patient_history_id'=>$this->patient_history_id,
-            'general_appearance_id'=>$this->general_appearance_id,
-            'physical_examination_id'=>$this->physical_examination_id,
+            'symptoms'=>$this->symptoms,
             'updated_by'=>$this->updated_by,
             'created_by'=>$this->created_by,
 

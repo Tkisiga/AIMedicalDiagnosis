@@ -15,7 +15,7 @@ class visitsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'patient_id'=>$this->patient_id,
+            'patient_name'=>$this->patient_name,
             'visit_date'=>$this->visit_date,
             'visit_category'=>$this->visit_category,
             'next_visit'=>$this->next_visit,

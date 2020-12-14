@@ -3,25 +3,25 @@
 @endsection
 @section('main_content')
 @include('admin_layouts.message')
-<div class="panel-heading">
+<div class="panel-heading col-md-10">
     <h5 style="text-align: center" class="panel-title">{{request()->route()->getName()}}</h5>
 </div><!-- panel-heading -->    
 
 <div class="row">
-    <div class="col-md-12 panel">
+    <div class="col-md-10 panel">
         <div class="card">
             <form method="get" action ="/create-patients">
                 <div class= "col-sm-4"  >
                     <label class="col-sm-4 control-label">First Name:<span class="asterisk">*</span></label>
                     <div class="form-group">
-                        <input type="text" name="first_name" class="form-control" title="Field is required!" />
+                        <input type="text" name="first_name" class="form-control" title="Field is required!" required/>
                     </div>
                 </div><!-- form-group -->
 
                 <div class="col-sm-4">
                     <label class="col-sm-4 control-label">Last Name:<span class="asterisk">*</span></label>
                     <div class="form-group">
-                        <input type="text" name="last_name" class="form-control" title="Field is required!"/>
+                        <input type="text" name="last_name" class="form-control" title="Field is required!" required/>
                     </div>
                 </div><!-- form-group -->
 
@@ -40,7 +40,7 @@
                 </div><!-- form-group -->
 
                 <div class="form-group">
-                    <label class="col-sm-4 control-label">Gender:<span class="asterisk">*</span></label>
+                    <label class="col-sm-4 control-label">Gender:<span class="asterisk" >*</span></label>
                     <div class=" col-sm-4">
                         <input type="radio" name="gender" value="Male" id="radioPrimary" />
                         <label>Male</label>

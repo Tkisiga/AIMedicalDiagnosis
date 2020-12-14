@@ -7,61 +7,183 @@
     <div class="col-md-12 panel">
         <!-- BASIC WIZARD -->
         <form method="get" action="/create-clinicFindings" id="valWizard" class="panel-wizard">
+
+        </ul>
             <ul class="nav nav-justified nav-wizard nav-disabled-click">
-                <li selected><a href="#tab1-4" data-toggle="tab"><strong>Symptoms</strong></a></li>
-                <li><a href="#tab2-4" data-toggle="tab"><strong>Observations</strong></a></li>
+                <li><a href="#tab1-4" class="active" data-toggle="tab"><strong>Symptoms</strong></a></li>
+                <li ><a href="#tab2-4" data-toggle="tab"><strong >Observations</strong></a></li>
                 <li><a href="#tab3-4" data-toggle="tab"><strong>Clinical Examinations</strong></a></li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-content active">
                 <div class="tab-pane" id="tab1-4">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">Symptoms</label>
                         <div class="col-sm-8">
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="fatigue" id="checkboxDefault"/>
-                                <label for="checkboxDefault">Fatigue</label>
+                                <input type="checkbox" name="symptoms" value="Coma" id="checkboxDefault"/>
+                                <label for="checkboxDefault">Coma</label>
                             </div>
                                 
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="nausea" id="checkboxNause"/>
-                                <label for="checkboxNause">Nausea</label>
+                                <input type="checkbox" name="symptoms" value="Absence of menstruation" id="checkboxNause"/>
+                                <label for="checkboxNause">Absence of menstruation</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="hyperphagia" id="checkboxHyper"/>
-                                <label for="checkboxHyper">Hyperphagia</label>
+                                <input type="checkbox" name="symptoms" value="Hypertension" id="checkboxHyper"/>
+                                <label for="checkboxHyper">Hypertension</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="blurry vision" id="checkboxBlur"  />
-                                <label for="checkboxBlur">Blurry Vision</label>
+                                <input type="checkbox" name="symptoms" value="Sexual Problems" id="checkboxBlur"  />
+                                <label for="checkboxBlur">Sexual Problems</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="weight loss" id="checkboxWei"/>
-                                <label for="checkboxWei">Weight Loss</label>
+                                <input type="checkbox" name="symptoms" value="Bed wetting" id="checkboxBlur"  />
+                                <label for="checkboxBlur">Poluria</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="mood change" id="checkboxMo"/>
-                                <label for="checkboxMo">Mood Change</label>
+                                <input type="checkbox" name="symptoms" value="Abdominal pain" id="checkboxBlur"  />
+                                <label for="checkboxBlur">Abdominal pain</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="nocturia" id="checkboxNo"/>
-                                <label for="checkboxNo">Nocturia</label>
+                                <input type="checkbox" name="symptoms" value="Irritability" id="checkboxWei"/>
+                                <label for="checkboxWei">Irritability</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="genital candidiasis" id="checkboxGe"/>
-                                <label for="checkboxGe">Genital Candidiasis</label>
+                                <input type="checkbox" name="symptoms" value="Vaginal dryness" id="checkboxMo"/>
+                                <label for="checkboxMo">Vaginal Dryness</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="headache" id="checkboxHead"/>
-                                <label for="checkboxHead">Headache</label>
+                                <input type="checkbox" name="symptoms" value="Muscle weakness" id="checkboxNo"/>
+                                <label for="checkboxNo">Muscle weakness</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="polyuria" id="checkboxPo"/>
-                                <label for="checkboxPo">Polyuria</label>
+                                <input type="checkbox" name="symptoms" value="Malaise" id="checkboxGe"/>
+                                <label for="checkboxGe">Malaise</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="dry mouth" id="checkboxDr"/>
-                                <label for="checkboxDr">Dry Mouth</label>
+                                <input type="checkbox" name="symptoms" value="Premature menopause" id="checkboxHead"/>
+                                <label for="checkboxHead">Premature menopause</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Muscle aches" id="checkboxPo"/>
+                                <label for="checkboxPo">Muscle aches</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Poor healing" id="checkboxS1"/>
+                                <label for="checkboxS1">Prolonged wound healing</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Tiredness" id="checkboxS21"/>
+                                <label for="checkboxS21">Tiredness</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Flaky skin" id="checkboxS2"/>
+                                <label for="checkboxS2">Skin peeling</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Weight loss" id="checkboxS2"/>
+                                <label for="checkboxS2">Weight loss</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Blurred vision" id="checkboxS3"/>
+                                <label for="checkboxS3">Blurred vision</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Sweet-smelling fruity acetone breath" id="checkboxS4"/>
+                                <label for="checkboxS4">Sweet smelling fruity acetone breath</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Thirst" id="checkboxS4"/>
+                                <label for="checkboxS4">Thirst</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Short statures" id="checkboxS5"/>
+                                <label for="checkboxS5">Short statures</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Excessive hunger" id="checkboxS6"/>
+                                <label for="checkboxS6">Excessive hunger</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Nausea" id="checkboxS7"/>
+                                <label for="checkboxS7">Nausea</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Delayed puberty" id="checkboxS8"/>
+                                <label for="checkboxS8">Delayed puberty</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Hand tingling" id="checkboxS9"/>
+                                <label for="checkboxS9">Hand tingling</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Premature fusion of sagittal skull bones" id="checkboxS11"/>
+                                <label for="checkboxS11">Premature fusion of sagittal skull bones</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Underdeveloped external genitalia" id="checkboxS12"/>
+                                <label for="checkboxS12">Under developed external genitals</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Mental retardation" id="checkboxS13"/>
+                                <label for="checkboxS13">Mental retardation</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" value="Brain wasting" id="checkboxS14"/>
+                                <label for="checkboxS14">Brain wasting</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Tinea" id="checkboxS15"/>
+                                <label for="checkboxS15">Tinea</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" value="Psychomotor regression" id="checkboxS16"/>
+                                <label for="checkboxS16">Psychomotor regression</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Foot tingling" id="checkboxS17"/>
+                                <label for="checkboxS17">Tingling sensation</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Vitamin k deficiency" id="checkboxS18"/>
+                                <label for="checkboxS18">Vitamin k deficiency</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Headches" id="checkboxS19"/>
+                                <label for="checkboxS19">Headache</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Pale stool" id="checkboxS21"/>
+                                <label for="checkboxS21">Pale stool</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Depression" id="checkboxS22"/>
+                                <label for="checkboxS22">Depression</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Retarded growth" id="checkboxS23"/>
+                                <label for="checkboxS23">Stunted growth</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Diarrhoea" id="checkboxS24"/>
+                                <label for="checkboxS24">Diarrhoea</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Loss of tooth enamel" id="checkboxS25"/>
+                                <label for="checkboxS25">Enamel erosion</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Abscesses" id="checkboxS26"/>
+                                <label for="checkboxS26">Abscesses</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Sexual problems" id="checkboxS27"/>
+                                <label for="checkboxS27">Sexual problems</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="hyperglycemic hyperosmolar nonketotic syndrome (hhns)" id="checkboxS28"/>
+                                <label for="checkboxS28">Hyperglycemia</label>
                             </div>
                         </div>
                     </div>
@@ -72,17 +194,69 @@
                         <label class="col-sm-4 control-label">Observations</label>
                         <div class="col-sm-8">
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="dehydration" id="checkboxDe"  />
-                                <label for="checkboxDe">Dehydration</label>
+                                <input type="checkbox" name="symptoms" value="Death" id="checkboxDe"  />
+                                <label for="checkboxDe">Death</label>
                             </div>
                                 
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="air hunger" id="checkboxAi" />
-                                <label for="checkboxAi">Air hunger</label>
+                                <input type="checkbox" name="symptoms" value="Paresthesia" id="checkboxAi" />
+                                <label for="checkboxAi">Paresthesia</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="mucosal candidiasis" id="checkboxMus" />
-                                <label for="checkboxMus">Mucosal candidiasis</label>
+                                <input type="checkbox" name="symptoms" value="Poor skin healing" id="checkboxMus" />
+                                <label for="checkboxMus">Poor skin healing</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Dry itchy skin" id="checkboxO1"/>
+                                <label for="checkboxO1">Dry itchy skin</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Thrush" id="checkboxO2"/>
+                                <label for="checkboxO2">Thrush</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Skin rashes" id="checkboxO4"/>
+                                <label for="checkboxO3">Ring worms</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Skin infections" id="checkboxO5"/>
+                                <label for="checkboxO5">Skin infection</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Breathing difficulties" id="checkboxO6"/>
+                                <label for="checkboxO6">Breathing difficulty</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Numbness in feet" id="checkboxO8"/>
+                                <label for="checkboxO7">Numbness in the feet</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Numbness in hands" id="checkboxO8"/>
+                                <label for="checkboxO7">Numbness in hands</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Persistent fungal skin infections" id="checkboxO9"/>
+                                <label for="checkboxO9">Persistent fungal skin infections</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Skin ulcers" id="checkboxO11"/>
+                                <label for="checkboxO11">Skin ulcer</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="dry mouth" id="checkboxO22"/>
+                                <label for="checkboxO22">Ataxia</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Retarded fetal growth" id="checkboxO33"/>
+                                <label for="checkboxO33">Retarded fetal growth</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="gonadal insufficiency" id="checkboxO44"/>
+                                <label for="checkboxO44">Primary gonadal insufficiency</label>
+                            </div>
+                            <div class="ckbox ckbox-default">
+                                <input type="checkbox" name="symptoms" value="Stroke like episodes" id="checkboxO5"/>
+                                <label for="checkboxO55">Stroke like episodes</label>
                             </div>
                         </div>
                     </div>
@@ -90,166 +264,159 @@
                 
                 <div class="tab-pane" id="tab3-4">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Hands</label>
+                        <label class="col-sm-4 control-label">Clinical Examinations</label>
                         <div class="col-sm-8">
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="cheiroarthropathy" id="checkboxM"  />
-                                <label for="checkboxM">Cheiroarthropathy</label>
+                                <input type="checkbox" name="symptoms" value="Diabetic Ketoacidisis (dka)" id="checkboxM"  />
+                                <label for="checkboxM">Diabetic Ketoacidisis</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="trigger fingers" id="checkboxN"  />
-                                <label for="checkboxN">Trigger fingers</label>
+                                <input type="checkbox" name="symptoms" value="Peripheral neuropathies" id="checkboxN"  />
+                                <label for="checkboxN">Peripheral neuropathies</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="muscle wasting" id="checkboxL"  />
-                                <label for="checkboxL">Muscle wasting</label>
+                                <input type="checkbox" name="symptoms" value="hhns" id="checkboxL"  />
+                                <label for="checkboxL">HHNS</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="sclerodatyly" id="checkboxK"  />
-                                <label for="checkboxK">Sclerodatyly</label>
+                                <input type="checkbox" name="symptoms" value="sclerodatyly" id="checkboxK"  />
+                                <label for="checkboxK">Insulin resistant diabetes</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="carpal tunnel syndrome" id="checkboxJ"  />
-                                <label for="checkboxJ">Carpal Tunnel Syndrome</label>
+                                <input type="checkbox" name="symptoms" value="wasting of testicles" id="checkboxJ"  />
+                                <label for="checkboxJ">Undescended testicles</label>
                             </div>
-                        </div><!-- tab-pane -->
-                        <label class="col-sm-4 control-label" name="Skin" >Skin</label>
-                        <div class="col-sm-8">
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="bullae" id="checkboxH"  />
-                                <label for="checkboxH">Bullae</label>
+                                <input type="checkbox" name="symptoms" value="bullae" id="checkboxH"  />
+                                <label for="checkboxH">Pancytopenia</label>
                             </div>
                                 
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="pigmentation" id="checkboxG"  />
-                                <label for="checkboxG">Pigmentation</label>
+                                <input type="checkbox" name="symptoms" value="pigmentation" id="checkboxG"  />
+                                <label for="checkboxG">Primar gonadal insufficiency</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="granuloma annulare" id="checkboxS"  />
-                                <label for="checkboxS">Granuloma Annulare</label>
+                                <input type="checkbox" name="symptoms" value="granuloma annulare" id="checkboxS"  />
+                                <label for="checkboxS">Increased hormone levels</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="vitiligo" id="checkboxPA"  />
-                                <label for="checkboxPA">Vitiligo</label>
-                            </div>
-                        </div><!-- tab-pane -->
-                        <label class="col-sm-4 control-label" name="Neck" >Neck</label>
-                        <div class="col-sm-8">
-                            <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="carotid pulse" id="checkboxR"  />
-                                <label for="checkboxR">Carotid pulse</label>
+                                <input type="checkbox" name="symptoms" value="vitiligo" id="checkboxPA"  />
+                                <label for="checkboxPA">Goiters</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="bruits" id="checkboxE"  />
-                                <label for="checkboxE">Bruits</label>
+                                <input type="checkbox" name="symptoms" value="carotid pulse" id="checkboxR"  />
+                                <label for="checkboxR">Hallucinations</label>
                             </div>
                             <div class="ckbox ckbox-default">
-                                <input type="checkbox" value="thyroid enlargement" id="checkboxW"  />
-                                <label for="checkboxW">Thyroid enlargement</label>
+                                <input type="checkbox" name="symptoms" value="bruits" id="checkboxE"  />
+                                <label for="checkboxE">Diabetes inspidus</label>
                             </div>
-                        </div><!-- tab-pane -->
-                            <label class="col-sm-4 control-label" name="Head">Head</label>
-                            <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="xanthelasma" id="checkboxT"  />
-                                    <label for="checkboxT">Xanthelasma</label>
+                                    <input type="checkbox" name="symptoms" value="thyroid enlargement" id="checkboxW"  />
+                                    <label for="checkboxW">Megaloblastic anemia</label>
+                                </div>
+                                <div class="ckbox ckbox-default">
+                                    <input type="checkbox" name="symptoms" value="xanthelasma" id="checkboxT"  />
+                                    <label for="checkboxT">Hydroureter</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="cranial nerve" id="checkboxY"  />
-                                    <label for="checkboxY">Cranial Nerve Palsy</label>
-                                </div>
-                            </div><!-- tab-pane -->
-                            <label class="col-sm-4 control-label" name="eyes" >Eyes</label>
-                            <div class="col-sm-8">
-                                <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="cataract" id="checkboxX"  />
-                                    <label for="checkboxX">Cataract</label>
+                                    <input type="checkbox" name="symptoms" value="Thrombocytopenia" id="checkboxY"  />
+                                    <label for="checkboxY">Thrombocytopenia</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="retinopathy" id="checkboxV"  />
-                                    <label for="checkboxV">Retinopathy</label>
+                                    <input type="checkbox" name="symptoms" value="cataract" id="checkboxX"  />
+                                    <label for="checkboxX">Optic atrophy</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="blurry vision" id="checkboxB"  />
-                                    <label for="checkboxB">Blurry Vision</label>
+                                    <input type="checkbox" name="symptoms" value="Hydronephrosis" id="checkboxV"  />
+                                    <label for="checkboxV">Hydronephrosis</label>
                                 </div>
-                            </div><!-- tab-pane -->
-                            <label class="col-sm-4 control-label" name="Insulin_injection_sites" >Insulin Injection Sites</label>
-                            <div class="col-sm-8 ">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="bruising" id="checkboxC"  />
-                                    <label for="checkboxC">Bruising</label>
+                                    <input type="checkbox" name="symptoms" value="Siderooblastic anemia" id="checkboxB"  />
+                                    <label for="checkboxB">Siderooblastic anemia</label>
+                                </div>
+                                <div class="ckbox ckbox-default">
+                                    <input type="checkbox" name="symptoms" value="Neurodenic bladder" id="checkboxC"  />
+                                    <label for="checkboxC">Neurodenic bladder</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="subcutaneous fat deposition" id="checkboxZ"  />
-                                    <label for="checkboxZ">Subcutaneous fat deposition</label>
+                                    <input type="checkbox" name="symptoms" value="Hypothyroidism" id="checkboxZ"  />
+                                    <label for="checkboxZ">Hypothyroidism</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="subcutaneous fat loss" id="checkboxTT"  />
-                                    <label for="checkboxTT">Subcutaneous fat loss</label>
+                                    <input type="checkbox" name="symptoms" value="Cardiomyopathy" id="checkboxTT"  />
+                                    <label for="checkboxTT">Cardiomyopathy</label>
                                 </div>
-                            </div><!-- tab-pane -->
-                            <label class="col-sm-4 control-label" name="Legs" >Legs</label>
-                            <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="muscle wasting " id="checkboxDD"  />
-                                    <label for="checkboxDD">Muscle wasting </label>
+                                    <input type="checkbox" name="symptoms" value="Diabetes mellitus  " id="checkboxDD"  />
+                                    <label for="checkboxDD">Diabetes mellitus </label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="hair loss" id="checkboxSS"  />
-                                    <label for="checkboxSS">Hair loss</label>
+                                    <input type="checkbox" name="symptoms" value="Enlarged liver" id="checkboxSS"  />
+                                    <label for="checkboxSS">Enlarged liver</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="sensory abnormality" id="checkboxHH"  />
-                                    <label for="checkboxHH">Sensory abnormality</label>
+                                    <input type="checkbox" name="symptoms" value="Osteoporosis" id="checkboxHH"  />
+                                    <label for="checkboxHH">Osteoporosis</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="tendon reflexes" id="checkboxLL"  />
-                                    <label for="checkboxLL">Tendon reflexes</label>
+                                    <input type="checkbox" name="symptoms" value="Batter's Syndrome" id="checkboxLL"  />
+                                    <label for="checkboxLL">Batter's Syndrome</label>
                                 </div>
-                            </div><!-- tab-pane -->
-                            <label class="col-sm-4 control-label" name="Feet" >Feet</label>
-                            <div class="col-sm-8">
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="neuropathy" id="checkboxNN"  />
-                                    <label for="checkboxNN">Neuropathy</label>
+                                    <input type="checkbox" name="symptoms" value="Hyponatremia" id="checkboxNN"  />
+                                    <label for="checkboxNN">Hyponatremia</label>
                                 </div>
                                     
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="deformity" id="checkboxXX"  />
-                                    <label for="checkboxXX">Deformity</label>
+                                    <input type="checkbox" name="symptoms" value="Etiology" id="checkboxXX"  />
+                                    <label for="checkboxXX">Etiology</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="fungal infection between toes and nails" id="checkboxWW"  />
-                                    <label for="checkboxWW">Fungal infection between toes and nails</label>
+                                    <input type="checkbox" name="symptoms" value="Hyperchloremia" id="checkboxWW"  />
+                                    <label for="checkboxWW">Hyperchloremia</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="ischaemia" id="checkboxNM"  />
-                                    <label for="checkboxNM">Ischaemia</label>
+                                    <input type="checkbox" name="symptoms" value="Blurred vision" id="checkboxNM"  />
+                                    <label for="checkboxNM">Weak eye muscles</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="neuropathic foot ulcer" id="checkboxCV"  />
-                                    <label for="checkboxCV">Neuropathic foot ulcer</label>
+                                    <input type="checkbox" name="symptoms" value="Proximal renal tubulopathy" id="checkboxCV"  />
+                                    <label for="checkboxCV">Proximal renal tubulopathy</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="charcot foot" id="checkboxSN"  />
-                                    <label for="checkboxSN">Charcot foot</label>
+                                    <input type="checkbox" name="symptoms" value="Type one dibetes" id="checkboxSN"  />
+                                    <label for="checkboxSN">Type one dibetes</label>
                                 </div>
                                 <div class="ckbox ckbox-default">
-                                    <input type="checkbox" value="clawing of toes" id="checkboxMNM"  />
-                                    <label for="checkboxMNM">Clawing of toes</label>
+                                    <input type="checkbox" name="symptoms" value="Cerebellar ataxia" id="checkboxMNM"  />
+                                    <label for="checkboxMNM">Cerebellar ataxia</label>
                                 </div>
+                                <div class="ckbox ckbox-default">
+                                    <input type="checkbox" name="symptoms" value="Dermatitis herpetiformis" id="checkboxCL1"  />
+                                    <label for="checkboxCL1">Dermatitis herpetiformis</label>
+                                </div>
+                                <div class="ckbox ckbox-default">
+                                    <input type="checkbox" name="symptoms" value="Bone loss" id="checkboxCL2"  />
+                                    <label for="checkboxCL2">Bone loss</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Submit"/> 
+                                </div>
+
+
                             </div><!-- tab-pane -->
                     </div>
                 </div><!-- tab-content -->
             </div>
             <ul class="list-unstyled wizard">
-                <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li>
-                <li class="pull-right next"><button type="button" class="btn btn-primary">Next</button></li>
-                <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">Finish</button></li>
+                <!-- <li class="pull-left previous"><button type="button" class="btn btn-default">Previous</button></li> -->
+                <!-- <li class="pull-right next"><a href="#tab2-4" data-toggle="tab" class="btn btn-primary">Next</a></li> -->
+                <!-- <li class="pull-right finish hide"><button type="submit" class="btn btn-primary">Finish</button></li> -->
             </ul>
         </form>
     </div>
