@@ -48,7 +48,7 @@ class visitsController extends Controller
             }elseif(empty(request()->next_visit)){
                 return redirect()->back()->withErrors("Please enter your next_visit");
             }else{    
-                return $this->createVisits();
+                return $this->createVisits(appointment_date);
             }
     }
 

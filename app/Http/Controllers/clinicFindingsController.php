@@ -45,8 +45,8 @@ class clinicFindingsController extends Controller
 
     protected function validateClinicFindings()
     {
-        if(empty(request()->symptoms)){
-            return redirect()->back()->withErrors("Please enter your first name ");
+        if(empty(request()->patient_id)){
+            return redirect()->back()->withErrors("Please select the patient name");
         }else{    
             return $this->createClinicFindings();
             }

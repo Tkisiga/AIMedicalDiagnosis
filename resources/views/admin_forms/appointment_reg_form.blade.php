@@ -20,7 +20,12 @@
             <div class= "form-group">
                 <label class="col-sm-4 control-label">Patient:<span class="asterisk">*</span></label>
                 <div class="form-group">
-                    <input type="text" name="patient_name" autocomplete="off" id="patientName" class="form-control" title="Field is required!" required/>
+                    <select name="patient_id" class="form-control" required>
+                        <option value=""> select patient</option>
+                        @foreach($patients as $patient)
+                        <option value="{{$patient->id}}"> {{$patient->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div><!-- form-group -->
             <div class= "form-group">

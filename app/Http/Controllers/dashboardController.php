@@ -21,11 +21,11 @@ class dashboardController extends Controller
         $today = Carbon::now();
         $last_12_months = Carbon::now()->subMonth(12);
         $patient_graph = patients::where('created_at', '>=', $today)
-                            ->where('created_at', '<=', $last_12_months)
-                            ->select(DB::raw("COUNT(*) as count, DATE_FORMAT(created_at, '%m') as created_at"))
-                            
-                            ->groupBy('created_at')
-                            ->get();
+            ->where('created_at', '<=', $last_12_months)
+            ->select(DB::raw("COUNT(*) as count, DATE_FORMAT(created_at, '%m') as created_at"))
+            
+            ->groupBy('created_at')
+            ->get();
         dd($patient_graph);
         return response()->json($data);
     }
