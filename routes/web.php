@@ -18,6 +18,8 @@ Route::get('/get-piechart', 'dashboardController@getPieChart');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/get-diagnosis-create-form','diagnosisController@getCreateDiagnosisForm')->name("Patient's Prognosis");
+
 Route::get('/create-patients','patientsController@validatePatient');
 Route::get('/change-patient/{id}','patientsController@changePatient');
 Route::get('/delete-patient/{id}','patientsController@deletePatients');
@@ -31,7 +33,7 @@ Route::delete('/delete-diseases/{id}','diseasesController@deleteDisease');
 Route::get('/get-diseases','diseasesController@getdiseases')->name("Diseases Details");
 Route::get('/get-edit-diseases-form/{id}','diseasesController@getEditDiseasesForm')->name("Edit Diseases Form");
 
-Route::get('/create-clinicFindings','clinicFindingsController@validateClinicFindings');
+Route::get('/create-clinicFindings','clinicFindingsController@createClinicFindings');
 Route::get('/change-clinicFindings/{id}','clinicFindingsController@changeClinicFindings');
 Route::get('/delete-clinicFindings/{id}','clinicFindingsController@deleteClinicFindings');
 Route::get('/get-clinicFindings','clinicFindingsController@getclinicFindings')->name("Clinic Findings Details");

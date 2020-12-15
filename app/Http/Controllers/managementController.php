@@ -33,7 +33,7 @@ class managementController extends Controller
     }    
     protected function getManagement(){
         $management= managementResource::collection(management::all());
-        //return view('admin_pages.template',compact('management'));
+        return view('admin_pages.temp',compact('management'));
     }
     protected function changeManagement($id){
         return management::find($id)->update(array(

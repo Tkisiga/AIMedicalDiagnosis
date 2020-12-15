@@ -15,6 +15,7 @@ class ClinicFindings extends Migration
     {
         Schema::create('ClinicFindings',function (Blueprint $table){
             $table->id();
+            $table->integer('patient_id');
             $table->string('symptoms');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();

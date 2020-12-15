@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\clinicFindings;
+use App\patients;
+use App\treatment;
+use App\management;
 use App\Http\Resources\clinicFindingsResource;
 
 class clinicFindingsController extends Controller
@@ -17,32 +20,43 @@ class clinicFindingsController extends Controller
         $allclinicFindings=clinicFindings::get();
         return response()->json(allclinicFindings);
     } 
-    private function createClinicFindings()
+    public function createClinicFindings(Request $request)
     {
-        return clinicFindings::create($this->validateClinicFindings());
+        $request ->merge([
+            'symptoms' => implode(',', (array) $request->get('symptoms'))
+        ]);
+        //dd($request->all());
+        $findings = clinicFindings::create($request->all());
+        $patient = patients::where('id', $findings->patient_id)->first();
+        $treatment = treatment::get();
+        $management = management::get();
+      //  return redirect()->back()->with('message', "Your changes were made successfully");
+      return view('admin_forms.DiagnosisForm',compact('patient', 'treatment', 'management'));
     }
+    
     protected function getCreateClinicFindingsForm(){
-        return view('admin_forms.clinic_findings_form');
+        $patients = patients::get();
+        return view('admin_forms.clinic_findings_form', compact('patients'));
     }
     protected function getEditClinicFindingsForm(){
         $edit_clinicFindings = clinicFindings::where('id',$id)->get();
-        return view('admin_form.edit_clinic_findings_form', compact('edit_clinicFindings'));
+        return view('admin_form.edit_clinic_findings_form', compact('edit_clinicFindings','patient_name'));
     }
 
     protected function validateClinicFindings()
     {
-        $clinicFindings                           = new clinicFindings;
-        $clinicFindings->symptoms                 =request()->symptoms;
-        $clinicFindings->created_by               = $this->authenticated_instance->getAuthenticatedUser();
-        $clinicFindings->save();
-        return redirect()->back()->with('message',"New patient clinic findings successfully created");
+        if(empty(request()->symptoms)){
+            return redirect()->back()->withErrors("Please enter your first name ");
+        }else{    
+            return $this->createClinicFindings();
+            }
     }
     protected function getClinicFindings(){
         return clinicFindingsResource::collection(clinicFindings::all());
     }
     protected function changeClinicFindings($id){
         clinicFindings::where('id',$id)->update(array(
-            'Symptoms'                => request()->Symptoms
+            'symptoms'                => request()->symptoms
             ));
             return redirect()->back()->with('message', "Your changes were made successfully");
     }

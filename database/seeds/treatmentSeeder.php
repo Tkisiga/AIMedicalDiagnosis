@@ -13,11 +13,8 @@ class treatmentSeeder extends Seeder
     {
     DB::table('Treatment')->insert(array(
     array(
-        'name'=>'Oral antidiabetic drugs ',            
-        ),
-    array(
-        'name'=>'Injected therapies'
-    )       
+        'name'=>'Oral antidiabetic drugs or Injected therapies depending on a number of facts',            
+        )       
 
     ));
     }

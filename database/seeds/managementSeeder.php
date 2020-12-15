@@ -12,17 +12,9 @@ class managementSeeder extends Seeder
     public function run()
     {
         DB::table('Management')->insert(array(array(
-            'name'=>'Dieting',
+            'name'=>'Eat a balanced diet and Exercise quite often',
             
-        ),
-    array(
-        'name'=>'Lifestyle',    
-        
-    ),
-    array(
-        'name'=>'Exercises'    
-    
-    )          
+        )
 
     ));
     }

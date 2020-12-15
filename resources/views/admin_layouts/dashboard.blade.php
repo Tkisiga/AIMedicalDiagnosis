@@ -70,7 +70,7 @@
 <div class="row">
         <div class="col-md-6 mb30">
             <h5 class="lg-title mb10">Bar Chart</h5>
-            <p class="mb15">This chart represents the number of Patients versus their age</p>
+            <p class="mb15">This chart represents the total number of patients registered monthly/p>
             <div id="" class="flotGraph">
             <canvas id="barchart"  ></canvas>
             </div>
@@ -93,7 +93,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: 'AGE',
+                label: 'PATIENTS',
                 data: data,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -110,7 +110,83 @@
             },
             title: {
                 display: true,
-                text: " Age against Patients"
+                text: " Registerd patients against days "
+            },
+        }
+    });
+}
+
+
+
+
+
+function getBarGraph() {   
+
+    $.ajax({
+        url: '/get-graphs',
+        type: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+        dataType: 'json',
+        success: function (res) {
+
+           // console.log(data);
+            var data = [];
+            var labels = [];
+
+            for (var i in res) {
+                data.push(res[i].age);
+                labels.push(res[i].first_name);
+
+            }
+
+            renderBarGraph(data, labels);
+        },
+        error: function (data) {
+
+            console.log(data);
+        }
+    });
+}
+$(document).ready(function(){
+    getBarGraph();
+});
+// $("#renderBtn").click(
+//     function () {
+//         getChartData();
+//     }
+// );
+
+
+
+
+
+function renderBarGraph(data, labels) {
+    var ctx = document.getElementById("barchart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'PATIENTS',
+                data: data,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true                        
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: " Registerd patients against days "
             },
         }
     });
@@ -156,14 +232,15 @@ $(document).ready(function(){
 //     }
 // );
 
-function renderPieChart(data, labels) {
-    var ctx = document.getElementById("piechart").getContext('2d');
+
+function renderBarGraph(data, labels) {
+    var ctx = document.getElementById("barchart").getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: [{
-                label: 'ordenes',
+                label: 'PATIENTS',
                 data: data,
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -180,43 +257,52 @@ function renderPieChart(data, labels) {
             },
             title: {
                 display: true,
-                text: " Age against Patients"
+                text: " Registerd patients against days "
             },
         }
     });
 }
-function getPieChart() {   
 
-$.ajax({
-    url: '/get-piechart',
-    type: 'GET',
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-    dataType: 'json',
-    success: function (res) {
 
-       // console.log(data);
-        var data = [];
-        var labels = [];
+function getBarGraph() {   
 
-        for (var i in res) {
-            data.push(res[i].age);
-            labels.push(res[i].first_name);
+    $.ajax({
+        url: '/get-graphs',
+        type: 'GET',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+        dataType: 'json',
+        success: function (res) {
 
+           // console.log(data);
+            var data = [];
+            var labels = [];
+
+            for (var i in res) {
+                data.push(res[i].age);
+                labels.push(res[i].first_name);
+
+            }
+
+            renderBarGraph(data, labels);
+        },
+        error: function (data) {
+
+            console.log(data);
         }
-
-        renderPieChart(data, labels);
-    },
-    error: function (data) {
-
-        console.log(data);
-    }
-});
+    });
 }
 $(document).ready(function(){
-getPieChart();
+    getBarGraph();
 });
+// $("#renderBtn").click(
+//     function () {
+//         getChartData();
+//     }
+// );
+
+
 
 </script>
 @endsection
